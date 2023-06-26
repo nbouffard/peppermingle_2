@@ -1,0 +1,49 @@
+<p>Add Ingredients:</p>
+<div id="ingredient-container">
+  <%= f.simple_fields_for :ingredient_join_tables do |join_form| %>
+    <div class="ingredient-fields">
+      <%= join_form.simple_fields_for :ingredient do |ingredient_form| %>
+        <div class="ingredient-field">
+          <%= ingredient_form.input :amount, input_html: { class: "amount-input" } %>
+        </div>
+        <div class="ingredient-field">
+          <%= ingredient_form.input :name, input_html: { class: "name-input" } %>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+
+  <div class="ingredient-fields-template" style="display: none">
+    <div class="ingredient-fields">
+      <%= f.simple_fields_for :ingredient_join_tables, IngredientJoinTable.new, child_index: '__INDEX__' do |join_form| %>
+        <%= join_form.simple_fields_for :ingredient, Ingredient.new do |ingredient_form| %>
+          <div class="ingredient-field">
+            <%= ingredient_form.input :amount, input_html: { class: "amount-input" } %>
+          </div>
+          <div class="ingredient-field">
+            <%= ingredient_form.input :name, input_html: { class: "name-input" } %>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+
+  <button type="button" id="add-ingredient">Add Ingredient</button>
+
+  <div id="message-container"></div>
+
+  <div id="ingredients-preview">
+    <% if @recipe.ingredients.present? %>
+      <ul id="ingredients-list">
+        <% @recipe.ingredients.each do |ingredient| %>
+          <% if ingredient.amount.present? && ingredient.name.present? %>
+            <li>
+              <%= ingredient.amount %> <%= ingredient.name %>
+              <button class="edit-ingredient">Edit</button>
+              <button class="delete-ingredient">Delete</button>
+            </li>
+          <% end %>
+        <% end %>
+      </ul>
+    <% end %>
+</div>

@@ -13,7 +13,7 @@ class RecipesController < ApplicationController
   def new
     @recipe = Recipe.new
     authorize @recipe
-    # @recipe.build_ingredients
+    @recipe.ingredient_join_tables.build.build_ingredient
   end
 
   def show
@@ -25,6 +25,7 @@ class RecipesController < ApplicationController
     @recipe = Recipe.new(recipe_params)
     @recipe.user = current_user
     authorize @recipe
+    raise
     if @recipe.save
       redirect_to @recipe, notice: 'Recipe was successfully created.'
     else
@@ -55,7 +56,9 @@ class RecipesController < ApplicationController
 
   def recipe_params
     params.require(:recipe).permit(:title, :description, :meal_type,
-                                   :season, :dietary_requirements, :cuisine, :prep_time,
-                                   :total_time, :difficulty, :servings, :directions, ingredients_attributes: [:id, :amount, :name, :_destroy])
+                                  :season, :dietary_requirements, :cuisine, :prep_time,
+                                  :total_time, :difficulty, :servings, :directions,
+                                  images: [],
+                                  ingredient_join_tables_attributes: [:id, :_destroy, ingredient_attributes: [:id, :amount, :name]])
   end
 end

@@ -1,59 +1,12 @@
-<div class="form">
-  <div class="form-container">
-    <h1>Add New Recipe</h1>
+<%= simple_form_for @recipe do |f| %>
+  <div class="form">
+    <div class="form-container">
+      <h1>Add New Recipe</h1>
 
-    <%= simple_form_for @recipe do |f| %>
       <%= f.input :title, placeholder: "The title of your recipe.", input_html: { class: "form-input-style" } %>
       <%= f.input :description, placeholder: "What is the recipe about?", input_html: { class: "form-input-style" } %>
 
-      <p>Add Ingredients:</p>
-      <div id="ingredient-container">
-        <%= f.simple_fields_for :ingredients do |ingredient_form| %>
-          <div class="ingredient-fields">
-            <div class="ingredient-field">
-              <%= ingredient_form.input :amount, input_html: { class: "amount-input" } %>
-            </div>
-            <div class="ingredient-field">
-              <%= ingredient_form.input :name, input_html: { class: "name-input" } %>
-            </div>
-          </div>
-        <% end %>
-      </div>
-
-      <div class="ingredient-fields-template" style="display: none">
-        <div class="ingredient-fields">
-          <div class="ingredient-field">
-            <%= f.simple_fields_for :ingredients, Ingredient.new, child_index: '__INDEX__' do |ingredient_form| %>
-              <%= ingredient_form.input :amount, input_html: { class: "amount-input" } %>
-            <% end %>
-          </div>
-          <div class="ingredient-field">
-            <%= f.simple_fields_for :ingredients, Ingredient.new, child_index: '__INDEX__' do |ingredient_form| %>
-              <%= ingredient_form.input :name, input_html: { class: "name-input" } %>
-            <% end %>
-          </div>
-        </div>
-      </div>
-
-      <button type="button" id="add-ingredient">Add Ingredient</button>
-
-      <div id="message-container"></div>
-
-      <div id="ingredients-preview">
-        <% if @recipe.ingredients.present? %>
-          <ul id="ingredients-list">
-            <% @recipe.ingredients.each do |ingredient| %>
-              <% if ingredient.amount.present? && ingredient.name.present? %>
-                <li>
-                  <%= ingredient.amount %> <%= ingredient.name %>
-                  <button class="edit-ingredient">Edit</button>
-                  <button class="delete-ingredient">Delete</button>
-                </li>
-              <% end %>
-            <% end %>
-          </ul>
-        <% end %>
-      </div>
+      <%= render partial: 'shared/add_ingredients', locals: { f: f } %>
 
       <%= f.input :directions, placeholder: "What needs to be done, step by step?", input_html: { class: "form-input-style" } %>
       <%= f.input :meal_type, collection: Recipe::MEAL_TYPES %>
@@ -65,7 +18,10 @@
       <%= f.input :difficulty, collection: ["Very Easy", "Easy", "Medium", "Difficult"], prompt: "Choose Difficulty", input_html: { class: "form-input-style" } %>
       <%= f.input :servings, placeholder: "e.g. 4", input_html: { class: "form-input-style" } %>
 
+      <p>Add Images (more than one possible):</p>
+      <%= f.input :images, as: :file, input_html: { multiple: true } %>
+
       <%= f.button :submit, "Create Recipe", class: "", style: "margin-top: 40px" %>
-    <% end %>
+    </div>
   </div>
-</div>
+<% end %>

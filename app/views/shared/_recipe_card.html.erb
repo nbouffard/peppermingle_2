@@ -26,9 +26,9 @@
       <div class="ingredients" id="ingredients-container">
         <h4>Ingredients</h4>
         <ul>
-          <%# @recipe.ingredients.each do |ingredient| %>
-            <li> <%#= "#{ingredient.amount} #{ingredient.name}" %> </li>
-          <%# end %>
+          <% @recipe.ingredients.each do |ingredient| %>
+            <li> <%= "#{ingredient.amount} #{ingredient.name}" %> </li>
+          <% end %>
         </ul>
       </div>
        <hr class="recipe-separator">
