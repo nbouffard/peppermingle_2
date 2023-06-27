@@ -13,7 +13,7 @@ require 'faker'
   Recipe.create!(
     title: Faker::Food.dish,
     description: Faker::Food.description,
-    ingredients: Faker::Food.ingredient,
+    # ingredients: Faker::Food.ingredient,
     meal_type: Recipe::MEAL_TYPES.sample,
     cuisine: Faker::Food.ethnic_category,
     dietary_requirements: Recipe::DIET.sample,
