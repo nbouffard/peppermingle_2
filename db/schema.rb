@@ -10,9 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_06_27_100125) do
+ActiveRecord::Schema[7.0].define(version: 2023_06_27_100355) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "events", force: :cascade do |t|
+    t.string "title"
+    t.text "description"
+    t.date "date"
+    t.boolean "paid"
+    t.bigint "user_id", null: false
+    t.bigint "recipe_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["recipe_id"], name: "index_events_on_recipe_id"
+    t.index ["user_id"], name: "index_events_on_user_id"
+  end
 
   create_table "ingredient_join_tables", force: :cascade do |t|
     t.bigint "recipe_id", null: false
@@ -67,6 +80,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_27_100125) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "events", "recipes"
+  add_foreign_key "events", "users"
   add_foreign_key "ingredient_join_tables", "ingredients"
   add_foreign_key "ingredient_join_tables", "recipes"
 end
