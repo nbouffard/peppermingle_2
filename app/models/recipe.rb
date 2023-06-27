@@ -5,9 +5,9 @@ class Recipe < ApplicationRecord
   accepts_nested_attributes_for :ingredient_join_tables, allow_destroy: true
   has_many_attached :images
 
-  SEASONS = ["Autumn", "Summer", "Winter", "Spring", "Christmas"]
+  SEASONS = ["Any", "Autumn", "Summer", "Winter", "Spring", "Christmas"]
   MEAL_TYPES = ["Breakfast", "Dessert", "Dinner", "Lunch", "Snacks", "Appetizers"]
-  DIET = ["Vegan", "Dairy free", "Gluten free", "Nut free", "Vegetarian", "pescatarian"]
+  DIET = ["Vegan", "Dairy free", "Gluten free", "Nut free", "Vegetarian", "Pescatarian"]
   validates :title, :description, :cuisine, :difficulty, :directions, :servings, presence: true
   validates :prep_time, :total_time, :servings, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
   # validates :season, inclusion: { in: SEASONS }
