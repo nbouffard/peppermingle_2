@@ -1,0 +1,39 @@
+<div class="recipe-page">
+  <div class="recipe-container">
+    <div class="recipe-column-left">
+      <div class="container">
+        <div class="back-button">
+          <%= link_to "Back", :back, class: "button small-button" %>
+        </div>
+        <h1><%= @recipe.title %></h1>
+        <%= image_tag("https://images.unsplash.com/photo-1564355808539-22fda35bed7e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2047&q=80", alt: "Recipe Photo", class: "recipe-img") %>
+        <p><%= @recipe.description %></p>
+
+        <%= render partial: 'shared/recipe_card' %>
+      </div>
+    </div>
+    <hr class="separator">
+    <div class="recipe-column-right">
+      <div class="container">
+        <div class="signup-button">
+          <button class="button">Sign Up for Event</button>
+        </div>
+
+        <div class="user-profile">
+          <div class="user-avatar"></div>
+          <div class="user-details">
+            <p class="username"><%= @recipe.user.nickname %></p>
+            <%= link_to "View Profile", user_path(@recipe.user_id), class: "profile-link" %>
+          </div>
+        </div>
+
+        <div class="other-recipes">
+          <p>More recipes by <%= @recipe.user.nickname %></p>
+            <div>
+                <%= render 'shared/card_small' %>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

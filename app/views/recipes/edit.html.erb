@@ -1,0 +1,30 @@
+<h1>Edit Recipe</h1>
+
+<%= simple_form_for @recipe do |form| %>
+
+  <%= form.input :title %>
+  <%= form.input :description, as: :text %>
+  <%= form.input :ingredients, as: :text %>
+  <%= form.input :meal_type, collection: Recipe::MEAL_TYPES %>
+  <%= form.input :season, collection: Recipe::SEASONS %>
+  <%= form.input :dietary_requirements, collection: Recipe::DIET %>
+  <%= form.input :cuisine %>
+  <%= form.input :prep_time %>
+  <%= form.input :total_time %>
+  <%= form.input :servings %>
+  <%= form.input :difficulty %>
+  <%= form.input :directions %>
+
+  <div class="field">
+    <%= form.label :photo %>
+    <%= form.file_field :photo %>
+  </div>
+
+  <div class="actions">
+    <%= button_tag(type: 'submit', class: 'btn btn-primary') do %>
+      Update Recipe
+    <% end %>
+  </div>
+<% end %>
+
+<%= link_to "Cancel", recipe_path(@recipe) %>

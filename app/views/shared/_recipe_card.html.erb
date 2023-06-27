@@ -1,0 +1,51 @@
+<div class="recipe-card-container">
+  <div class="recipe-card-img">
+    <%= image_tag("https://images.unsplash.com/photo-1564355768016-1c9f9dc1b381?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2014&q=80", alt: "Recipe Photo", class: "recipe-card-img") %>
+    <div class="recipe-title-container">
+      <h3 class="recipe-title"><%= @recipe.title %></h3>
+    </div>
+  </div>
+  <div class="recipe-card-content">
+    <div class="recipe-top-container">
+      <div class="stars-container">
+        <div class="recipe-reviews">
+          <i class="fa-solid fa-star" style="color: #F1B150;"></i>
+          <i class="fa-solid fa-star" style="color: #F1B150;"></i>
+          <i class="fa-solid fa-star" style="color: #F1B150;"></i>
+          <i class="fa-solid fa-star" style="color: #F1B150;"></i>
+          <i class="fa-solid fa-star" style="color: #F1B150;"></i>
+        </div>
+      </div>
+      <div class="recipe-icons">
+        <p><i class="fas fa-utensils" style="color: #567275;"></i>Servings: <%= @recipe.servings %></p>
+        <p><i class="fa-regular fa-clock" style="color: #567275;"></i>Prep Time: <%= @recipe.prep_time %> min</p>
+        <p><i class="fa-regular fa-clock" style="color: #567275;"></i>Total Time: <%= @recipe.total_time %> min</p>
+      </div>
+    </div>
+    <div class="recipe-bottom-container">
+      <div class="ingredients" id="ingredients-container">
+        <h4>Ingredients</h4>
+        <ul>
+          <% @recipe.ingredients.each do |ingredient| %>
+            <li> <%= "#{ingredient.amount} #{ingredient.name}" %> </li>
+          <% end %>
+        </ul>
+      </div>
+       <hr class="recipe-separator">
+      <div class="directions" id="directions-container">
+        <h4>Directions</h4>
+        <ol>
+          <li><%= @recipe.directions %></li>
+        </ol>
+      </div>
+    </div>
+  </div>
+  <div class="recipe-notes">
+      <div class="notes-container">
+        <h4>Notes</h4>
+          <ol>
+            <li>to be added</li>
+          </ol>
+      </div>
+  </div>
+</div>
