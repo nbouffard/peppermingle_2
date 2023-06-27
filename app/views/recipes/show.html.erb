@@ -22,13 +22,13 @@
         <div class="user-profile">
           <div class="user-avatar"></div>
           <div class="user-details">
-            <p class="username"><%= @recipe.user.nickname %></p>
+            <p class="username"><%= @recipe.user.user_name %></p>
             <%= link_to "View Profile", user_path(@recipe.user_id), class: "profile-link" %>
           </div>
         </div>
 
         <div class="other-recipes">
-          <p>More recipes by <%= @recipe.user.nickname %></p>
+          <p>More recipes by <%= @recipe.user.user_name %></p>
             <div>
                 <%= render 'shared/card_small' %>
             </div>
