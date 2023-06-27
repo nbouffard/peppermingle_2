@@ -1,0 +1,24 @@
+<div class="container">
+  <div class="row">
+    <div class="col-lg-2">
+    </div>
+    <div class="col-lg-10">
+      <div class="card-grid">
+        <% @events.each do |event| %>
+          <div class="card-trip">
+            <img src="https://images.unsplash.com/photo-1476718406336-bb5a9690ee2a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fHJlY2lwZXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60" />
+            <div class="card-trip-infos">
+              <div>
+                  <h2 class="mb-1"><%= link_to event.title, event_path(event) %></h2>
+                  <p><i class="fa-sharp fa-solid fa-calendar-days" style="color: rgb(231, 178, 175);"></i> <%= event.date.strftime('%d %B %Y') %></p>
+                  <p><i class="fa-sharp fa-solid fa-thumbtack" style="color: rgb(231, 178, 175);"></i> Recipe: <%= event.recipe.title%></p>
+              </div>
+              <%= link_to "Sign up", "#", class: "button card-button"; %>
+              <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
