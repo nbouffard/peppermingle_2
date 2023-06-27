@@ -4,9 +4,19 @@
 @import "config/bootstrap_variables";
 
 // External libraries
-@import "bootstrap";
+@import "bootstrap/scss/bootstrap";
 @import "font-awesome";
 
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+@import "components/button";
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+a:hover {
+  text-decoration: none;
+}

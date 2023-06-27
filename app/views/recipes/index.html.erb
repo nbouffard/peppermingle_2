@@ -1,0 +1,61 @@
+<div class="index-container">
+  <div class="index-search-flex-container" data-controller="filter-recipes">
+    <div class="filter-container">
+      <%= form_tag recipes_path, method: :get, data: { filter_recipes_target: 'form', action: 'submit->filter-recipes#send' }  do %>
+        <div class="season">
+          <h4>Season</h4>
+          <% Recipe::SEASONS.each do |season| %>
+            <div class="flex-form-container">
+              <%= check_box_tag(:query, ":#{season}") %>
+              <%= label_tag(:season, "#{season.capitalize}") %>
+            </div>
+          <% end %>
+        </div>
+        <div class="meal_type">
+          <h4>Meal type</h4>
+          <% Recipe::MEAL_TYPES.each do |meal| %>
+            <div class="flex-form-container">
+              <%= check_box_tag(:query, ":#{meal}") %>
+              <%= label_tag(:meal_type, "#{meal.capitalize}") %>
+            </div>
+          <% end %>
+        </div>
+        <div class="dietary_restrictions">
+          <h4>Dietary Restrictions</h4>
+          <% Recipe::DIET.each do |diet| %>
+            <div class="flex-form-container">
+              <%= check_box_tag(:query, ":#{diet}") %>
+              <%= label_tag(:dietary_restrictions, "#{diet.capitalize}") %>
+            </div>
+          <% end %>
+        </div>
+        <%= submit_tag('filter') %>
+      <% end %>
+    </div>
+      <div class="recipe-card-index-container" data-filter-recipes-target="recipes">
+        <% if @recipes.nil? %>
+          <h1>Recipes</h1>
+          <hr>
+          <p>No recipes yet...</p>
+        <% else %>
+          <% @recipes.each do |recipe| %>
+            <a href="#">
+              <div class="small-card-index">
+                <%= image_tag("https://images.unsplash.com/photo-1518779578993-ec3579fee39f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1935&q=80", alt: "Recipe Photo", class: "card-img-background") %>
+                <div class="small-card-content">
+                  <h2><mark><%= recipe.title %></mark></h2>
+                  <p><mark>Servings: <%= recipe.servings %></mark></p>
+                  <p><mark>Creator: <%= recipe.user.user_name %></mark></p>
+                </div>
+                <div class="small-card-info">
+                  <ul class="small-card-icons">
+                  <li><p><mark><i class="fa-sharp fa-regular fa-clock" style="color: #075d5e;"></i><%= recipe.total_time %> mins</p></mark></li>
+                  <li><p><mark><i class="fa-regular fa-thumbs-up" style="color: #075d5e;"></i><%= recipe.difficulty %></p></mark></li>
+                </div>
+              </div>
+            </a>
+          <% end %>
+        <% end %>
+    </div>
+  </div>
+</div>
