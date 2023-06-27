@@ -1,13 +1,9 @@
-<p>Add Ingredients:</p>
-<div id="ingredient-container">
+  <div id="ingredient-container">
   <%= f.simple_fields_for :ingredient_join_tables do |join_form| %>
     <div class="ingredient-fields">
       <%= join_form.simple_fields_for :ingredient do |ingredient_form| %>
         <div class="ingredient-field">
-          <%= ingredient_form.input :amount, input_html: { class: "amount-input" } %>
-        </div>
-        <div class="ingredient-field">
-          <%= ingredient_form.input :name, input_html: { class: "name-input" } %>
+          <%= ingredient_form.input :name, label: "Add ingredients (amount and name):", input_html: { class: "name-input" }, label_html: { class: "ingredient-label" } %>
         </div>
       <% end %>
     </div>
@@ -18,9 +14,6 @@
       <%= f.simple_fields_for :ingredient_join_tables, IngredientJoinTable.new, child_index: '__INDEX__' do |join_form| %>
         <%= join_form.simple_fields_for :ingredient, Ingredient.new do |ingredient_form| %>
           <div class="ingredient-field">
-            <%= ingredient_form.input :amount, input_html: { class: "amount-input" } %>
-          </div>
-          <div class="ingredient-field">
             <%= ingredient_form.input :name, input_html: { class: "name-input" } %>
           </div>
         <% end %>
@@ -28,22 +21,20 @@
     </div>
   </div>
 
-  <button type="button" id="add-ingredient">Add Ingredient</button>
+  <button type="button" id="add-ingredient" class="">Add Ingredient</button>
 
-  <div id="message-container"></div>
-
-  <div id="ingredients-preview">
+  <div id="ingredients-preview" class="ingredient-list-container">
     <% if @recipe.ingredients.present? %>
-      <ul id="ingredients-list">
+      <ul id="ingredients-list" class="ingredient-list">
         <% @recipe.ingredients.each do |ingredient| %>
-          <% if ingredient.amount.present? && ingredient.name.present? %>
-            <li>
-              <%= ingredient.amount %> <%= ingredient.name %>
-              <button class="edit-ingredient">Edit</button>
-              <button class="delete-ingredient">Delete</button>
+          <% if ingredient.name.present? %>
+            <li class="ingredient-item">
+              <%= ingredient.name %>
+              <button class="delete-ingredient">Remove</button>
             </li>
           <% end %>
         <% end %>
       </ul>
     <% end %>
+  </div>
 </div>

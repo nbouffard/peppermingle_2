@@ -25,7 +25,6 @@ class RecipesController < ApplicationController
     @recipe = Recipe.new(recipe_params)
     @recipe.user = current_user
     authorize @recipe
-    raise
     if @recipe.save
       redirect_to @recipe, notice: 'Recipe was successfully created.'
     else
@@ -35,7 +34,6 @@ class RecipesController < ApplicationController
   end
 
   def edit
-    @recipe.ingredients.build if @recipe.ingredients.empty?
     authorize @recipe
   end
 
@@ -59,6 +57,6 @@ class RecipesController < ApplicationController
                                   :season, :dietary_requirements, :cuisine, :prep_time,
                                   :total_time, :difficulty, :servings, :directions,
                                   images: [],
-                                  ingredient_join_tables_attributes: [:id, :_destroy, ingredient_attributes: [:id, :amount, :name]])
+                                  ingredient_join_tables_attributes: [:id, :_destroy, ingredient_attributes: [:id, :name]])
   end
 end

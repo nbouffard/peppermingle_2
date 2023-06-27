@@ -9,9 +9,9 @@
       <%= render partial: 'shared/add_ingredients', locals: { f: f } %>
 
       <%= f.input :directions, placeholder: "What needs to be done, step by step?", input_html: { class: "form-input-style" } %>
-      <%= f.input :meal_type, collection: Recipe::MEAL_TYPES %>
-      <%= f.input :season, collection: Recipe::SEASONS %>
-      <%= f.input :dietary_requirements, collection: Recipe::DIET %>
+      <%= f.input :meal_type, collection: Recipe::MEAL_TYPES, input_html: { class: "form-input-style" }  %>
+      <%= f.input :season, collection: Recipe::SEASONS, input_html: { class: "form-input-style" }  %>
+      <%= f.input :dietary_requirements, collection: Recipe::DIET, input_html: { class: "form-input-style" }  %>
       <%= f.input :cuisine, placeholder: "e.g. Mexican", input_html: { class: "form-input-style" } %>
       <%= f.input :prep_time, placeholder: "Time for preparation in minutes", input_html: { class: "form-input-style" } %>
       <%= f.input :total_time, placeholder: "Total time needed in minutes", input_html: { class: "form-input-style" } %>
@@ -19,9 +19,9 @@
       <%= f.input :servings, placeholder: "e.g. 4", input_html: { class: "form-input-style" } %>
 
       <p>Add Images (more than one possible):</p>
-      <%= f.input :images, as: :file, input_html: { multiple: true } %>
+      <%= f.input :images, as: :file, input_html: { multiple: true, class: "form-input-style" } %>
 
-      <%= f.button :submit, "Create Recipe", class: "", style: "margin-top: 40px" %>
+      <button type="submit" class="button small-button" style="margin-top: 40px">Create Recipe</button>
     </div>
   </div>
 <% end %>
