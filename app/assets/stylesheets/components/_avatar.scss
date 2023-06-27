@@ -1,20 +1,40 @@
 .avatar {
   width: 40px;
+  height: 40px;
   border-radius: 50%;
+  object-fit: cover;
 }
 .avatar-large {
-  width: 56px;
+  height: 359px;
+  width: 359px;
   border-radius: 50%;
+  object-fit: cover;
+  margin: 10px;
+  margin-bottom: 40px;
+  .default-pic {
+    background-color: #F1E5E5;
+  }
 }
 .avatar-bordered {
   width: 40px;
   border-radius: 50%;
   box-shadow: 0 1px 2px rgba(0,0,0,0.2);
-  border: white 1px solid;
+  border: rgb(231, 178, 175) 1px solid;
 }
 .avatar-square {
   width: 40px;
   border-radius: 0px;
   box-shadow: 0 1px 2px rgba(0,0,0,0.2);
   border: white 1px solid;
+}
+
+@media (max-width: 1200px){
+  .avatar-large {
+    height: 250px;
+    width: 250px;
+    margin: 0;
+    .default-pic{
+      background-color: #F1E5E5;
+    }
+  }
 }
