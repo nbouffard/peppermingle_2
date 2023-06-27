@@ -1,0 +1,125 @@
+body {
+  background-color: #F9F5F2;
+}
+
+.show-container-flex {
+  display: flex;
+  height: 100%;
+  width: 100%;
+}
+
+.user-info-flex-container {
+  display: flex;
+  flex-direction: column;
+  margin: 20px;
+  // background-color: red;
+  border-right: 1px solid #C78D81;
+  width: 409px;
+  padding: 20px;
+  P, h3 {
+    color: #567275;
+  }
+  .location, h5 {
+    color: #8EAEAF;
+  }
+  p {
+    font-size: 24px;
+  }
+  h5 {
+    font-size: 32px;
+  }
+  h3 {
+    font-size: 40px;
+  }
+  i {
+    font-size: 30px;
+    color: #E7B2AF;
+  }
+}
+
+.name-location-info-container {
+  margin-bottom: 40px;
+  // background-color: aqua;
+  h3, h5, p {
+    text-align: center;
+  }
+}
+
+.cards-flex-container {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px;
+}
+
+.recipe-cards-container {
+ .title{
+  color: #567275;
+  font-size: 40px;
+ }
+}
+
+.cards-flex, .outer-cards-flex {
+  display: flex;
+  flex-direction: column;
+}
+
+.user-bio-container {
+  // background-color: yellow;
+  // width: 359px;
+  width: 100%;
+}
+
+.outer-cards-flex {
+  margin-top: 50px;
+}
+
+.back-btn-container {
+  margin-top: 40px;
+  margin-left: 40px;
+}
+
+.profile-show-container {
+  // background-color: yellow;
+  width: 75%;
+  margin: 0 auto;
+}
+
+.index-container {
+  height: 100vh;
+  margin: 0 10px;
+}
+
+.filter-container {
+  position: fixed;
+  // background-color: yellow;
+  // border-right: 1px solid black;
+  width: 20%;
+  height: 100%;
+}
+
+.index-search-flex-container{
+  height: 100%;
+  width: 100%;
+
+  // background-color: burlywood;
+  display: flex;
+  overflow: scroll;
+}
+
+.flex-form-container {
+  display: flex;
+  label {
+    margin-left: 5px;
+  }
+}
+
+.meal_type, .dietary_restrictions {
+  margin-top: 10px;
+}
+
+.recipe-card-index-container {
+  display: flex;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: 20px;
+}

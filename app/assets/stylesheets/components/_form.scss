@@ -1,0 +1,64 @@
+/* Google Fonts */
+
+@import url('https://fonts.googleapis.com/css2?family=Aleo:wght@300;400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Petit+Formal+Script&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
+
+// Styling for the forms
+
+.form {
+  display: flex;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  z-index: 100;
+}
+
+.form-container {
+  width: 50%;
+  height: auto;
+  margin: 10px;
+  padding: 20px;
+  border-radius: 10px;
+  border: 1px solid #F6D9DD;
+  box-shadow: 5px 5px 0px 0px #C78D81;
+  color: #061326;
+  background-color: #F9F5F2;
+  font-family: 'Aleo', serif;
+}
+
+.form h1 {
+    // font-family: 'Aleo', serif;
+    font-family: 'Petit Formal Script', cursive;
+    -webkit-text-stroke: 0.5px #567275;
+    text-decoration: none;
+    margin-bottom: 20px;
+    color: #567275;
+}
+
+.form h2 {
+  font-family: 'Petit Formal Script', cursive;
+  -webkit-text-stroke: 0.5px #567275;
+  text-decoration: none;
+  margin-bottom: 20px;
+  color: #567275;
+}
+
+.form button {
+  font-size: 15px;
+  color:#061326;
+  width: 100%;
+  max-width: 150px;
+  height: 30px;
+  white-space: nowrap;
+  background: linear-gradient(180deg, rgba(154,15,15,0.6980042016806722) 0%, rgba(154,15,15,0.7008053221288515) 50%, rgba(154,15,15,0.7008053221288515) 100%);
+}
+
+
+.form-input-style {
+  border-radius: 10px;
+  border: 1px solid #F6D9DD;
+  background-color: #E4DED2;
+}

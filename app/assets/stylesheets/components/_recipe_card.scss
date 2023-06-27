@@ -1,0 +1,225 @@
+/* Google Fonts */
+
+@import url('https://fonts.googleapis.com/css2?family=Aleo:wght@300;400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Petit+Formal+Script&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
+
+
+/* General Styling */
+
+.recipe-card-container {
+  height: 100% !important;
+  width: 46.875rem;
+  padding: 15px;
+  background: #E4DED2;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  h3 {
+    font-family: 'Petit Formal Script', cursive;
+    color: #CA4E36;
+    padding: 0px 20px 0px 10px;
+    text-align: right;
+    -webkit-text-stroke: 0.5px #CA4E36;
+  }
+  li {
+    font-family: 'Lato', sans-serif;
+    color: #567275;
+    margin-left: -30px;
+  }
+
+  ol {
+    list-style-type: none;
+  }
+
+  p {
+    font-family: 'Lato', sans-serif;
+    color: #567275;
+    margin-left: 50px;
+    margin-right: 50px;
+    margin-bottom: 0;
+    white-space: nowrap;
+  }
+}
+
+.recipe-card-img {
+  position: relative;
+  width: 100%;
+  max-width: 720px;
+  height: 300px;
+  border-radius: 5px;
+  object-position: center;
+  object-fit: cover;
+}
+
+.recipe-top-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  box-shadow: 0px 26px 0px -25px rgba(202, 78, 54, 0.4);
+}
+
+.recipe-bottom-container {
+  display: flex;
+  flex-direction: row;
+  text-align: left;
+  overflow: auto;
+}
+
+.recipe-card-content {
+  position: relative;
+  width: 720px;
+  height: 100%;
+  background: #F9F5F2;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  margin-top: 80px;
+}
+
+ul li {
+  list-style-type: circle;
+}
+
+/* Torn Paper Edge */
+
+.recipe-card-content::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  height: 200px;
+  width: 100%;
+  left: 0;
+  background: url(https://i.ibb.co/0C4rPPg/torn-paper.png) bottom;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  filter: drop-shadow(0px -1px 0px rgba(202, 78, 54, 0.4));
+}
+
+/* Recipe Title */
+
+.recipe-title-container {
+  background: url(https://i.ibb.co/gtxYp47/torn-paper-title.png) right;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  position: absolute;
+  top: 185px;
+  right: 0px;
+  left: auto;
+  padding: 10px;
+  padding-left: 40px;
+  margin: 0;
+  z-index: 1;
+  filter: drop-shadow(-3px 3px 2px rgba(0, 0, 0, 0.3));
+  overflow: hidden;
+}
+
+.recipe-title {
+  margin: 0;
+}
+
+
+
+/* Recipe Content */
+
+.recipe-reviews {
+  display: flex;
+  justify-content: flex-end;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+.stars-container {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+  margin-right: 50px;
+}
+
+.recipe-icons {
+  display: flex;
+  flex-direction: row;
+  margin: 0 auto;
+  padding: 10px;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.ingredients {
+  font-family: 'Lato', sans-serif;
+  font-weight: 300;
+  flex: 1;
+  padding: 20px;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.directions {
+  font-family: 'Lato', sans-serif;
+  font-weight: 300;
+  flex: 1;
+  padding: 20px;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.recipe-separator {
+  width: 1px;
+  height: 100%;
+  min-height: 300px;
+  background-color: #CA4E36;
+  margin: 20px 10px;
+}
+
+h4 {
+  font-family: 'Aleo', serif;
+  color: #567275;
+}
+
+
+
+.fa-utensils {
+  margin-right: 5px;
+}
+
+.fa-clock {
+  margin-right: 5px;
+}
+
+.fa-star {
+  padding: 3px;
+  font-size: 20px;
+}
+
+// Recipe Notes
+
+.recipe-notes {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.notes-container {
+  width: 100%;
+  background-image: url('https://i.ibb.co/56JswbC/torn-paper-notes.png');
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  padding: 20px;
+  border-radius: 5px;
+  filter: drop-shadow(2px 2px 0px rgba(202, 78, 54, 0.4));
+}
+
+.notes-container h4 {
+  margin-top: 30px;
+  margin-left: 50px;
+}
+
+.notes-container li {
+  padding: 0;
+  margin: 0 40px 30px 20px;
+  font-weight: 300;
+}
