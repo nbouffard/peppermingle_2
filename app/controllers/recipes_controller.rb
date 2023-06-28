@@ -19,6 +19,8 @@ class RecipesController < ApplicationController
   def show
     @recipe = Recipe.find(params[:id])
     authorize @recipe
+
+    @user_recipes = Recipe.where(user_id: @recipe.user)
   end
 
   def create

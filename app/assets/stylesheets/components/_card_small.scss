@@ -137,7 +137,7 @@ mark {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  list-style-type: none;
+  list-style-type: none !important;
   padding: 40px 20px 0px 20px;
   margin-right: 5px;
   margin-left: 5px;

@@ -6,7 +6,7 @@
           <%= link_to "Back", :back, class: "button small-button" %>
         </div>
         <h1><%= @recipe.title %></h1>
-        <%= image_tag("https://images.unsplash.com/photo-1564355808539-22fda35bed7e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2047&q=80", alt: "Recipe Photo", class: "recipe-img") %>
+        <%= render partial: 'shared/image_carousel' %>
         <p><%= @recipe.description %></p>
 
         <%= render partial: 'shared/recipe_card' %>
@@ -30,7 +30,9 @@
         <div class="other-recipes">
           <p>More recipes by <%= @recipe.user.user_name %></p>
             <div>
-                <%= render 'shared/card_small' %>
+              <% @user_recipes.sample(3).each do |recipe| %>
+                <%= render partial: 'shared/card_small', locals: { recipe: recipe } %>
+              <% end %>
             </div>
         </div>
       </div>
