@@ -33,7 +33,7 @@
       <% end %>
     </div>
       <div class="recipe-card-index-container" data-filter-recipes-target="recipes">
-        <% if @recipes.nil? %>
+        <% if @recipes.nil? && @recipes_results.nil? %>
           <h1>Recipes</h1>
           <hr>
           <p>No recipes yet...</p>
