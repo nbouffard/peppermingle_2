@@ -95,6 +95,7 @@ body {
   // border-right: 1px solid black;
   width: 20%;
   height: 100%;
+  margin-right: 30px;
   // margin: 0 auto;
 }
 
@@ -120,14 +121,14 @@ body {
 .recipe-card-index-container {
   display: grid;
   // justify-content: flex-end;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   row-gap: 20px;
   column-gap: 20px;
   margin: 0 auto;
 }
 
 @media (max-width: 900px) {
-  .recipe-card-index-container {grid-template-columns: 1fr 1fr;}
+  .recipe-card-index-container {grid-template-columns: 1fr 1fr 1fr;}
 
 }
 
