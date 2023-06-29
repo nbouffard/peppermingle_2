@@ -1,12 +1,200 @@
-.navbar-lewagon {
+.navbar-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.navbar {
+  display: grid;
+  grid-template-columns: 1fr 1.8fr 1.2fr;
+  align-items: center;
+  width: 100%;
+  height: 80px;
+  background: #F9F5F2;
+  padding: 0 10%;
+  flex-wrap: nowrap;
+}
+
+.menu-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  grid-column: 2;
+}
+
+.nav-extras {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  grid-column: 3;
+}
+
+.navbar #menu {
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 10%;
+  margin: 0 auto;
+}
+
+.logo-container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo {
+  width: 300px;
+}
+
+.menu-logo {
+  width: 300px;
+}
+
+.navbar #menu .logo {
+  margin: 0 20px;
+}
+
+.navbar .left-menu,
+.navbar .right-menu {
+  display: flex;
   justify-content: space-between;
-  background: white;
+  flex: 1;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
 }
 
-.navbar-lewagon .navbar-collapse {
-  flex-grow: 0;
+.navbar a {
+  display: block;
+  text-decoration: none;
+  color: #567275;
+  padding: 10px 15px;
+  position: relative;
+  transition: all 0.3s ease;
+  border-radius: 10px;
 }
 
-.navbar-lewagon .navbar-brand img {
-  width: 40px;
+.navbar a:hover {
+  background-color: #f1e9e3;
+}
+
+.navbar .dropdown a {
+  border-radius: 0;
+}
+
+.navbar .dropdown a:first-child {
+  border-radius: 10px;
+}
+
+.navbar .dropdown a:last-child {
+  border-radius: 10px;
+}
+
+.navbar .dropdown {
+  display: none;
+  position: absolute;
+  background: #F9F5F2;
+  width: 200px;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.navbar .dropdown li {
+  display: block;
+}
+
+.navbar li:hover .dropdown {
+  display: block;
+}
+
+.navbar #menu li {
+  height: auto;
+  border-radius: 10px;
+}
+
+.navbar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.navbar ul li {
+  list-style-type: none !important;
+}
+
+.login-button {
+  text-decoration: none;
+  color: #567275;
+  padding: 10px 15px;
+}
+
+button.login-button {
+  border: none;
+  outline: none;
+}
+
+// search bar
+
+
+.search-container {
+	position: relative;
+	display: inline-block;
+	margin: 4px 2px;
+	height: 50px;
+	width: 50px;
+	vertical-align: bottom;
+}
+
+.search-container i {
+ cursor: pointer;
+}
+
+.searchbutton {
+	position: absolute;
+	font-size: 22px;
+	width: 100%;
+	margin: 10px;
+	padding: 0;
+}
+
+.search:focus + .searchbutton {
+	transition-duration: 0.4s;
+	-moz-transition-duration: 0.4s;
+	-webkit-transition-duration: 0.4s;
+	-o-transition-duration: 0.4s;
+	color: #567275;
+}
+
+.search {
+	position: absolute;
+	left: 49px;
+	background-color: white;
+  border-radius: 10px;
+	outline: none;
+	border: none;
+	padding: 0;
+	width: 0;
+	height: 100%;
+	z-index: 10;
+	transition-duration: 0.4s;
+	-moz-transition-duration: 0.4s;
+	-webkit-transition-duration: 0.4s;
+	-o-transition-duration: 0.4s;
+}
+
+.search:focus {
+	width: 363px;
+	padding: 0 16px 0 0;
+  box-shadow: -3px 3px 4px -1px rgba(86,114,117,0.45);
+}
+
+.expandright {
+	left: auto;
+	right: 49px;
+}
+
+.expandright:focus {
+	padding: 0 0 0 10px;
 }

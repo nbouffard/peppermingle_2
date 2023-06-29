@@ -6,7 +6,7 @@
           <%= link_to "Back", :back, class: "button small-button" %>
         </div>
         <h1><%= @recipe.title %></h1>
-        <%= image_tag("https://images.unsplash.com/photo-1564355808539-22fda35bed7e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2047&q=80", alt: "Recipe Photo", class: "recipe-img") %>
+        <%= render partial: 'shared/image_carousel' %>
         <p><%= @recipe.description %></p>
 
         <%= render partial: 'shared/recipe_card' %>
@@ -15,9 +15,18 @@
     <hr class="separator">
     <div class="recipe-column-right">
       <div class="container">
-        <div class="signup-button">
-          <button class="button">Sign Up for Event</button>
-        </div>
+        <% if current_user == @recipe.user %>
+          <div class="edit-button">
+            <%= link_to "Edit Recipe", edit_recipe_path(@recipe), class: "button" %>
+          </div>
+          <div class="delete-button">
+            <%= link_to "Delete Recipe", @recipe, method: :delete, data: { confirm: "Are you sure?" }, class: "button" %>
+          </div>
+        <% else %>
+          <div class="signup-button">
+            <button class="button">Sign Up for Event</button>
+          </div>
+        <% end %>
 
         <div class="user-profile">
           <div class="user-avatar"></div>
@@ -30,7 +39,9 @@
         <div class="other-recipes">
           <p>More recipes by <%= @recipe.user.user_name %></p>
             <div>
-                <%= render 'shared/card_small' %>
+              <% @user_recipes.sample(3).each do |recipe| %>
+                <%= render partial: 'shared/card_small', locals: { recipe: recipe } %>
+              <% end %>
             </div>
         </div>
       </div>

@@ -23,7 +23,7 @@ box-sizing: border-box;
 .recipe-page p {
   font-family: 'Lato', sans-serif;
   color: #567275;
-  font-weight: 300;
+  font-weight: 500;
 }
 
 .back-button {
@@ -123,4 +123,25 @@ box-sizing: border-box;
   border: none;
   outline: none;
   box-shadow: none;
+}
+
+.delete-button {
+  margin-bottom: 220px;
+  margin-top: 20px;
+  .button {
+    width: 120px;
+    height: 30px;
+    white-space: nowrap;
+    font-size: 20px;
+  }
+}
+
+.edit-button {
+  margin-top: 160px;
+  .button {
+    width: 120px;
+    height: 30px;
+    white-space: nowrap;
+    font-size: 20px;
+  }
 }

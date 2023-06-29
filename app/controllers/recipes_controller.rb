@@ -13,12 +13,14 @@ class RecipesController < ApplicationController
   def new
     @recipe = Recipe.new
     authorize @recipe
-    # @recipe.build_ingredients
+    @recipe.ingredient_join_tables.build.build_ingredient
   end
 
   def show
     @recipe = Recipe.find(params[:id])
     authorize @recipe
+
+    @user_recipes = Recipe.where(user_id: @recipe.user)
   end
 
   def create
@@ -34,7 +36,6 @@ class RecipesController < ApplicationController
   end
 
   def edit
-    @recipe.ingredients.build if @recipe.ingredients.empty?
     authorize @recipe
   end
 
@@ -55,7 +56,9 @@ class RecipesController < ApplicationController
 
   def recipe_params
     params.require(:recipe).permit(:title, :description, :meal_type,
-                                   :season, :dietary_requirements, :cuisine, :prep_time,
-                                   :total_time, :difficulty, :servings, :directions, ingredients_attributes: [:id, :amount, :name, :_destroy])
+                                  :season, :dietary_requirements, :cuisine, :prep_time,
+                                  :total_time, :difficulty, :servings, :directions,
+                                  images: [],
+                                  ingredient_join_tables_attributes: [:id, :_destroy, ingredient_attributes: [:id, :name]])
   end
 end
