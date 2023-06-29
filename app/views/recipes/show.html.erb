@@ -15,9 +15,18 @@
     <hr class="separator">
     <div class="recipe-column-right">
       <div class="container">
-        <div class="signup-button">
-          <button class="button">Sign Up for Event</button>
-        </div>
+        <% if current_user == @recipe.user %>
+          <div class="edit-button">
+            <%= link_to "Edit", edit_recipe_path(@recipe), class: "button" %>
+          </div>
+          <div class="delete-button">
+            <%= link_to "Delete", @recipe, method: :delete, data: { confirm: "Are you sure?" }, class: "button" %>
+          </div>
+        <% else %>
+          <div class="signup-button">
+            <button class="button">Sign Up for Event</button>
+          </div>
+        <% end %>
 
         <div class="user-profile">
           <div class="user-avatar"></div>
