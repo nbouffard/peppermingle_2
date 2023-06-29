@@ -15,10 +15,10 @@
   transition: transform 0.5s ease;
 }
 
-// .small-card:hover {
-//   transform: translate(-5px, -10px);
-//   box-shadow: 5px 5px 0px 0px #DD8A86;
-// }
+.small-card:hover, .small-card-index:hover {
+  transform: translate(-5px, -10px);
+  box-shadow: 5px 5px 0px 0px #DD8A86;
+}
 
 .card-img-background {
   border-radius: 10px;
