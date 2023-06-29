@@ -1,0 +1,75 @@
+.flash {
+  padding: 16px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgb(172, 231, 171);
+  box-shadow: 0 0 8px rgba(129, 199, 95, 0.2);
+  border-radius: 4px;
+  margin: 8px;
+}
+
+.flash-success {
+  border: 2px solid #6aebb1;
+}
+
+.event-title {
+  font-family:'Courier New', Courier, monospace;
+  font-weight: bold;
+  color: rgb(236, 157, 117);
+  padding-bottom: 15px;
+  padding-left: 24px;
+  padding-top: 15px;
+  font-style: italic;
+  background-image: url(https://unsplash.com/photos/1FQx2-YtV1Ahttps://unsplash.com/photos/sPGffsOtHlg);
+  border-radius: 10px;
+  width: 58.4rem;
+}
+
+.para-container {
+  height: 100% !important;
+  width: 58.4rem;
+  margin: auto;
+  padding: 15px;
+  padding-right: 5px;
+  background: #fce5d9;
+  border-radius: 10px;
+  display: flex-start;
+  flex-direction: column;
+  align-items: flex-start;
+  // background-image: url(https://unsplash.com/photos/VLlkOJdzLG0);
+}
+
+.delete-button {
+  padding-top: 5px;
+  padding-left: 5px;
+  width: 100px;
+}
+
+.mt-3 {
+  display:flex;
+  padding-left: 2px;
+}
+
+.edit-button {
+  padding-right: 10px;
+}
+
+.btn btn gradient {
+  padding-top: 10px;
+}
+#description-margin {
+  margin: 0;
+}
+
+.event-bottom-container {
+  display: flex;
+  flex-direction: row;
+  text-align: left;
+  padding-right: 50px;
+  word-break: break-word;
+}
+.event-paragraph {
+  word-wrap: break-word;
+  overflow: break-word;
+}
