@@ -1,9 +1,13 @@
-<%= simple_form_for @event do |f| %>
-  <%= f.input :title %>
-  <%= f.input :description %>
-  <%= f.input :date %>
-  <%= f.input :paid %>
-  <%= f.association :recipe %>
-
-  <%= f.button :submit, 'Create Event' %>
-<% end %>
+<div class="container">
+  <div class="row mt-2">
+    <%= simple_form_for @event do |f| %>
+      <%= f.association :recipe %>
+      <%= f.input :title, label: "Name of the event" %>
+      <%= f.input :description %>
+      <%= f.input :date %>
+      <%= f.input :paid %>
+      <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+      <%= f.button :submit, "Create the event!", class: "btn btn-secondary" %>
+    <% end %>
+  </div>
+</div>
