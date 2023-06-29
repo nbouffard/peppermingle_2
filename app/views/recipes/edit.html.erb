@@ -6,7 +6,7 @@
 
       <%= form.input :title, input_html: { class: "form-input-style" } %>
       <%= form.input :description, as: :text, input_html: { class: "form-input-style" } %>
-      <%= render partial: 'shared/edit_ingredients', locals: { form: form } %>
+      <%= render partial: 'shared/edit_ingredients', locals: { f: form } %>
       <%= form.input :meal_type, collection: Recipe::MEAL_TYPES, input_html: { class: "form-input-style" } %>
       <%= form.input :season, collection: Recipe::SEASONS, input_html: { class: "form-input-style" } %>
       <%= form.input :dietary_requirements, collection: Recipe::DIET, input_html: { class: "form-input-style" } %>
