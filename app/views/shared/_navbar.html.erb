@@ -3,9 +3,9 @@
     <div class="menu-container">
       <nav id="menu">
         <ul class="left-menu">
-          <li><a href="#">Home</a></li>
-          <li><a href="#">Recipes</a></li>
-          <li><a href="#">Events</a></li>
+          <li><%= link_to "Home", root_path %></li>
+          <li><%= link_to "Recipes", recipes_path %></li>
+          <li><%= link_to "Events", events_path %></li>
         </ul>
         <div class="logo-container">
           <img src="https://i.ibb.co/xjrbW3q/peppermingle.png" alt="Your Logo" class="logo" />
@@ -43,8 +43,8 @@
           </button>
           <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown" style="background: #F9F5F2; width: 150px; padding: 0; border: none;">
             <%= link_to "My Profile", user_path(current_user), class: "dropdown-item" %>
-            <%= link_to "My Recipes", recipes_path, class: "dropdown-item" %>
-            <%= link_to "My Events", events_path, class: "dropdown-item" %>
+            <%= link_to "My Recipes", recipes_path(current_user), class: "dropdown-item" %>
+            <%= link_to "My Events", events_path(current_user), class: "dropdown-item" %>
 
             <div class="dropdown-item-divider"></div>
 
