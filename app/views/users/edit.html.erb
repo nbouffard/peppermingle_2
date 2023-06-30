@@ -1,12 +1,18 @@
-<div class="container">
-  <h1>Update profile</h1>
-  <%= simple_form_for @user do |f| %>
-    <%= f.input :first_name %>
-    <%= f.input :last_name %>
-    <%= f.input :user_name %>
-    <%= f.input :bio %>
-    <%= f.input :speciality %>
-    <%= f.input :photo, as: :file %>
-    <%= f.submit %>
-  <% end %>
+<div class="form">
+  <div class="form-container">
+    <div class="container">
+      <h2>Update Profile</h2>
+      <%= simple_form_for @user do |f| %>
+        <%= f.input :first_name, input_html: { class: "form-input-style" } %>
+        <%= f.input :last_name, input_html: { class: "form-input-style" } %>
+        <%= f.input :user_name, input_html: { class: "form-input-style" } %>
+        <%= f.input :bio, input_html: { class: "form-input-style" } %>
+        <%= f.input :speciality, input_html: { class: "form-input-style" } %>
+        <%= f.input :photo, as: :file, input_html: { class: "form-input-style" } %>
+        <div class="button", style="margin-top: 30px; margin-bottom:20px">
+          <%= f.button :submit, "Edit User" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
 </div>
