@@ -63,11 +63,11 @@
 }
 
 .event-bottom-container {
-  display: flex;
   flex-direction: row;
   text-align: left;
   padding-right: 50px;
   word-break: break-word;
+  padding-bottom: 10px;
 }
 .event-paragraph {
   word-wrap: break-word;
