@@ -80,6 +80,11 @@
   margin-bottom: 10px;
 }
 
+.link-delete {
+  color: #a46255;
+}
+
+
 // Ingredient List Form
 
 .name-input {
@@ -114,6 +119,15 @@
   margin-left: 20px;
 }
 
+.delete-ingredient, .edit-ingredient {
+  font-family: 'Aleo', serif;
+  color: rgb(193, 53, 53);
+  font-size: 12px;
+  text-transform: uppercase;
+  font-weight: 600;
+  margin-left: 20px;
+}
+
 .ingredient-label {
   transition: opacity 0.9s ease-in-out;
 }
@@ -140,4 +154,10 @@
 #ingredient-container button:hover {
   background-color: #d9b3ac;
   transition-duration: 0.8s;
+}
+
+.edit-link {
+  margin-left: 10px;
+  color: rgb(107, 165, 181);
+  text-decoration: none;
 }
