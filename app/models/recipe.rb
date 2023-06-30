@@ -16,7 +16,7 @@ class Recipe < ApplicationRecord
 
   include PgSearch::Model
   pg_search_scope :filter_recipes,
-                  against: %i[meal_type season dietary_requirements title cuisine difficulty total_time ingredients],
+                  against: %i[meal_type season dietary_requirements title cuisine difficulty total_time],
                   using: {
                     tsearch: { prefix: true }
                   }
