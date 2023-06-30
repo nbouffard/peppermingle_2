@@ -72,4 +72,13 @@
 .event-paragraph {
   word-wrap: break-word;
   overflow: break-word;
+  white-space: pre-wrap;
+  word-break: break-word;
+  max-width: 90%;
+  width: 46em;
+  overflow-wrap: break-word;
+}
+
+#event-bottom {
+  white-space: pre-wrap !important;
 }
