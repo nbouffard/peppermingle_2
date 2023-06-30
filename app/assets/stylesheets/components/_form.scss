@@ -114,6 +114,15 @@
   margin-left: 20px;
 }
 
+.edit-remove-link  {
+  font-family: 'Aleo', serif;
+  color: rgb(193, 53, 53);
+  font-size: 12px;
+  text-transform: uppercase;
+  font-weight: 600;
+  margin-left: 20px;
+}
+
 .ingredient-label {
   transition: opacity 0.9s ease-in-out;
 }
@@ -122,6 +131,9 @@
   opacity: 0;
 }
 
+.hidden {
+  display: none;
+}
 
 #ingredient-container button {
   font-size: 15px;
@@ -140,4 +152,27 @@
 #ingredient-container button:hover {
   background-color: #d9b3ac;
   transition-duration: 0.8s;
+}
+
+.ingredients-edit-list {
+  list-style-type:circle;
+  padding: 0;
+}
+
+.ingredient-item {
+  display: flex;
+  align-items: center;
+}
+
+.ingredient-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.ingredient-name {
+  margin-right: 10px;
+}
+
+.remove-ingredient {
+  margin-left: 5px;
 }

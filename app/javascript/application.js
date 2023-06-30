@@ -3,4 +3,4 @@ import "@hotwired/turbo-rails"
 import "./controllers"
 import "bootstrap"
 import "./resize_recipe_card"
-import './recipes.js'
+import './recipes'
