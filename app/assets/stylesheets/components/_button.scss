@@ -53,8 +53,8 @@
 }
 
 .card-button {
-  width: 50px;
-  height: 20px;
+  width: 80px;
+  height: 30px;
   font-size: 10px;
 }
 
@@ -81,5 +81,35 @@
   top: 1.75px;
   left: 1.75px;
 }
+.button-delete {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 144px;
+  height: 42px;
+  background-color: #a36154;
+  border: none;
+  border-radius: 4px;
+  padding: 10px;
+  text-align: center;
+  cursor: pointer;
+  text-decoration: none;
+  color: #F9F5F2;
+  font: 300 30px "Oswald";
+  z-index: 1;
+  transition: background-color 0.3s;
+}
+
+.edit-recipe-btn {
+  width: 170px;
+  white-space: normal;
+  font-size: 22px;
+}
+
+// .filter-btn {
+//   text-align: center;
+//   padding-bottom: 10px;
+// }
 
 // comment
