@@ -153,26 +153,3 @@
   background-color: #d9b3ac;
   transition-duration: 0.8s;
 }
-
-.ingredients-edit-list {
-  list-style-type:circle;
-  padding: 0;
-}
-
-.ingredient-item {
-  display: flex;
-  align-items: center;
-}
-
-.ingredient-wrapper {
-  display: flex;
-  align-items: center;
-}
-
-.ingredient-name {
-  margin-right: 10px;
-}
-
-.remove-ingredient {
-  margin-left: 5px;
-}
