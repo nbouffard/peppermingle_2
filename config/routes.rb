@@ -4,5 +4,7 @@ Rails.application.routes.draw do
   resources :events
   resources :recipes, only: %i[index new show create edit update]
   resources :users, only: %i[show edit update]
-  resources :chatrooms, only: :show
+  resources :chatrooms, only: :show do
+    resources :messages, only: :create
+  end
 end
