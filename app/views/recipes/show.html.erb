@@ -6,9 +6,9 @@
           <%= link_to "Back", :back, class: "button small-button" %>
         </div>
         <h1><%= @recipe.title %></h1>
-        <%= render partial: 'shared/image_carousel' %>
-        <p><%= @recipe.description %></p>
-
+        <div class="recipe-description">
+          <p><%= @recipe.description %></p>
+        </div>
         <%= render partial: 'shared/recipe_card' %>
       </div>
     </div>
