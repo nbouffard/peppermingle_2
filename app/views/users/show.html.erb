@@ -39,7 +39,13 @@
         <div class="recipe-cards-container">
           <div class="feature-recipe-outer-flex">
             <div class="title">
-              <h3>Featured Recipes by <%#= @user.user_name.capitalize %></h3>
+              <h3>Featured Recipes by
+              <% if @user.user_name %>
+                <%= @user.user_name.capitalize %>
+              <% else %>
+                user
+              <% end %>
+              </h3>
             </div>
             <div class="cards-flex-container">
               <#%= render 'shared/card_small', user: @user  %>
