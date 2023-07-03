@@ -23,7 +23,7 @@ box-sizing: border-box;
 .recipe-page p {
   font-family: 'Lato', sans-serif;
   color: #567275;
-  font-weight: 300;
+  font-weight: 500;
 }
 
 .back-button {
@@ -95,13 +95,6 @@ box-sizing: border-box;
 }
 
 
-.separator {
-  border-left: 1px solid #CA4E36;
-  height: 100%;
-  min-height: 600px;
-  margin: 160px 20px 0px 20px;
-}
-
 .profile-link {
   text-decoration: none;
   font-family: 'Lato', sans-serif;
@@ -123,4 +116,31 @@ box-sizing: border-box;
   border: none;
   outline: none;
   box-shadow: none;
+}
+
+.delete-button {
+  margin-bottom: 220px;
+  margin-top: 20px;
+  .button {
+    width: 120px;
+    height: 30px;
+    white-space: nowrap;
+    font-size: 20px;
+  }
+}
+
+.edit-button {
+  margin-top: 160px;
+  .button {
+    width: 120px;
+    height: 30px;
+    white-space: nowrap;
+    font-size: 20px;
+  }
+}
+
+.recipe-column-right .container {
+  height: 100%;
+  border-left: 0.3px solid #DD8A86;
+  padding-left: 25px;
 }
