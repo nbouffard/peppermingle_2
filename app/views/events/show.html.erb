@@ -25,5 +25,9 @@
         Sign Up
       <% end %>
     </button>
+
+    <% if current_user.booked_event?(@event) %>
+      <button class="button small-button" data-controller="video-call" data-action="click->video-call#openVideoCall">Video Call</button>
+    <% end %>
   </div>
 </div>

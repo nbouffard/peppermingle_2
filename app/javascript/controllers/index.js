@@ -9,3 +9,6 @@ application.register("hello", HelloController)
 
 import BookingController from "./bookings"
 application.register("booking", BookingController)
+
+import VideoCallController from './video_call_controller';
+application.register('video-call', VideoCallController);
