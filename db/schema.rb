@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_06_27_104708) do
+ActiveRecord::Schema[7.0].define(version: 2023_07_03_174313) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -51,6 +51,12 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_27_104708) do
     t.index ["user_id"], name: "index_bookings_on_user_id"
   end
 
+  create_table "chatrooms", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "events", force: :cascade do |t|
     t.string "title"
     t.text "description"
@@ -78,6 +84,17 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_27_104708) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.string "title"
+    t.text "content"
+    t.bigint "user_id", null: false
+    t.bigint "chatroom_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["chatroom_id"], name: "index_messages_on_chatroom_id"
+    t.index ["user_id"], name: "index_messages_on_user_id"
   end
 
   create_table "recipes", force: :cascade do |t|
@@ -125,4 +142,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_27_104708) do
   add_foreign_key "events", "users"
   add_foreign_key "ingredient_join_tables", "ingredients"
   add_foreign_key "ingredient_join_tables", "recipes"
+  add_foreign_key "messages", "chatrooms"
+  add_foreign_key "messages", "users"
 end
