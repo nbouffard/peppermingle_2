@@ -16,8 +16,10 @@
       <% end %>
       </div>
       <div class="name-location-info-container">
-      <% if @user.first_name.nil? && @user.last_name.nil? %>
+      <% if @user.first_name.nil? && @user.last_name.nil? && @user.user_name.nil? %>
         <p>No user information yet...</p>
+      <% elsif @user.first_name.nil? && @user.last_name.nil? %>
+        <%= @user.user_name %>
       <% else %>
         <h3><%= @user.user_name %></h3>
         <h5><%= @user.first_name.capitalize %> <%= @user.last_name.capitalize %></h5>
