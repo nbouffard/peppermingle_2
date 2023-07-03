@@ -1,7 +1,7 @@
 class Recipe < ApplicationRecord
   belongs_to :user
-  has_many :ingredient_join_tables
-  has_many :ingredients, through: :ingredient_join_tables
+  has_many :ingredient_join_tables, dependent: :destroy
+  has_many :ingredients, through: :ingredient_join_tables, dependent: :destroy
   accepts_nested_attributes_for :ingredient_join_tables, allow_destroy: true
   has_many_attached :images
 

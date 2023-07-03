@@ -80,6 +80,11 @@
   margin-bottom: 10px;
 }
 
+.link-delete {
+  color: #a46255;
+}
+
+
 // Ingredient List Form
 
 .name-input {
@@ -152,4 +157,10 @@
 #ingredient-container button:hover {
   background-color: #d9b3ac;
   transition-duration: 0.8s;
+}
+
+.edit-link {
+  margin-left: 10px;
+  color: rgb(107, 165, 181);
+  text-decoration: none;
 }
