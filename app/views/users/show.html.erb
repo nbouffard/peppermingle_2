@@ -1,7 +1,9 @@
 <div class="profile-show-container">
   <div class="back-btn-container">
     <%= link_to "BACK", root_path, class: 'button small-button' %>
+    <% if policy(@user).edit? %>
     <%= link_to "Edit", edit_user_path(@user), class: 'button small-button' %>
+      <% end %>
   </div>
   <div class="show-container-flex">
     <div class="user-info-flex-container">
@@ -35,7 +37,7 @@
         <div class="recipe-cards-container">
           <div class="feature-recipe-outer-flex">
             <div class="title">
-              <h3>Featured Recipes by <%= @user.user_name.capitalize %></h3>
+              <h3>Featured Recipes by <%#= @user.user_name.capitalize %></h3>
             </div>
             <div class="cards-flex-container">
               <#%= render 'shared/card_small', user: @user  %>
