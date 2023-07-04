@@ -155,23 +155,38 @@ body {
   margin: 0 auto;
   display: flex;
   height: 100%;
-  width: 75%;
+  // overflow: auto;
+  width: 60%;
+
 }
 
 .img-container {
-  width: 30%;
+  width: 40%;
 }
 
 .bio-container {
-  width: 70%;
+  width: 60%;
   padding: 20px;
-  background-color: #E4DED2;
-  ;
+  background-color: #f1d5d3;
+  // border: 2px solid #C78D81;
+  border-left: none;
   border-bottom-right-radius: 30px;
   border-top-right-radius: 30px;
   .user-edit-flex {
     display: flex;
     justify-content: space-between;
+  }
+  h2 {
+    font-weight: normal;
+    font-family: 'Aleo', serif;
+    color: #567275;
+  }
+  p {
+    color: #567275;
+    font-family: 'Lato', serif;
+  }
+  .location {
+    color: #567275;
   }
 }
 
@@ -179,8 +194,11 @@ body {
   height: 100%;
   width: 100%;
   object-fit: cover;
+  // border: 2px solid #C78D81;
+  border-right: none;
   border-bottom-left-radius: 30px;
   border-top-left-radius: 30px;
+  // filter: grayscale(60%);
 }
 
 @media (max-width: 2000px) {

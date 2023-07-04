@@ -1,0 +1,25 @@
+.user-recipe-card, .user-event-card {
+height: 200px;
+width: 150px;
+border-radius: 20px;
+background-color: antiquewhite;
+text-align: center;
+object-fit: cover;
+object-position: center;
+color: yellowgreen;
+// background-position: center;
+}
+
+.user-recipes-container, .user-event-container {
+  margin: 0 auto;
+  width: 60%;
+  // background-color: #f8e4e2;
+  border-radius: 20px;
+  padding: 15px;
+  overflow-x: scroll;
+  // border: 2px  solid #C78D81;
+}
+
+.card-grid {
+  display: flex;
+}

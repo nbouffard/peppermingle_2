@@ -17,20 +17,68 @@
       <% end %>
     </div>
     <% if @user.location %>
-      <p><i class="fa-solid fa-location-dot"></i> <%= @user.location %></p>
+      <p class="location"><i class="fa-solid fa-location-dot"></i> <%= @user.location %></p>
     <% end %>
     <% if @user.bio %>
       <h2>Bio</h2>
-      <p><%= @user.bio %></p>
+      <p class="bio"><%= @user.bio %></p>
     <% else %>
       <p>Bio not yet added...</p>
     <% end %>
     <% if @user.speciality %>
-      <h3>Speciality</h3>
+      <h2>Speciality</h3>
       <p><%= @user.speciality %></p>
     <% end %>
   </div>
 </div>
+<div class="margin"></div>
+<div class="user-recipes-container">
+  <h2>Recipes by <%= @user.user_name %></h2>
+    <div class="card-grid">
+      <% if @user == current_user %>
+          <%= link_to  new_recipe_path do %>
+            <div class="user-recipe-card">
+              + Add new recipe
+            </div>
+          <% end %>
+      <% end %>
+      <% if @user.recipes.empty? %>
+        <p>No recipes...</p>
+      <% end %>
+      <% @user.recipes.each do |recipe| %>
+        <%= link_to recipe_path(recipe) do %>
+        <div class="user-recipe-card" style="background-image: url('<%= cl_image_path recipe.images.first.key, height: 200, width: 150, crop: :fill %>')">
+          <%= recipe.title %>
+        </div>
+        <% end %>
+      <% end %>
+    </div>
+</div>
+<div class="margin"></div>
+<div class="user-event-container">
+    <h2>Events by <%= @user.user_name %></h2>
+  <div class="card-grid">
+    <% if @user == current_user %>
+            <%= link_to  new_event_path do %>
+          <div class="user-event-card">
+          + Create new event
+          </div>
+            <% end %>
+      <% end %>
+      <% if @user.events.empty? %>
+        <p>No upcoming events...</p>
+      <% else %>
+        <% @user.events.each do |event| %>
+          <%= link_to event_path(event) do %>
+        <div class="user-event-card" style="background-image: url('<%= cl_image_path event.photos.first.key, height: 200, width: 150, crop: :fill %>')">
+          <%= event.title %>
+        </div>
+          <% end %>
+      <% end %>
+      <% end %>
+  </div>
+</div>
+<div class="margin"></div>
 
 
 
