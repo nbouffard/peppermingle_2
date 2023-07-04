@@ -1,4 +1,4 @@
-<%= link_to recipe_path(recipe) do %>
+<%= link_to recipe_path(recipe), class: "small-card-link"  do %>
   <div class="small-card <%= card_class %>">
     <% if recipe.images.attached? %>
       <%= cl_image_tag recipe.images.first.blob.key, class: "card-img-background" %>
