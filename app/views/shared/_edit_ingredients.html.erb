@@ -1,3 +1,7 @@
+<% content_for :edit_ingredients do %>
+  <script src='/app/javascript/edit_ingredient.js'>
+<% end %>
+
 <div id="edit-ingredient-container">
   <div class="edit-ingredient-fields">
     <% @recipe.ingredient_join_tables.each do |join_table| %>

@@ -1,56 +1,39 @@
 jQuery(document).ready(function($) {
-  let index = $('.edit-ingredient-fields').length;
+  let index = $('.edit-ingredient-field').length;
 
   function updateIngredientFieldText() {
-    const ingredientFields = $('.edit-name-input');
+    const ingredientFields = $('.edit-ingredient-field');
     ingredientFields.each(function(i) {
-      const currentFieldText = $(this).val();
-      if (currentFieldText === '') {
-        const fieldPlaceholder = i === 0 ? 'Amount and Name' : 'Add Another Ingredient';
-        $(this).attr('placeholder', fieldPlaceholder);
-      }
+      const currentField = $(this).find('.edit-name-input');
+      const fieldPlaceholder = i === 0 ? 'Amount and Name' : 'Add Another Ingredient';
+      currentField.attr('placeholder', fieldPlaceholder);
     });
   }
 
-  $(document).on('click', '#edit-add-ingredient', function() {
-    let ingredientFields = $('.edit-ingredient-fields-template').html().replace(/__INDEX__/g, index++);
-    $('.edit-ingredient-fields').append(ingredientFields);
-    updateIngredientFieldText();
-  });
-
-  $(document).on('click', '.edit-delete-ingredient', function() {
-    const ingredientField = $(this).closest('.edit-ingredient-field');
-    const ingredientInput = ingredientField.find('.edit-name-input');
-    const destroyField = ingredientField.find('.destroy-ingredient-field');
-
-    ingredientInput.val(''); // Clear the ingredient field value
-    destroyField.val('true'); // Mark the ingredient for destruction
-    ingredientField.hide(); // Hide the ingredient field from the form
-
-    updateIngredientFieldText();
-  });
-
-  $(document).on('submit', '#recipe-form', function() {
-    const ingredientFields = $('.edit-name-input');
-    let isEmpty = true;
-    ingredientFields.each(function() {
-      if ($(this).val() !== '') {
-        isEmpty = false;
-        return false;
-      }
+  function initializeEditRecipePage() {
+    $('#edit-add-ingredient').on('click', function() {
+      let ingredientFieldsTemplate = $('.edit-ingredient-fields-template').html();
+      let ingredientFields = ingredientFieldsTemplate.replace(/__INDEX__/g, index++);
+      $('.edit-ingredient-fields').append(ingredientFields);
+      updateIngredientFieldText();
     });
 
-    if (isEmpty) {
-      alert('Ingredients cannot be empty');
-      return false;
-    }
+    $(document).on('click', '.edit-delete-ingredient', function() {
+      const ingredientField = $(this).closest('.edit-ingredient-field');
+      const ingredientInput = ingredientField.find('.edit-name-input');
+      const destroyField = ingredientField.find('.destroy-ingredient-field');
+      const ingredientValue = ingredientInput.val();
 
-    return true;
-  });
+      ingredientInput.val('');
+      destroyField.val('1');
+      ingredientField.hide();
 
-  updateIngredientFieldText();
-});
+      updateIngredientFieldText();
+    });
 
-document.addEventListener('turbolinks:load', function() {
-  initializeEditRecipePage();
+    updateIngredientFieldText();
+  }
+
+  $(document).ready(initializeEditRecipePage);
+  $(document).on('turbolinks:load', initializeEditRecipePage);
 });
