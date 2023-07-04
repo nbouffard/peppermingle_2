@@ -1,1 +1,164 @@
-// Specific CSS for your home-page
+
+@import url('https://fonts.googleapis.com/css2?family=Aleo:wght@300;400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Petit+Formal+Script&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
+
+
+.home-container {
+  margin: auto;
+  background-color: #F9F5F2;
+}
+
+.slogan-container {
+  background: linear-gradient(180deg, rgba(249,245,242,1) 0%, rgba(249,245,242,0.9220938375350141) 8%, rgba(249,245,242,0.9) 17%, rgba(249,245,242,0.6) 54%, rgba(249,245,242,0.6) 100%), url("culinary_herbs-background");
+  background-repeat: repeat;
+  background-size: 25%;
+  margin: 0 auto;
+  padding: 20px;
+  height: 500px;
+}
+
+.slogan {
+  width: 700px;
+  margin: 0 auto;
+  text-align: center;
+  margin-top: 100px;
+}
+
+.slogan-container h1 {
+  font-family: 'Aleo';
+  font-style: normal;
+  -webkit-text-stroke: 0.5px #567275;
+  text-decoration: none;
+  -webkit-text-decoration: underline wavy #22a4be;
+  text-decoration: underline wavy #22a4be;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 60px;
+  margin-bottom: 20px;
+}
+
+#recipeCarousel .mark {
+  margin: 0 -0.4em;
+  color: #fff;
+  text-shadow: 0px 2px 5px rgba(0, 0, 0, 0.8);
+  padding: 0px 4px;
+  border-radius: 0.8em 0.3em;
+  background: transparent;
+  background-image: linear-gradient(to right, #a1b9baaf, #7F9394, #b9d2d39e);
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+  margin: 0px;
+  padding: 2px 10px 2px 10px;
+}
+
+#recipeCarousel .carousel-caption {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  padding: 1rem;
+  background-color: transparent;
+  width: auto;
+  text-align: right;
+}
+
+#recipeCarousel .carousel-caption .caption-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  font-family: 'Aleo';
+  font-style: normal;
+}
+
+#recipeCarousel .carousel-caption h3 {
+  color: #fff;
+  margin-bottom: 0;
+  font-weight: 400;
+  text-shadow: 0px 0px 2px rgba(0, 0, 0, 0.25);
+
+}
+
+#recipeCarousel .carousel-caption .user-info {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end ;
+  margin-top: 10px;
+}
+
+#recipeCarousel .carousel-caption .avatar-container {
+  height: 50px;
+  width: 50px;
+  margin-right: 10px;
+}
+
+#recipeCarousel .carousel-caption .avatar {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+#recipeCarousel .carousel-caption .user-name {
+  color: #fff;
+  font-weight: light;
+  text-shadow: 1px 1px 3px rgba(97,97,97,0.78);
+}
+
+#recipeCarousel .carousel-caption .by {
+  color: #fff;
+  margin-right: 5px;
+  font-weight: lighter;
+  text-shadow: 1px 1px 3px rgba(97,97,97,0.78);
+}
+
+#recipeCarousel .carousel-item img {
+  max-height: 500px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.container {
+  width: 80%;
+  margin: auto;
+  margin-top: 150px;
+}
+.container h2 {
+font-family: 'Aleo';
+font-style: normal;
+}
+
+.events-container,
+.recipes-container {
+  padding: 20px;
+}
+
+
+// Underlined Effects
+
+#homepage .underlined-solid {
+  -webkit-text-decoration: underline solid #DD8A86;
+  text-decoration: underline solid #DD8A86;
+  text-decoration-skip-ink: none;
+}
+
+#homepage .underlined-wavy {
+  -webkit-text-decoration: underline wavy #567275;
+  text-decoration: underline wavy #567275;
+  text-decoration-skip-ink: none;
+}
+
+#homepage .underlined-dashed {
+  -webkit-text-decoration: underline dashed #F1B150;
+  text-decoration: underline dashed #F1B150;
+  text-decoration-skip-ink: none;
+}
+
+#homepage .underlined-dotted {
+  -webkit-text-decoration: underline dotted #CA4E36;
+  text-decoration: underline dotted #CA4E36;
+  text-decoration-skip-ink: none;
+}
