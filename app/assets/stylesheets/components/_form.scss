@@ -84,6 +84,14 @@
   color: #a46255;
 }
 
+.recipe-info {
+  font-size: 12px;
+  margin-top: -15px;
+}
+
+.big-form {
+  height: 150px;
+}
 
 // Ingredient List Form
 
@@ -91,13 +99,30 @@
   border-radius: 10px;
   border: 1px solid #F6D9DD;
   background-color: #E4DED2;
+  width: 400px;
 }
 
-.ingredient-list-container {
-  padding: 10px;
-  max-height: 200px;
-  overflow-y: auto;
-  margin: 20px;
+#ingredient-container {
+  position: relative;
+}
+
+#add-ingredient-container {
+  text-align: center;
+  padding-top: 10px;
+  margin-bottom: 10px;
+}
+
+#add-ingredient {
+  margin: 5px 0px 20px 0px;
+  background-color: #C78D81;
+  color: #F9F5F2;
+  font-size: 15px;
+  border: none;
+}
+
+#add-ingredient:hover {
+  background-color: #eac7c0;
+  transition-duration: 0.4s;
 }
 
 .ingredient-list {
@@ -110,22 +135,20 @@
   margin-bottom: 10px;
 }
 
-.remove-link {
-  font-family: 'Aleo', serif;
-  color: rgb(193, 53, 53);
-  font-size: 12px;
-  text-transform: uppercase;
-  font-weight: 600;
-  margin-left: 20px;
+.ingredient-field {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
 }
 
-.edit-remove-link  {
-  font-family: 'Aleo', serif;
-  color: rgb(193, 53, 53);
-  font-size: 12px;
-  text-transform: uppercase;
-  font-weight: 600;
-  margin-left: 20px;
+.ingredient-field > .delete-ingredient {
+  background-color: transparent;
+  border: none;
+  border-radius: 50%;
+  padding: 4px;
+  font-size: 18px;
+  cursor: pointer;
+  margin-left: 10px;
 }
 
 .ingredient-label {
@@ -140,27 +163,16 @@
   display: none;
 }
 
-#ingredient-container button {
-  font-size: 15px;
-  color:#F9F5F2;
-  width: 100%;
-  max-width: 150px;
-  height: 30px;
-  white-space: nowrap;
-  background: #C78D81;
-  border: 1px solid #F6D9DD;
-  border-radius: 10px;
-  outline: none !important;
-  border: none !important;
-}
-
-#ingredient-container button:hover {
-  background-color: #d9b3ac;
-  transition-duration: 0.8s;
-}
-
-.edit-link {
-  margin-left: 10px;
-  color: rgb(107, 165, 181);
-  text-decoration: none;
-}
+// #ingredient-container button {
+//   font-size: 15px;
+//   color:#F9F5F2;
+//   width: 100%;
+//   max-width: 150px;
+//   height: 30px;
+//   white-space: nowrap;
+//   background: #C78D81;
+//   border: 1px solid #F6D9DD;
+//   border-radius: 10px;
+//   outline: none !important;
+//   border: none !important;
+// }
