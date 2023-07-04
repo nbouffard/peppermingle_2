@@ -9,9 +9,7 @@
         <%= f.input :bio, input_html: { class: "form-input-style" } %>
         <%= f.input :speciality, input_html: { class: "form-input-style" } %>
         <%= f.input :photo, as: :file, input_html: { class: "form-input-style" } %>
-        <div class="button", style="margin-top: 30px; margin-bottom:20px">
-          <%= f.button :submit, "Edit User" %>
-        </div>
+      <%= button_tag "Edit Profile", class: "button small-button", style: "margin-top: 30px; margin-bottom:20px" %>
       <% end %>
     </div>
   </div>

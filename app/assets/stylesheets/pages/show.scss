@@ -87,8 +87,8 @@ box-sizing: border-box;
 .user-avatar {
   width: 100px;
   height: 100px;
-  background-size: cover;
-  background-position: center;
+  object-position: center;
+  object-fit: cover;
   border-radius: 50%;
   border: 1px solid #F9F5F2;
 }
