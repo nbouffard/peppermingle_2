@@ -29,12 +29,13 @@
     <div class="recipe-bottom-container">
       <div class="ingredients" id="ingredients-container">
         <h4>Ingredients</h4>
-          <ul>
-            <% @recipe.ingredients.each do |ingredient| %>
-              <% next if ingredient.name.strip.empty? %>
-              <li> <%= "#{ingredient.name}" %> </li>
-            <% end %>
-          </ul>
+        <ul>
+          <% @recipe.ingredient_join_tables.reject { |join_table| join_table.marked_for_destruction? }.each do |join_table| %>
+            <% ingredient = join_table.ingredient %>
+            <% next if ingredient.name.nil? || ingredient.name.strip.empty? %>
+            <li><%= ingredient.name %></li>
+          <% end %>
+        </ul>
       </div>
        <hr class="recipe-separator">
       <div class="directions" id="directions-container">
