@@ -147,6 +147,16 @@ body {
   }
 }
 
+.profile-container {
+  display: flex;
+}
+
+.profile-img-container {
+  height: 400px;
+  width: 200px;
+  object-fit: cover;
+}
+
 @media (max-width: 2000px) {
   .recipe-card-index-container {grid-template-columns: 1fr 1fr 1fr 1fr;}
 
