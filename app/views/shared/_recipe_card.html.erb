@@ -32,7 +32,7 @@
         <ul>
           <% @recipe.ingredient_join_tables.each do |join_table| %>
             <% ingredient = join_table.ingredient %>
-            <% next if ingredient.nil? || ingredient.name.nil? || ingredient.name.strip.empty? %>
+            <% next if ingredient.name.nil? || ingredient.name.strip.empty? %>
             <li><%= ingredient.name %></li>
           <% end %>
         </ul>

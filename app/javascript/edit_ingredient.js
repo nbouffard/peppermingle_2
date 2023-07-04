@@ -20,20 +20,12 @@ function initializeEditRecipePage() {
 
   $(document).on('click', '.edit-delete-ingredient', function() {
     const ingredientField = $(this).closest('.edit-ingredient-field');
-    const ingredientId = ingredientField.data('ingredient-id');
+    const ingredientInput = ingredientField.find('.edit-name-input');
+    const destroyField = ingredientField.find('.destroy-ingredient-field');
 
-    // If the ingredient field has an associated ingredient ID, mark it for destruction
-    if (ingredientId) {
-      const destroyField = ingredientField.find('.destroy-ingredient-field');
-      destroyField.val('1');
-      ingredientField.hide();
-
-      // Update the ingredients list by removing the corresponding ingredient
-      const ingredientListItem = $(`.ingredient-item[data-ingredient-id="${ingredientId}"]`);
-      ingredientListItem.remove();
-    } else {
-      ingredientField.remove();
-    }
+    ingredientInput.val(''); // Clear the ingredient field value
+    destroyField.val('true'); // Mark the ingredient for destruction
+    ingredientField.hide(); // Hide the ingredient field from the form
 
     updateIngredientFieldText();
   });
@@ -41,5 +33,8 @@ function initializeEditRecipePage() {
   updateIngredientFieldText();
 }
 
-$(document).ready(initializeEditRecipePage);
+jQuery(document).ready(function($) {
+  initializeEditRecipePage();
+});
+
 document.addEventListener('turbolinks:load', initializeEditRecipePage);
