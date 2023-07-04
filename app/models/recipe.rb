@@ -4,6 +4,7 @@ class Recipe < ApplicationRecord
   has_many :ingredients, through: :ingredient_join_tables, dependent: :destroy
   accepts_nested_attributes_for :ingredient_join_tables, allow_destroy: true
   has_many_attached :images
+  has_many :reviews, as: :reviewable
 
   SEASONS = ["Any", "Autumn", "Summer", "Winter", "Spring", "Christmas"]
   MEAL_TYPES = ["Breakfast", "Dessert", "Dinner", "Lunch", "Snacks", "Appetizers"]
