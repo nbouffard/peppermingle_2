@@ -7,6 +7,6 @@ class ChatroomPolicy < ApplicationPolicy
   end
 
   def show?
-    true
+    record.event.user == user || record.event.bookings.find_by(user: user)
   end
 end
