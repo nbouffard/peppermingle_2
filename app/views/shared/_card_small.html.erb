@@ -1,5 +1,5 @@
-<a href="#">
-  <div class="small-card">
+<%= link_to recipe_path(recipe) do %>
+  <div class="small-card <%= card_class %>">
     <% if recipe.images.attached? %>
       <%= cl_image_tag recipe.images.first.blob.key, class: "card-img-background" %>
     <% else %>
@@ -15,4 +15,4 @@
         <li><p><mark><i class="fa-regular fa-thumbs-up" style="color: #075d5e;"></i><%= recipe.difficulty %></p></mark></li>
     </div>
   </div>
-</a>
+<% end %>
