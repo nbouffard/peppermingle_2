@@ -102,7 +102,18 @@
   width: 400px;
 }
 
+.edit-name-input {
+  border-radius: 10px;
+  border: 1px solid #F6D9DD;
+  background-color: #E4DED2;
+  width: 400px;
+}
+
 #ingredient-container {
+  position: relative;
+}
+
+#edit-ingredient-container {
   position: relative;
 }
 
@@ -125,6 +136,19 @@
   transition-duration: 0.4s;
 }
 
+#edit-add-ingredient {
+  margin: 5px 0px 20px 0px;
+  background-color: #C78D81;
+  color: #F9F5F2;
+  font-size: 15px;
+  border: none;
+}
+
+#edit-add-ingredient:hover {
+  background-color: #eac7c0;
+  transition-duration: 0.4s;
+}
+
 .ingredient-list {
   list-style: none;
   padding: 0;
@@ -141,6 +165,25 @@
   margin-bottom: 10px;
 }
 
+.edit-ingredient-fields {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+
+.edit-ingredient-field {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.edit-ingredient-field > .edit-name-input {
+  flex: 1; /* Add this line to allow the input field to take up remaining space */
+  border-radius: 10px;
+  border: 1px solid #F6D9DD;
+  background-color: #E4DED2;
+}
+
 .ingredient-field > .delete-ingredient {
   background-color: transparent;
   border: none;
@@ -149,6 +192,15 @@
   font-size: 18px;
   cursor: pointer;
   margin-left: 10px;
+}
+
+.edit-ingredient-field > .edit-delete-ingredient {
+  background-color: transparent;
+  border: none;
+  border-radius: 50%;
+  padding: 4px;
+  font-size: 18px;
+  cursor: pointer;
 }
 
 .ingredient-label {
@@ -163,16 +215,16 @@
   display: none;
 }
 
-// #ingredient-container button {
-//   font-size: 15px;
-//   color:#F9F5F2;
-//   width: 100%;
-//   max-width: 150px;
-//   height: 30px;
-//   white-space: nowrap;
-//   background: #C78D81;
-//   border: 1px solid #F6D9DD;
-//   border-radius: 10px;
-//   outline: none !important;
-//   border: none !important;
-// }
+.ingredient-field-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.ingredient-wrapper {
+  flex: 1;
+  margin-right: 10px;
+}
+
+.destroy-ingredient-field {
+  display: none;
+}

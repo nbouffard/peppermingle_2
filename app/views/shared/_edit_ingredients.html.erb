@@ -1,25 +1,31 @@
-  <div id="ingredient-container">
+<div id="edit-ingredient-container">
+  <div class="edit-ingredient-fields">
+    <% @recipe.ingredient_join_tables.each do |join_table| %>
+      <% ingredient = join_table.ingredient %>
+      <% next if ingredient.name.nil? || ingredient.name.strip.empty? %>
+      <div class="edit-ingredient-field">
+        <%= f.simple_fields_for :ingredient_join_tables, join_table do |join_form| %>
+          <%= join_form.simple_fields_for :ingredient, ingredient do |ingredient_form| %>
+            <%= ingredient_form.input :name, label: false, input_html: { class: "edit-name-input", placeholder: "Amount and Name" } %>
+            <%= ingredient_form.hidden_field :_destroy, class: "destroy-ingredient-field" %>
+          <% end %>
+        <% end %>
+        <button type="button" class="edit-delete-ingredient"><i class="fa-solid fa-x" style="color: #b54d3b;"></i></button>
+      </div>
+    <% end %>
+  </div>
 
-  <p>Edit Ingredients</p>
-  <%= f.simple_fields_for :ingredient_join_tables do |join_form| %>
-    <div class="ingredient-fields">
-      <%= join_form.simple_fields_for :ingredient do |ingredient_form| %>
-        <div class="ingredient-field">
-          <%= ingredient_form.input :name, input_html: { class: "name-input" }, label_html: { class: "ingredient-label hidden" } %>
+  <div class="edit-ingredient-fields-template" style="display: none">
+    <%= f.simple_fields_for :ingredient_join_tables, IngredientJoinTable.new, child_index: '__INDEX__' do |join_form| %>
+      <%= join_form.simple_fields_for :ingredient, Ingredient.new do |ingredient_form| %>
+        <div class="edit-ingredient-field">
+          <%= ingredient_form.input :name, label: false, input_html: { class: "edit-name-input", placeholder: "Add Another Ingredient" } %>
+          <%= ingredient_form.hidden_field :_destroy, class: "destroy-ingredient-field" %>
+          <button type="button" class="edit-delete-ingredient"><i class="fa-solid fa-x" style="color: #b54d3b;"></i></button>
         </div>
       <% end %>
-    </div>
-  <% end %>
-
-  <div class="ingredient-fields-template" style="display: none">
-    <div class="ingredient-fields">
-      <%= f.simple_fields_for :ingredient_join_tables, IngredientJoinTable.new, child_index: '__INDEX__' do |join_form| %>
-        <%= join_form.simple_fields_for :ingredient, Ingredient.new do |ingredient_form| %>
-          <div class="ingredient-field">
-            <%= ingredient_form.input :name, input_html: { class: "name-input" } %>
-          </div>
-        <% end %>
-      <% end %>
-    </div>
+    <% end %>
   </div>
+
+  <button type="button" id="edit-add-ingredient" class="form-button">Add Ingredient</button>
 </div>

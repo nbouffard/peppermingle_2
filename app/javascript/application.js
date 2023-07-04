@@ -5,3 +5,4 @@ import "./controllers"
 import "bootstrap"
 import "./resize_recipe_card"
 import './add_ingredient'
+import './edit_ingredient'

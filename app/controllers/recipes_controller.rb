@@ -55,6 +55,28 @@ class RecipesController < ApplicationController
     @recipe = Recipe.find(params[:id])
   end
 
+  def update_ingredients(recipe, ingredient_attributes)
+    existing_ingredients = recipe.ingredient_join_tables.includes(:ingredient)
+    new_ingredient_ids = ingredient_attributes.keys.map(&:to_i)
+
+    existing_ingredients.each do |join_table|
+      ingredient_id = join_table.ingredient_id
+      if new_ingredient_ids.include?(ingredient_id)
+        join_table.ingredient.update(name: ingredient_attributes[ingredient_id.to_s][:name])
+      else
+        join_table.destroy
+      end
+    end
+
+    ingredient_attributes.each do |_, attributes|
+      next if attributes[:id].present?
+      recipe.ingredient_join_tables.build(ingredient_attributes: { name: attributes[:name] })
+    end
+
+    recipe.save
+    recipe.reload
+  end
+
   def recipe_params
     params.require(:recipe).permit(:title, :description, :meal_type,
                                   :season, :dietary_requirements, :cuisine, :prep_time,
