@@ -1,4 +1,4 @@
-function initializeEditRecipePage() {
+jQuery(document).ready(function($) {
   let index = $('.edit-ingredient-fields').length;
 
   function updateIngredientFieldText() {
@@ -30,11 +30,27 @@ function initializeEditRecipePage() {
     updateIngredientFieldText();
   });
 
-  updateIngredientFieldText();
-}
+  $(document).on('submit', '#recipe-form', function() {
+    const ingredientFields = $('.edit-name-input');
+    let isEmpty = true;
+    ingredientFields.each(function() {
+      if ($(this).val() !== '') {
+        isEmpty = false;
+        return false;
+      }
+    });
 
-jQuery(document).ready(function($) {
-  initializeEditRecipePage();
+    if (isEmpty) {
+      alert('Ingredients cannot be empty');
+      return false;
+    }
+
+    return true;
+  });
+
+  updateIngredientFieldText();
 });
 
-document.addEventListener('turbolinks:load', initializeEditRecipePage);
+document.addEventListener('turbolinks:load', function() {
+  initializeEditRecipePage();
+});
