@@ -12,7 +12,6 @@
         <%= render partial: 'shared/recipe_card' %>
       </div>
     </div>
-    <hr class="separator">
     <div class="recipe-column-right">
       <div class="container">
         <% if current_user == @recipe.user %>
@@ -40,7 +39,7 @@
           <p>More recipes by <%= @recipe.user.user_name %></p>
             <div>
               <% @user_recipes.sample(3).each do |recipe| %>
-                <%= render partial: 'shared/card_small', locals: { recipe: recipe } %>
+                <%= render partial: 'shared/card_small', locals: { recipe: recipe, card_class: 'smaller-card' } %>
               <% end %>
             </div>
         </div>

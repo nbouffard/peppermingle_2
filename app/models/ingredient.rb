@@ -1,4 +1,4 @@
 class Ingredient < ApplicationRecord
-  has_many :recipe_ingredients
-  has_many :recipes, through: :recipe_ingredients
+  has_many :ingredient_join_tables
+  has_many :recipes, through: :ingredient_join_tables, dependent: :destroy
 end

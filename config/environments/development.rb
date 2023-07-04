@@ -37,6 +37,8 @@ Rails.application.configure do
   # Store uploaded files on the local file system (see config/storage.yml for options).
   config.active_storage.service = :cloudinary
 
+  config.active_storage.replace_on_assign_to_many = false
+
   # Don't care if the mailer can't send.
   config.action_mailer.raise_delivery_errors = false
 
@@ -61,6 +63,8 @@ Rails.application.configure do
   config.assets.quiet = true
 
   config.active_storage.replace_on_assign_to_many = false
+
+  config.serve_static_assets = false
 
   # Raises error for missing translations.
   # config.i18n.raise_on_missing_translations = true

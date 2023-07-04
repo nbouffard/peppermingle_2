@@ -4,7 +4,7 @@ class RecipesController < ApplicationController
 
   def index
     if params[:query].present?
-      @recipes = policy_scope(Recipe).filter_recipes(params[:query])
+      @recipes_results = policy_scope(Recipe).filter_recipes(params[:query])
     else
       @recipes = policy_scope(Recipe)
     end
@@ -37,6 +37,7 @@ class RecipesController < ApplicationController
 
   def edit
     authorize @recipe
+    @recipe.ingredient_join_tables.build.build_ingredient if @recipe.ingredient_join_tables.empty?
   end
 
   def update
