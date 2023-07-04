@@ -95,6 +95,7 @@
   background-color: #567275;
   transform: translateX(-50%);
   transition: width 0.3s ease;
+  color: #567275;
 }
 
 .navbar a:hover::after {
@@ -154,6 +155,7 @@ button.login-button {
   border-radius: 50%;
   object-fit: cover;
   border: none;
+  background: none;
 }
 
 .dropdown-menu {
@@ -181,6 +183,7 @@ button.login-button {
 
 .dropdown-item:hover {
   background-color: transparent;
+  color: #567275;
 }
 
 .dropdown-item-divider {
