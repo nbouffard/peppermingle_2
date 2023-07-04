@@ -26,6 +26,24 @@ jQuery(document).ready(function($) {
     });
   }
 
+  function validateIngredients() {
+    const ingredientFields = $('.name-input');
+    let isEmpty = true;
+    ingredientFields.each(function() {
+      if ($(this).val() !== '') {
+        isEmpty = false;
+        return false;
+      }
+    });
+
+    if (isEmpty) {
+      alert('Ingredients cannot be empty');
+      return false;
+    }
+
+    return true;
+  }
+
   $('#add-ingredient').on('click', function() {
     let ingredientFields = $('.ingredient-fields-template').html().replace(/__INDEX__/g, index++);
     $('.ingredient-fields').append(ingredientFields);
@@ -39,9 +57,12 @@ jQuery(document).ready(function($) {
     updateDeleteButtonsVisibility();
   });
 
+  $('#recipe-form').on('submit', function() {
+    return validateIngredients();
+  });
+
   updateIngredientFieldText();
   updateDeleteButtonsVisibility();
 
-  // Hide delete buttons initially
   $('.delete-ingredient').hide();
 });
