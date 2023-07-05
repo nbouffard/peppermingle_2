@@ -1,6 +1,9 @@
 // Entry point for the build script in your package.json
-import "@hotwired/turbo-rails"
+import './add_jquery'
+import { Turbo } from "@hotwired/turbo-rails"
+Turbo.session.drive = false
 import "./controllers"
 import "bootstrap"
 import "./resize_recipe_card"
-import './recipes.js'
+import './add_ingredient'
+import './edit_ingredient'
