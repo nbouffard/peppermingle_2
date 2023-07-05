@@ -15,13 +15,11 @@ font-weight: bolder;
 
 .user-recipes-container, .user-event-container {
   margin: 0 auto;
-  width: 60%;
-  border-radius: 20px;
-  padding: 15px;
-  overflow-x: scroll;
+  width: 80%;
+  overflow-x: auto;
   h2 {
     font-family: 'Aleo', serif;
-    color: #567275;
+    color: #061326;
   }
 }
 

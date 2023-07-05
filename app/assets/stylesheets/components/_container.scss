@@ -50,6 +50,11 @@ body {
   }
 }
 
+.user-outside-container {
+  display: flex;
+  justify-content: center;
+}
+
 // .cards-flex-container {
 //   display: grid;
 //   grid-template-columns: 1fr 1fr;
@@ -152,11 +157,14 @@ body {
 }
 
 .profile-container {
+  border: 1px solid #DD8A86;
+  border-radius: 20px;
   margin: 0 auto;
   display: flex;
-  height: 100%;
+  height: 500px;
+  max-height: 100%;
   // overflow: auto;
-  width: 60%;
+  width: 80%;
 
 }
 
@@ -165,12 +173,14 @@ body {
 }
 
 .bio-container {
-  width: 60%;
   padding: 20px;
   background-color: #f1d5d3;
   border-left: none;
   border-bottom-right-radius: 20px;
   border-top-right-radius: 20px;
+  width: 60%;
+  margin-left: auto;
+  margin-right: 0;
   .user-edit-flex {
     display: flex;
     justify-content: space-between;
@@ -187,6 +197,18 @@ body {
   i {
     color: #567275;
   }
+}
+
+.user-border-background {
+  width: 70%;
+  margin: 25px;
+  border: 1px solid #F1B150;
+  border-radius: 10px;
+  background: linear-gradient(0deg, rgba(249,245,242,0.8520658263305322) 0%, rgba(249,245,242,0.8520658263305322) 100%), url("culinary_herbs-background");
+  background-repeat: repeat;
+  background-size: 30%;
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 
 .profile-img-container {
