@@ -42,7 +42,7 @@
   margin-bottom: 20px;
 }
 
-#recipeCarousel .mark {
+#recipeCarousel .home-mark {
   margin: 0 -0.4em;
   color: #fff;
   text-shadow: 0px 2px 5px rgba(0, 0, 0, 0.8);
@@ -137,8 +137,18 @@
 
 .bottom-home-container .recipes-container {
   margin-top: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
+.recipes-content {
+  flex-grow: 1;
+}
+
+.view-all-recipes-link {
+  margin-left: 10px;
+}
 
 // Underlined Effects
 
