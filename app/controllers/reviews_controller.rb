@@ -1,11 +1,6 @@
 class ReviewsController < ApplicationController
   before_action :reviewable_object, only: %i[new create]
 
-  def index
-    @reviewable = Reviewable.find(params[:id])
-    @reviews = @reviewable.reviews
-  end
-
   def new
     @reviewable = reviewable_object
     @review = @reviewable.reviews.new
