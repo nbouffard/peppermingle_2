@@ -1,4 +1,16 @@
+<div class="event-show-container">
+  <div class="event-show-img">
+  <% if @event.photos.nil? %>
+    <%= cl_image_tag @event.photos.first %>
+  <% else %>
+    <%= cl_image_tag @event.recipe.images.first.key %>
+  <% end %>
+  </div>
+  <div class="event-show-details-container">
+    <%= @event.title %>
 
+  </div>
+</div>
 
 
 
