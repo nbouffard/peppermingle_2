@@ -1,10 +1,13 @@
 .home-event-card {
+  background: linear-gradient(180deg, rgba(249,245,242,0.9) 0%, rgba(249,245,242,0.9220938375350141) 8%, rgba(249,245,242,0.9) 17%, rgba(249,245,242,0.9) 54%, rgba(249,245,242,0.9) 100%), url("culinary_herbs-background");
+  background-repeat: repeat;
+  background-size: 30%;
   height: 200px;
   display: grid;
   grid-template-columns: 1fr;
   align-items: center;
   border-radius: 10px;
-  background: white;
+  // background: white;
   box-shadow: 5px 5px 0px 0px #DD8A86;
   border: 1px solid #F6D9DD;
   overflow: hidden;
@@ -42,9 +45,9 @@
 .home-event-card .user-info, .home-event-card .sign-up-button {
   height: 200px;
   grid-column: 4;
-  display: flex;
   align-items: center;
   flex-direction: column;
+  margin-top: 10px;
 }
 
 .home-event-card .user-info img {
@@ -56,4 +59,9 @@
 
 .home-event-card .username {
   font-weight: bold;
+}
+
+.home-event-card .user-info {
+  margin-top: 80px;
+  align-items: end;
 }

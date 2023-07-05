@@ -2,7 +2,6 @@
   <div class="slogan-container">
     <div class="slogan">
       <h1 class="underlined-dotted">Share recipes.</h1>
-      <h1 class="underlined-dashed">Join events. </h1>
       <h1 class="underlined-solid">Cook together.</h1>
       <h1 class="underlined-wavy">From anywhere in the world.</h1>
       <div class="button-container">
@@ -26,6 +25,9 @@
 
     <div class="recipes-container">
       <h2>The Latest Recipes</h2>
+      <% @recipes.last(5).each do |recipe| %>
+        <%= render partial: 'shared/card_small', locals: { recipe: recipe, card_class: 'smaller-card' } %>
+      <% end %>
     </div>
   </div>
 </div>
