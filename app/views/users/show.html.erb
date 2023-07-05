@@ -38,7 +38,7 @@
       <% if @user == current_user %>
           <%= link_to  new_recipe_path do %>
             <div class="user-recipe-card">
-              + Add new recipe
+              <p>+ new recipe</p>
             </div>
           <% end %>
       <% end %>
@@ -61,7 +61,7 @@
     <% if @user == current_user %>
             <%= link_to  new_event_path do %>
           <div class="user-event-card">
-          + Create new event
+          <p>+ new event</p>
           </div>
             <% end %>
       <% end %>
@@ -71,7 +71,7 @@
         <% @user.events.each do |event| %>
           <%= link_to event_path(event) do %>
         <div class="user-event-card" style="background-image: url('<%= cl_image_path event.photos.first.key, height: 200, width: 150, crop: :fill %>')">
-          <%= event.title %>
+          <p><%= event.title %></p>
         </div>
           <% end %>
       <% end %>

@@ -1,23 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Aleo:wght@300;400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700&display=swap');
+
 .user-recipe-card, .user-event-card {
 height: 200px;
 width: 150px;
 border-radius: 20px;
-background-color: antiquewhite;
+background-color: #f1d5d3;
 text-align: center;
 object-fit: cover;
 object-position: center;
-color: yellowgreen;
-// background-position: center;
+color: #334447;
+font-weight: bolder;
 }
 
 .user-recipes-container, .user-event-container {
   margin: 0 auto;
   width: 60%;
-  // background-color: #f8e4e2;
   border-radius: 20px;
   padding: 15px;
   overflow-x: scroll;
-  // border: 2px  solid #C78D81;
+  h2 {
+    font-family: 'Aleo', serif;
+    color: #567275;
+  }
 }
 
 .card-grid {
