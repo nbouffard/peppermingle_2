@@ -1,0 +1,59 @@
+.home-event-card {
+  height: 200px;
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: center;
+  border-radius: 10px;
+  background: white;
+  box-shadow: 5px 5px 0px 0px #DD8A86;
+  border: 1px solid #F6D9DD;
+  overflow: hidden;
+  gap: 16px;
+}
+
+.home-event-card .event-info {
+  display: grid;
+  grid-template-columns: 1.5fr 2fr 1fr 1fr;
+}
+
+.home-event-card .event-img {
+  grid-column: 1;
+}
+
+.home-event-card .event-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.home-event-card p {
+  font-family: Lato;
+}
+
+.home-event-card .event-details {
+  font-family: Lato;
+  height: 200px;
+  grid-column: 2;
+  margin-left: 40px;
+  margin-top: 25px;
+}
+
+.home-event-card .user-info, .home-event-card .sign-up-button {
+  height: 200px;
+  grid-column: 4;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.home-event-card .user-info img {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  margin-right: 8px;
+}
+
+.home-event-card .username {
+  font-weight: bold;
+}

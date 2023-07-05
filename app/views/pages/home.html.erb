@@ -1,56 +1,31 @@
 <div id="homepage" class="home-container">
   <div class="slogan-container">
     <div class="slogan">
-      <h1 class ="underlined-dotted">Share recipes.</h1>
-      <h1 class ="underlined-dashed">Join events. </h1>
-      <h1 class ="underlined-solid">Cook together.</h1>
-      <h1 class ="underlined-wavy">From anywhere in the world.</h1>
+      <h1 class="underlined-dotted">Share recipes.</h1>
+      <h1 class="underlined-dashed">Join events. </h1>
+      <h1 class="underlined-solid">Cook together.</h1>
+      <h1 class="underlined-wavy">From anywhere in the world.</h1>
       <div class="button-container">
         <%= link_to "Sign up now!", new_user_registration_path, class: "button small-button" %>
       </div>
     </div>
   </div>
   <div class="carousel-container">
-      <%= render 'pages/recipe_carousel' %>
+    <%= render 'pages/recipe_carousel' %>
   </div>
 
-  <div class="container">
-      <div class="events-container reveal">
-          <h2>Upcoming Events</h2>
-      </div>
+  <div class="bottom-home-container">
+    <div class="events-container">
+      <h2>Upcoming Events</h2>
+      <% @events.each do |event| %>
+        <% if event.date >= Date.today %>
+          <%= render partial: 'shared/home_event_card', locals: { event: event } %>
+        <% end %>
+      <% end %>
+    </div>
 
-      <div class="recipes-container reveal">
-          <h2>This Week's Most Popular Recipes</h2>
-      </div>
+    <div class="recipes-container">
+      <h2>The Latest Recipes</h2>
+    </div>
   </div>
-  </div>
-
-  <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      var eventsContainer = document.querySelector('.events-container');
-      var recipesContainer = document.querySelector('.recipes-container');
-
-      function isInViewport(element) {
-        var rect = element.getBoundingClientRect();
-        return (
-          rect.top >= 0 &&
-          rect.left >= 0 &&
-          rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
-          rect.right <= (window.innerWidth || document.documentElement.clientWidth)
-        );
-      }
-
-      function revealOnScroll() {
-        if (isInViewport(eventsContainer)) {
-          eventsContainer.classList.add('reveal');
-        }
-
-        if (isInViewport(recipesContainer)) {
-          recipesContainer.classList.add('reveal');
-        }
-      }
-
-      window.addEventListener('scroll', revealOnScroll);
-      revealOnScroll();
-    });
-  </script>
+</div>
