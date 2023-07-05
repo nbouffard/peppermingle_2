@@ -170,8 +170,8 @@ body {
   background-color: #f1d5d3;
   // border: 2px solid #C78D81;
   border-left: none;
-  border-bottom-right-radius: 30px;
-  border-top-right-radius: 30px;
+  border-bottom-right-radius: 20px;
+  border-top-right-radius: 20px;
   .user-edit-flex {
     display: flex;
     justify-content: space-between;
@@ -179,13 +179,13 @@ body {
   h2 {
     font-weight: normal;
     font-family: 'Aleo', serif;
-    color: #567275;
+    color: #334447;
   }
   p {
-    color: #567275;
+    color: #4b6163;
     font-family: 'Lato', serif;
   }
-  .location {
+  i {
     color: #567275;
   }
 }
@@ -196,8 +196,8 @@ body {
   object-fit: cover;
   // border: 2px solid #C78D81;
   border-right: none;
-  border-bottom-left-radius: 30px;
-  border-top-left-radius: 30px;
+  border-bottom-left-radius: 20px;
+  border-top-left-radius: 20px;
   // filter: grayscale(60%);
 }
 
