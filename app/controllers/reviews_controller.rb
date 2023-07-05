@@ -33,13 +33,9 @@ class ReviewsController < ApplicationController
 
   def reviewable_object
     if params[:user_id]
-      user = User.find(params[:user_id])
-      puts "Found user: #{user.inspect}"
-      user
+      User.find(params[:user_id])
     elsif params[:recipe_id]
-      recipe = Recipe.find(params[:recipe_id])
-      puts "Found recipe: #{recipe.inspect}"
-      recipe
+      Recipe.find(params[:recipe_id])
     end
   end
 end

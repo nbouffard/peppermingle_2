@@ -5,7 +5,5 @@ Rails.application.routes.draw do
   resources :recipes, only: %i[index new show create edit update] do
     resources :reviews, only: %i[new create]
   end
-  resources :users, only: %i[show edit update] do
-    resources :reviews, only: %i[new create]
-  end
+  resources :users, only: %i[show edit update]
 end
