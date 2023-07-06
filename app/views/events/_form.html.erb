@@ -5,6 +5,7 @@
       <%= f.input :title, label: "Name of the event" %>
       <%= f.input :description %>
       <%= f.input :date %>
+      <%= f.input :time %>
       <%= f.input :paid %>
       <%= f.input :photos, as: :file, input_html: { multiple: true } %>
       <%= f.button :submit, "Create the event!", class: "btn btn-secondary" %>
