@@ -13,12 +13,12 @@ class Event < ApplicationRecord
   def event_chatroom
     Chatroom.create(name: title, event: self)
   end
-  
+
   def create_or_update_room_url(url)
     if room_url
       room_url.update(url: url)
     else
       create_room_url(url: url)
     end
-    
+  end
 end
