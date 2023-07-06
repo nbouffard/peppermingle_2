@@ -11,6 +11,10 @@ class User < ApplicationRecord
   validates :user_name, uniqueness: true
   validate :date_of_birth_greater_than_18_years
 
+  def booked_event?(event)
+    bookings.exists?(event_id: event.id)
+  end
+
   private
 
   def date_of_birth_greater_than_18_years
