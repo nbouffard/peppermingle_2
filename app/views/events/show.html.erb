@@ -1,21 +1,29 @@
-<div class="event-show-container">
-  <div class="event-show-img-container">
-  <% if @event.photos.present? %>
-    <%= cl_image_tag @event.photos.first.key, class: 'event-show-img' %>
-  <% else %>
-    <%= cl_image_tag @event.recipe.images.first.key, class: 'event-show-img' %>
-  <% end %>
-  </div>
-  <div class="event-show-details-container">
-    <h2>Title:</h2>
-    <p><%= @event.title %></p>
-    <h2>Recipe:</h2>
-    <p><%= link_to "#{@event.recipe.title}", recipe_path(@event.recipe) %></p>
-    <h2>Date:</h2>
-    <p><%= @event.date.strftime('%d %_m %y') %>
-    <h2>Time:</h2>
-    <p><%= @event.time.to_formatted_s(:time) %></p>
-    <h2>Description:</h2>
-    <p><%= @event.description %></p>
+<div class="user-outside-container">
+  <div class="user-border-background">
+    <div class="event-show-container">
+      <div class="event-show-img-container">
+      <% if @event.photos.present? %>
+        <%= cl_image_tag @event.photos.first.key, class: 'event-show-img' %>
+      <% else %>
+        <%= cl_image_tag @event.recipe.images.first.key, class: 'event-show-img' %>
+      <% end %>
+      </div>
+      <div class="event-show-details-container">
+    <h1>Event details</h1>
+        <h2>Title:</h2>
+        <p><%= @event.title %></p>
+        <h2>Recipe:</h2>
+        <p><%= link_to "#{@event.recipe.title}", recipe_path(@event.recipe) %></p>
+        <h2>Date:</h2>
+        <p><%= @event.date.strftime('%d %_m %y') %>
+        <h2>Time:</h2>
+        <p><%= @event.time.to_formatted_s(:time) %></p>
+        <h2>Description:</h2>
+        <p><%= @event.description %></p>
+        <h2>Host:</h2>
+        <p><%= @event.user.user_name %></p>
+        <%= link_to 'join event' %>
+      </div>
+    </div>
   </div>
 </div>
