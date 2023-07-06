@@ -1,16 +1,23 @@
 /* General Styling */
 
 .small-card {
-  width: 20rem;
-  height: 25rem;
+  width: 16rem;
+  height: 20rem;
   border-radius: 10px;
   cursor: pointer;
   position: relative;
   transition: transform 0.5s ease;
+  margin: 0px 10px 15px 0px;
 }
 
+.small-card-link {
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+}
 
-.small-card:hover .small-card-index:hover {
+.small-card:hover {
   transform: translate(-2px, -5px);
   box-shadow: 5px 5px 0px 0px #DD8A86;
   transition: transform 0.3s ease-out, box-shadow 0.2s ease-out;
@@ -40,19 +47,22 @@
 }
 
 .small-card-content h2 {
-  font-size: 30px;
+  font-size: 24px;
   position: absolute;
-  inset: auto auto 30px 30px;
-  margin-bottom: 40px;
+  inset: auto auto 30px 20px;
+  margin-bottom: 20px;
   font-weight: normal;
   font-family: 'Aleo', serif;
+  word-break: break-word;
 }
 
 .small-card-content p {
+  font-size: 16px;
   font-family: 'Lato', sans-serif;
   opacity: 0;
   width: 80%;
   overflow: wrap;
+  overflow-wrap: break-word;
   white-space: normal;
 }
 
@@ -66,12 +76,13 @@ mark {
   margin: 0 -0.4em;
   color: #fff;
   text-shadow: 0px 2px 5px rgba(0, 0, 0, 0.8);
-  padding: 0.1em 0.4em;
+  padding: 0px 4px;
   border-radius: 0.8em 0.3em;
   background: transparent;
   background-image: linear-gradient(to right, #a1b9baaf, #7F9394, #b9d2d39e);
   -webkit-box-decoration-break: clone;
   box-decoration-break: clone;
+  margin: 0px;
 }
 
 /* Icon Div */
@@ -88,6 +99,7 @@ mark {
 
 .small-card-info .small-card-icons p {
   text-shadow: 0px 0px 1px #000000;
+  font-size: 14px;
   margin-bottom: 20px;
 }
 
@@ -119,10 +131,49 @@ mark {
 }
 
 .small-card-index {
-  width: 20rem;
-  height: 25rem;
+  width: 16rem;
+  height: 20rem;
   border-radius: 10px;
   cursor: pointer;
   position: relative;
   transition: transform 0.5s ease;
+}
+
+
+//
+
+.smaller-card {
+  width: 12rem;
+  height: 16rem;
+}
+
+.smaller-card .small-card-content h2 {
+  font-size: 18px;
+  margin-bottom: 25px;
+  margin-left: -5px;
+}
+
+.smaller-card .small-card-content p {
+  font-size: 14px;
+}
+
+.smaller-card .small-card img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.smaller-card .small-card-content {
+  padding: 12px;
+}
+
+.smaller-card .small-card-info .small-card-icons {
+  padding: 5px;
+}
+
+.smaller-card .small-card-info .small-card-icons i {
+  font-size: 12px;
+}
+
+.smaller-card .small-card-info mark {
+  margin: 0;
 }

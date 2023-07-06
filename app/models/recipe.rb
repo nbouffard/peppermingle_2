@@ -6,8 +6,8 @@ class Recipe < ApplicationRecord
   has_many_attached :images
   has_many :reviews, as: :reviewable
 
-  SEASONS = ["Any", "Autumn", "Summer", "Winter", "Spring", "Christmas"]
-  MEAL_TYPES = ["Breakfast", "Dessert", "Dinner", "Lunch", "Snacks", "Appetizers"]
+  SEASONS = ["Any", "Autumn", "Summer", "Winter", "Spring", "Christmas", "Easter"]
+  MEAL_TYPES = ["Breakfast", "Dessert", "Dinner", "Lunch", "Snacks", "Appetizers", "Drinks"]
   DIET = ["Vegan", "Dairy free", "Gluten free", "Nut free", "Vegetarian", "Pescatarian"]
   validates :title, :description, :cuisine, :difficulty, :directions, :servings, presence: true
   validates :prep_time, :total_time, :servings, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
