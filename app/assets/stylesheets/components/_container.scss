@@ -7,11 +7,11 @@ body {
   background-color: #F9F5F2;
 }
 
-.show-container-flex {
-  display: flex;
-  height: 100%;
-  width: 100%;
-}
+// .show-container-flex {
+//   display: flex;
+//   height: 100%;
+//   width: 100%;
+// }
 
 .user-info-flex-container {
   display: flex;
@@ -50,34 +50,39 @@ body {
   }
 }
 
-.cards-flex-container {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 20px;
-}
-
-.recipe-cards-container {
- .title{
-  color: #567275;
-  font-size: 40px;
-  margin-top: 10px;
- }
-}
-
-.cards-flex, .outer-cards-flex {
+.user-outside-container {
   display: flex;
-  flex-direction: column;
+  justify-content: center;
 }
 
-.user-bio-container {
-  // background-color: yellow;
-  // width: 359px;
-  width: 100%;
-}
+// .cards-flex-container {
+//   display: grid;
+//   grid-template-columns: 1fr 1fr;
+//   gap: 20px;
+// }
 
-.outer-cards-flex {
-  margin-top: 50px;
-}
+// .recipe-cards-container {
+//  .title{
+//   color: #567275;
+//   font-size: 40px;
+//   margin-top: 10px;
+//  }
+// }
+
+// .cards-flex, .outer-cards-flex {
+//   display: flex;
+//   flex-direction: column;
+// }
+
+// .user-bio-container {
+//   // background-color: yellow;
+//   // width: 359px;
+//   width: 100%;
+// }
+
+// .outer-cards-flex {
+//   margin-top: 50px;
+// }
 
 .back-btn-container {
   display: flex;
@@ -86,11 +91,11 @@ body {
   margin-left: 40px;
 }
 
-.profile-show-container {
-  // background-color: yellow;
-  width: 75%;
-  margin: 0 auto;
-}
+// .profile-show-container {
+//   // background-color: yellow;
+//   width: 75%;
+//   margin: 0 auto;
+// }
 
 .index-container {
   height: 100vh;
@@ -145,6 +150,76 @@ body {
     font-family: 'Aleo', serif;
     color: #567275;
   }
+}
+
+.margin{
+  margin: 50px;
+}
+
+.profile-container {
+  border: 1px solid #DD8A86;
+  border-radius: 20px;
+  margin: 0 auto;
+  display: flex;
+  height: 500px;
+  max-height: 100%;
+  // overflow: auto;
+  width: 80%;
+
+}
+
+.img-container {
+  width: 40%;
+}
+
+.bio-container {
+  padding: 20px;
+  background-color: #f1d5d3;
+  border-left: none;
+  border-bottom-right-radius: 20px;
+  border-top-right-radius: 20px;
+  width: 60%;
+  margin-left: auto;
+  margin-right: 0;
+  .user-edit-flex {
+    display: flex;
+    justify-content: space-between;
+  }
+  h2 {
+    font-weight: normal;
+    font-family: 'Aleo', serif;
+    color: #334447;
+  }
+  p {
+    color: #4b6163;
+    font-family: 'Lato', serif;
+  }
+  i {
+    color: #567275;
+  }
+}
+
+.user-border-background {
+  width: 70%;
+  margin: 25px;
+  border: 1px solid #F1B150;
+  border-radius: 10px;
+  background: linear-gradient(0deg, rgba(249,245,242,0.8520658263305322) 0%, rgba(249,245,242,0.8520658263305322) 100%), url("culinary_herbs-background");
+  background-repeat: repeat;
+  background-size: 30%;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.profile-img-container {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  // border: 2px solid #C78D81;
+  border-right: none;
+  border-bottom-left-radius: 20px;
+  border-top-left-radius: 20px;
+  // filter: grayscale(60%);
 }
 
 @media (max-width: 2000px) {
