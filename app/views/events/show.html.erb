@@ -23,4 +23,5 @@
   <% elsif policy(@event).trigger_api? %>
     <%= button_to "Create Room", trigger_api_event_path(@event), method: :post, remote: true, class: "btn btn-primary" %>
   <% end %>
+
 </div>
