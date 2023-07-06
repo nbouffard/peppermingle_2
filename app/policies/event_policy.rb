@@ -26,6 +26,18 @@ class EventPolicy < ApplicationPolicy
     update?
   end
 
+  def destroy_room_url?
+    user == record.user
+  end
+
+  def trigger_api?
+    user == record.user
+  end
+
+  def room_url?
+    true
+  end
+
   def update?
     record.user == user
   end
