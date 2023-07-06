@@ -39,7 +39,7 @@
           <p>More recipes by <%= @recipe.user.user_name %></p>
             <div>
               <% @user_recipes.sample(3).each do |recipe| %>
-                <%= render partial: 'shared/card_small', locals: { recipe: recipe } %>
+                <%= render partial: 'shared/card_small', locals: { recipe: recipe, card_class: 'smaller-card' } %>
               <% end %>
               <br>
               <%= link_to "New Review", new_recipe_review_path(recipe_id: @recipe.id), class: 'btn btn-primary' %>

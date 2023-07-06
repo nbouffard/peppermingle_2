@@ -64,6 +64,8 @@ Rails.application.configure do
 
   config.active_storage.replace_on_assign_to_many = false
 
+  config.serve_static_assets = false
+
   # Raises error for missing translations.
   # config.i18n.raise_on_missing_translations = true
 

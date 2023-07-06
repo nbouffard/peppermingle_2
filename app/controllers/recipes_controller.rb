@@ -37,6 +37,7 @@ class RecipesController < ApplicationController
 
   def edit
     authorize @recipe
+    @recipe.ingredient_join_tables.build.build_ingredient if @recipe.ingredient_join_tables.empty?
   end
 
   def update
