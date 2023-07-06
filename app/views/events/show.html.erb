@@ -1,36 +1,21 @@
 <div class="event-show-container">
-  <div class="event-show-img">
+  <div class="event-show-img-container">
   <% if @event.photos.present? %>
-    <%= cl_image_tag @event.photos.first.key %>
+    <%= cl_image_tag @event.photos.first.key, class: 'event-show-img' %>
   <% else %>
-    <%= cl_image_tag @event.recipe.images.first.key %>
+    <%= cl_image_tag @event.recipe.images.first.key, class: 'event-show-img' %>
   <% end %>
   </div>
   <div class="event-show-details-container">
-    <%= @event.title %>
-
+    <h2>Title:</h2>
+    <p><%= @event.title %></p>
+    <h2>Recipe:</h2>
+    <p><%= link_to "#{@event.recipe.title}", recipe_path(@event.recipe) %></p>
+    <h2>Date:</h2>
+    <p><%= @event.date.strftime('%d %_m %y') %>
+    <h2>Time:</h2>
+    <p><%= @event.time.to_formatted_s(:time) %></p>
+    <h2>Description:</h2>
+    <p><%= @event.description %></p>
   </div>
 </div>
-
-
-
-<%# <div class="container"> %>
-  <%# <h1>= @event.title</h1> %>
-  <%# <p><strong>Description:</strong> = @event.description</p> %>
-  <%# <p><strong>Date:</strong> = @event.date</p> %>
-  <%# <p><strong>Time:</strong> = @event.time.to_formatted_s(:time)</p> %>
-  <%# <p><strong>Paid?:</strong> = @event.paid? ? 'Yes' : 'No'</p> %>
-  <%# <p><strong>Created by:</strong> = @event.user.user_name</p> %>
-  <%# <p> Recipe: = @event.recipe.title</p> %>
-  <%# <p> Recipe description: = @event.recipe.description</p> %>
-
-<%# <p><strong>Created by:</strong> = @event.user.user_name</p> %>
-<%#= button_to "Destroy", @event, method: :delete if policy(@event).destroy? %>
-  <%# <div class="mt-3">
-      <div> %>
-        <%# if policy(@event).edit? %>
-        <%#= link_to "✏️", edit_event_path(@event), class: "btn btn-ghost"%>
-        <%# end %>
-      <%# </div>
-  </div>
-</div> %>

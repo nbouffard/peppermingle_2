@@ -147,6 +147,27 @@ body {
   }
 }
 
+.event-show-container {
+  margin: 50px auto 50px;
+  display: flex;
+  height: 700px;
+  width: 70%;
+  .event-show-img {
+    height: 100%;
+    width: 100%;
+    border-bottom-left-radius: 20px;
+    border-top-left-radius: 20px;
+  }
+  .event-show-details-container {
+    padding: 15px;
+    width: 60%;
+    background-color: #f1d5d3;
+    border-bottom-right-radius: 20px;
+    border-top-right-radius: 20px;
+  }
+}
+
+
 @media (max-width: 2000px) {
   .recipe-card-index-container {grid-template-columns: 1fr 1fr 1fr 1fr;}
 
