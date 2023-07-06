@@ -12,4 +12,7 @@ Rails.application.routes.draw do
 
   resources :bookings, only: %i[show destroy]
 
+  resources :chatrooms, only: :show do
+    resources :messages, only: :create
+  end
 end

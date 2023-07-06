@@ -2,6 +2,7 @@
   <h1><%= @event.title %></h1>
   <p><strong>Description:</strong> <%= @event.description %></p>
   <p><strong>Date:</strong> <%= @event.date %></p>
+  <p><strong>Time:</strong> <%= @event.time.to_formatted_s(:time) %></p>
   <p><strong>Paid?:</strong> <%= @event.paid? ? 'Yes' : 'No' %></p>
   <p><strong>Created by:</strong> <%= @event.user.user_name %></p>
   <p>Recipe: <%= @event.recipe.title %></p>

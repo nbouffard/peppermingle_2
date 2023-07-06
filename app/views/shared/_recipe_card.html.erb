@@ -1,6 +1,10 @@
 <div class="recipe-card-container">
   <div class="recipe-card-img">
-    <%= image_tag("https://images.unsplash.com/photo-1564355768016-1c9f9dc1b381?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2014&q=80", alt: "Recipe Photo", class: "recipe-card-img") %>
+    <% if @recipe.images.present? && @recipe.images.sample.present? %>
+      <%= cl_image_tag @recipe.images.sample.key, class: "recipe-card-img" %>
+    <% else %>
+      <%= image_tag("https://images.unsplash.com/photo-1493770348161-369560ae357d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80", alt: "default image", class: "recipe-card-img") %>
+    <% end %>
     <div class="recipe-title-container">
       <h3 class="recipe-title"><%= @recipe.title %></h3>
     </div>
@@ -26,9 +30,11 @@
       <div class="ingredients" id="ingredients-container">
         <h4>Ingredients</h4>
         <ul>
-          <%# @recipe.ingredients.each do |ingredient| %>
-            <li> <%#= "#{ingredient.amount} #{ingredient.name}" %> </li>
-          <%# end %>
+          <% @recipe.ingredient_join_tables.reject { |join_table| join_table.marked_for_destruction? }.each do |join_table| %>
+            <% ingredient = join_table.ingredient %>
+            <% next if ingredient.name.nil? || ingredient.name.strip.empty? %>
+            <li><%= ingredient.name %></li>
+          <% end %>
         </ul>
       </div>
        <hr class="recipe-separator">

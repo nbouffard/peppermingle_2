@@ -1,38 +1,69 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-  <div class="container-fluid">
-    <%= link_to "#", class: "navbar-brand" do %>
-      <%= image_tag "https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/logo.png" %>
-    <% end %>
-
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto">
-        <% if user_signed_in? %>
-          <li class="nav-item active">
-            <%= link_to "Home", "#", class: "nav-link" %>
+<div class="navbar-wrapper">
+  <div class="navbar">
+    <div class="menu-container">
+      <nav id="menu">
+        <ul class="left-menu">
+          <li><%= link_to "Home", root_path %></li>
+          <li><%= link_to "Recipes", recipes_path %></li>
+          <li><%= link_to "Events", events_path %></li>
+        </ul>
+        <div class="logo-container">
+          <img src="https://i.ibb.co/xjrbW3q/peppermingle.png" alt="Your Logo" class="logo" />
+        </div>
+        <ul class="right-menu">
+          <li>
+            <a href="#">Categories</a>
+            <ul class="menu-dropdown">
+              <li><a href="#">Breakfast</a></li>
+              <li><a href="#">Dessert</a></li>
+              <li><a href="#">Dinner</a></li>
+              <li><a href="#">Lunch</a></li>
+              <li><a href="#">Snacks</a></li>
+              <li><a href="#">Appetizers</a></li>
+            </ul>
           </li>
-          <li class="nav-item">
-            <%= link_to "Messages", "#", class: "nav-link" %>
-          </li>
-          <li class="nav-item dropdown">
-          <a href="#" class="avatar" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar", alt: "dropdown menu" %>
-          </a>
-            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <%= link_to "Action", "#", class: "dropdown-item" %>
-              <%= link_to "Another action", "#", class: "dropdown-item" %>
-              <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="nav-extras">
+      <div class="search-container">
+        <form action="/search" method="get">
+          <input class="search expandright" id="searchright" type="search" name="q" placeholder="Search">
+          <label class="searchbutton" for="searchright">
+            <i class="fa-solid fa-magnifying-glass" style="color: #567275;"></i>
+          </label>
+        </form>
+      </div>
+      <% if user_signed_in? %>
+        <div class="dropdown">
+          <button class="navbar-avatar dropdown-toggle" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <% if current_user.photo.key.nil? %>
+              <%= image_tag("https://images.unsplash.com/photo-1506368249639-73a05d6f6488?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1887&q=80", class: 'navbar-avatar') %>
+            <% else %>
+              <%= cl_image_tag(current_user.photo.key, class: 'navbar-avatar') %>
+            <% end %>
+          </button>
+          <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown" style="background: #F9F5F2; width: 150px; padding: 0; border: none;">
+            <%= link_to "My Profile", user_path(current_user), class: "dropdown-item" %>
+            <%= link_to "My Recipes", recipes_path(current_user), class: "dropdown-item" %>
+            <%= link_to "My Events", events_path(current_user), class: "dropdown-item" %>
+
+            <div class="dropdown-item-divider"></div>
+
+            <div class="dropdown-item-middle">
+              <%= button_to destroy_user_session_path, method: :delete, class: "dropdown-item" do %>
+                <i class="fa-solid fa-right-from-bracket" style="color: #567275; font-size: 25px;"></i>
+              <% end %>
             </div>
-          </li>
-        <% else %>
-          <li class="nav-item">
-            <%= link_to "Login", new_user_session_path, class: "nav-link" %>
-          </li>
+          </div>
+        </div>
+      <% else %>
+        <%= link_to new_user_session_path, class: "login-button" do %>
+          <i class="fa-solid fa-user" style="color: #567275;"></i> Login
         <% end %>
-      </ul>
+      <% end %>
     </div>
   </div>
 </div>
