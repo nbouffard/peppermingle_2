@@ -5,8 +5,11 @@ class ReviewPolicy < ApplicationPolicy
     #   scope.all
     # end
   end
+  def new?
+    create?
+  end
 
   def create?
-    true
+    record.reviewable.user != user
   end
 end

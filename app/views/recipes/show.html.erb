@@ -42,8 +42,10 @@
                 <%= render partial: 'shared/card_small', locals: { recipe: recipe } %>
               <% end %>
               <br>
+              <% if current_user != @recipe.user %>
               <%= link_to "New Review", new_recipe_review_path(recipe_id: @recipe.id), class: 'btn btn-primary' %>
               <br>
+              <% end %>
               <br>
               <h2>User Reviews </h2>
               <br>
