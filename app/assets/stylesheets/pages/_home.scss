@@ -148,15 +148,24 @@
   margin-top: 50px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;
 }
 
 .recipes-content {
   flex-grow: 1;
+  height: 400px;
 }
 
-.view-all-recipes-link {
+.view-all-recipes-link a {
   margin-left: 10px;
+  color: #DD8A86;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.view-all-recipes-link a:hover {
+  color: #e1c7c5;
+  transition-duration: 0.2s;
 }
 
 // Underlined Effects

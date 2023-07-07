@@ -31,7 +31,9 @@
       <% end %>
     </div>
     <div class="view-all-recipes-link">
-      <%= link_to "View All Recipes", recipes_path %>
+      <%= button_to recipes_path, class: "button small-button-view-all", method: :get do %>
+        View All Recipes <i class="fa-solid fa-angles-right" style="color: #fff;"></i>
+      <% end %>
     </div>
   </div>
 </div>
