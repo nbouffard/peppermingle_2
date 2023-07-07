@@ -1,7 +1,7 @@
 <div class="index-container">
   <div class="index-search-flex-container" data-controller="filter-recipes">
     <div class="filter-container">
-      <h3>Filter recipes</h3>
+      <h3>Filter Recipes</h3>
       <%= form_tag recipes_path, method: :get, data: { filter_recipes_target: 'form', action: 'submit->filter-recipes#send' }  do %>
         <div class="season">
           <h4>Season</h4>
@@ -13,7 +13,7 @@
           <% end %>
         </div>
         <div class="meal_type">
-          <h4>Meal type</h4>
+          <h4>Meal Type</h4>
           <% Recipe::MEAL_TYPES.each do |meal| %>
             <div class="flex-form-container">
               <%= check_box_tag(:query, ":#{meal}") %>
@@ -41,7 +41,7 @@
       <% elsif @recipes_results %>
         <h1><%= pluralize(@recipes_results.length, 'result') %></h1>
         <% else %>
-        <h1>All recipes</h1>
+        <h1>All Recipes</h1>
       <% end %>
       <div class="recipe-card-index-container" data-filter-recipes-target="recipes">
         <% if @recipes.nil? && @recipes_results.nil? %>
