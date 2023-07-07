@@ -9,7 +9,11 @@ Rails.application.routes.draw do
     end
   end
   resources :recipes, only: %i[index new show create edit update]
-  resources :users, only: %i[show edit update]
+  resources :users, only: %i[show edit update] do
+    member do
+      get :my_recipes_events_bookings
+    end
+  end
 
   resources :events do
     resources :bookings, only: %i[new create]
