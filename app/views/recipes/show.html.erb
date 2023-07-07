@@ -44,18 +44,25 @@
               <br>
               <% if current_user != @recipe.user %>
               <%= link_to "New Review", new_recipe_review_path(recipe_id: @recipe.id), class: 'btn btn-primary' %>
-              <br>
               <% end %>
+              <br>
+
               <br>
               <h2>User Reviews </h2>
               <br>
+
+              <% if @recipe.reviews.empty? %>
+                <p>No reviews yet! Be the first one to review...</p>
+              <% end %>
 
               <% @recipe.reviews.each do |review| %>
                 <div>
                   <h3><%= review.user.user_name %></h3>
                   <p><strong>Rating:</strong> <%= review.rating %></p>
                   <p><strong>Content:</strong> <%= review.content %></p>
-                  <p><strong>suggestion:</strong> <%= review.suggestion %></p>
+                  <% if review.suggestion.present? %>
+                    <p><strong>Suggestion:</strong> <%= review.suggestion %></p>
+                  <% end %>
                 </div>
               <% end %>
             </div>
