@@ -40,29 +40,29 @@
             <% if @user == current_user %>
                 <%= link_to  new_recipe_path do %>
                   <div class="user-recipe-card">
-                    <p>+ new recipe</p>
+                    <h2><mark><i class="fa-solid fa-plus" style="color: #ffffff;"></i> New Recipe</mark></h2>
                   </div>
                 <% end %>
             <% end %>
             <% if @user.recipes.empty? %>
               <p>No recipes...</p>
             <% end %>
-             <% @user.recipes.each do |recipe| %>
-                <%= render partial: 'shared/card_small', locals: { recipe: recipe, card_class: 'smaller-card' } %>
-              <% end %>
+            <% @user.recipes.each do |recipe| %>
+              <%= render partial: 'shared/card_small', locals: { recipe: recipe, card_class: 'smaller-card' } %>
+            <% end %>
           </div>
-      </div>
+        </div>
       <div class="margin"></div>
       <div class="user-event-container">
           <h2>Events by <%= @user.user_name %></h2>
         <div class="card-grid">
           <% if @user == current_user %>
-                  <%= link_to  new_event_path do %>
-                <div class="user-event-card">
-                <p>+ new event</p>
-                </div>
-                  <% end %>
+            <%= link_to  new_event_path do %>
+              <div class="user-recipe-card">
+                <h2><mark><i class="fa-solid fa-plus" style="color: #ffffff;"></i> New Event</mark></h2>
+              </div>
             <% end %>
+          <% end %>
             <% if @user.events.empty? %>
               <p>No upcoming events...</p>
             <% else %>
