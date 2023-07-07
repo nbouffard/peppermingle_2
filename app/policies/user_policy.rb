@@ -17,4 +17,8 @@ class UserPolicy < ApplicationPolicy
   def update?
     record.id == user.id
   end
+
+  def my_recipes_events_bookings?
+    record.id == user.id
+  end
 end

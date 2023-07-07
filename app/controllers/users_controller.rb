@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   skip_before_action :authenticate_user!, only: :show
-  before_action :set_user, only: %i[show edit update]
+  before_action :set_user
 
   def show
   end
@@ -14,6 +14,9 @@ class UsersController < ApplicationController
     else
       render :show, status: :unproccessable_entity
     end
+  end
+
+  def my_recipes_events_bookings
   end
 
   private
