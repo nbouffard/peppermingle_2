@@ -33,6 +33,7 @@
 .home-event-card p {
   max-height: 70px;
   font-family: Lato;
+  color: #567275;
   overflow: hidden;
   position: relative;
   width: 100%;
@@ -64,8 +65,9 @@
   object-fit: cover;
 }
 
-.home-event-card .username {
+.home-event-card .username a {
   font-weight: bold;
+  color: #567275;
 }
 
 .home-event-card .user-info {

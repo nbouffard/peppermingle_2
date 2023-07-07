@@ -25,7 +25,9 @@
           <% else %>
             <%= cl_image_tag(event.user.photo.key, alt: "User Avatar", class: "home-avatar") %>
           <% end %>
-          <span class="username"><%= event.user.user_name %></span>
+          <span class="username">
+            <%= link_to event.user.user_name, user_path(event.user) %>
+          </span>
         </div>
         <div class="sign-up-button">
           <%= button_to "Join Event", new_user_registration_path, method: :post, class: "button small-button" %>
