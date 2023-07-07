@@ -1,0 +1,12 @@
+<div class="stimulus-tabs" data-controller="change-tabs">
+  <div class="tab">
+    <%= link_to 'Recipes', recipes_path, class: 'tablinks', data: { action: "click->change-tabs#active", change_tabs_target: "url" } %>
+
+    <button class="tablinks" >Events</button>
+    <button class="tablinks" >Bookings</button>
+  </div>
+
+  <div class="display-content" data-change-tabs-target="content">
+  </div>
+
+</div>

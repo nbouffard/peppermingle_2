@@ -8,10 +8,15 @@ Rails.application.routes.draw do
       get 'room_url', to: 'events#room_url'
     end
   end
-  resources :recipes, only: %i[index new show create edit update]
+  resources :recipes, only: %i[index new show create edit update] do
+    # member do
+
+    # end
+  end
   resources :users, only: %i[show edit update] do
     member do
       get :my_recipes_events_bookings
+      get :my_recipes
     end
   end
 

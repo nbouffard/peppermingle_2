@@ -1,0 +1,4 @@
+<% @recipes.each do |recipe| %>
+  <% if recipe.user == current_user %>
+  <%= recipe.title %>
+<% end %>
