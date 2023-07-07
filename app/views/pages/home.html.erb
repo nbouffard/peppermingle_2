@@ -24,7 +24,7 @@
     </div>
 
   <div class="recipes-container">
-    <div class="recipes-content">
+    <div class="recipes-content" >
       <h2>The Latest Recipes</h2>
       <% @recipes.last(5).each do |recipe| %>
         <%= render partial: 'shared/card_small', locals: { recipe: recipe, card_class: 'smaller-card' } %>
