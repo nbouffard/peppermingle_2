@@ -1,37 +1,43 @@
-<div id="recipeCarousel" class="carousel slide" data-ride="carousel">
-  <div class="carousel-inner">
-    <% Recipe.order("RANDOM()").limit(5).each_with_index do |recipe, index| %>
-      <div class="carousel-item <%= 'active' if index == 0 %>">
-        <%= link_to recipe_path(recipe) do %>
-          <% if recipe.images.attached? %>
-            <%= cl_image_tag(recipe.images.first.key, alt: recipe.title, class: "d-block w-100") %>
-          <% end %>
-          <div class="carousel-caption">
-            <div class="caption-content">
-              <h3><mark class="home-mark"><%= recipe.title %></mark></h3>
-              <div class="user-info">
-                <div class="avatar-container">
-                    <% if recipe.user.photo&.key.present? %>
-                      <%= cl_image_tag(recipe.user.photo.key, alt: "#{recipe.title} avatar", class: "avatar") %>
-                    <% else %>
-                      <%= image_tag("https://images.unsplash.com/photo-1506368249639-73a05d6f6488?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1887&q=80", alt: "Default Avatar", class: "avatar") %>
-                    <% end %>
-                  </div>
-                <span class="by">by</span>
-                <span class="user-name"><%= recipe.user.user_name %></span>
+<div id="recipeCarousel" class="owl-carousel owl-theme">
+  <% Recipe.order("RANDOM()").limit(5).each_with_index do |recipe, index| %>
+    <div class="item">
+      <%= link_to recipe_path(recipe) do %>
+        <% if recipe.images.attached? %>
+          <%= cl_image_tag(recipe.images.first.key, alt: recipe.title, class: "d-block w-100") %>
+        <% end %>
+        <div class="carousel-caption">
+          <div class="caption-content">
+            <h3><mark class="home-mark"><%= recipe.title %></mark></h3>
+            <div class="user-info">
+              <div class="avatar-container">
+                <% if recipe.user.photo&.key.present? %>
+                  <%= cl_image_tag(recipe.user.photo.key, alt: "#{recipe.title} avatar", class: "avatar") %>
+                <% else %>
+                  <%= image_tag("https://images.unsplash.com/photo-1506368249639-73a05d6f6488?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1887&q=80", alt: "Default Avatar", class: "avatar") %>
+                <% end %>
               </div>
+              <span class="by">by</span>
+              <span class="user-name"><%= recipe.user.user_name %></span>
             </div>
           </div>
-        <% end %>
-      </div>
-    <% end %>
-  </div>
-  <a class="carousel-control-prev" href="#recipeCarousel" role="button" data-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="sr-only">Previous</span>
-  </a>
-  <a class="carousel-control-next" href="#recipeCarousel" role="button" data-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="sr-only">Next</span>
-  </a>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
 </div>
+
+<script>
+  $(document).ready(function() {
+    // Initialize Owl Carousel
+    $('#recipeCarousel').owlCarousel({
+      items: 1, // Number of items to display
+      loop: true, // Enable infinite loop
+      autoplay: true, // Enable autoplay
+      autoplayTimeout: 6000, // Set the desired autoplay interval in milliseconds (e.g., 5000 for 5 seconds)
+      autoplayHoverPause: true, // Pause on hover
+      animateOut: 'fadeOut', // Set the desired transition effect
+      nav: false, // Show navigation buttons
+      navText: ['<span class="carousel-control-prev-icon"></span>', '<span class="carousel-control-next-icon"></span>'] // Customize navigation button icons
+    });
+  });
+</script>
