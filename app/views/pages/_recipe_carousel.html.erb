@@ -11,9 +11,9 @@
             <div class="user-info">
               <div class="avatar-container">
                 <% if recipe.user.photo&.key.present? %>
-                  <%= cl_image_tag(recipe.user.photo.key, alt: "#{recipe.title} avatar", class: "avatar") %>
+                  <%= cl_image_tag(recipe.user.photo.key, alt: "#{recipe.title} avatar", class: "home-avatar") %>
                 <% else %>
-                  <%= image_tag("https://images.unsplash.com/photo-1506368249639-73a05d6f6488?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1887&q=80", alt: "Default Avatar", class: "avatar") %>
+                  <%= image_tag("https://images.unsplash.com/photo-1506368249639-73a05d6f6488?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1887&q=80", alt: "Default Avatar", class: "home-avatar") %>
                 <% end %>
               </div>
               <span class="by">by</span>
@@ -37,7 +37,6 @@
       autoplayHoverPause: true, // Pause on hover
       animateOut: 'fadeOut', // Set the desired transition effect
       nav: false, // Show navigation buttons
-      navText: ['<span class="carousel-control-prev-icon"></span>', '<span class="carousel-control-next-icon"></span>'] // Customize navigation button icons
     });
   });
 </script>

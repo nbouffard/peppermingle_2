@@ -31,7 +31,13 @@
 }
 
 .home-event-card p {
+  max-height: 70px;
   font-family: Lato;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  text-decoration: none;
+  text-overflow: ellipsis;
 }
 
 .home-event-card .event-details {
@@ -55,6 +61,7 @@
   height: 35px;
   border-radius: 50%;
   margin-right: 8px;
+  object-fit: cover;
 }
 
 .home-event-card .username {
@@ -64,4 +71,13 @@
 .home-event-card .user-info {
   margin-top: 80px;
   align-items: end;
+}
+
+
+.home-event-card .datetime-container {
+  display: flex;
+}
+
+.home-event-card .datetime-container p {
+  margin-right: 10px;
 }
