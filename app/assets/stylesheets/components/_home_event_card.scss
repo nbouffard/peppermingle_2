@@ -3,15 +3,16 @@
   background-repeat: repeat;
   background-size: 30%;
   height: 200px;
+  max-width: 1220px;
   display: grid;
   grid-template-columns: 1fr;
   align-items: center;
   border-radius: 10px;
-  // background: white;
   box-shadow: 5px 5px 0px 0px #DD8A86;
   border: 1px solid #F6D9DD;
   overflow: hidden;
   gap: 16px;
+  margin-bottom: 20px;
 }
 
 .home-event-card .event-info {

@@ -6,7 +6,7 @@
 
 
 .home-container {
-  margin: auto;
+  margin: 0 auto;
   background-color: #F9F5F2;
 }
 
@@ -134,8 +134,16 @@
   font-family: 'Aleo';
   font-style: normal;
   padding: 20px;
-  width: 80%;
+  width: 85%;
   margin: auto;
+  margin-top: 30px;
+}
+
+.second-bottom-home-container {
+  font-family: 'Aleo';
+  font-style: normal;
+  padding: 20px;
+  width: 85%;
   margin-top: 30px;
 }
 
@@ -143,13 +151,16 @@
   font-family: 'Aleo';
   font-style: normal;
   color: #061326;
+  display: inline;
+  margin-right: 10px;
+  margin-bottom: 0;
 }
 
 .bottom-home-container .recipes-container {
   margin-top: 50px;
   display: flex;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: center;
 }
 
 .recipes-content {
@@ -157,28 +168,68 @@
   height: 400px;
 }
 
-.view-all-recipes-link a {
-  margin-left: 10px;
+// .recipes-header {
+//   display: flex;
+//   align-items: center;
+//   justify-content: flex-start;
+// }
+
+// .events-header {
+//   display: flex;
+//   align-items: center;
+//   justify-content: flex-start;
+// }
+
+.recipes-button {
+  width: fit-content;
+  height: 20px;
+  font-size: 12px;
+  background: none;
   color: #DD8A86;
+  border: none;
+  margin-left: 20px;
+  position: relative;
+}
+
+.fa-angles-right {
+  font-size: 12px;
+}
+
+.recipes-button:before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 1px;
+  background-color: transparent;
+  transform: translateX(-50%);
+  transition: width 0.2s ease-in-out, background-color 0.2s ease-in-out;
+}
+
+.recipes-button:hover:before {
+  width: 100%;
+  background-color: #e5d1d0;
+}
+
+.recipes-button:hover {
+  color: #e5d1d0;
   text-decoration: none;
-  white-space: nowrap;
 }
 
-.view-all-recipes-link a:hover {
-  color: #e1c7c5;
-  transition-duration: 0.2s;
-}
 
-.reveal-container {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.8s, transform 0.8s;
-}
 
-.reveal-container.reveal-visible {
-  opacity: 1;
-  transform: translateY(0);
-}
+
+// .reveal-container {
+//   opacity: 0;
+//   transform: translateY(20px);
+//   transition: opacity 0.8s, transform 0.8s;
+// }
+
+// .reveal-container.reveal-visible {
+//   opacity: 1;
+//   transform: translateY(0);
+// }
 
 
 
