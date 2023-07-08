@@ -228,6 +228,9 @@ li.nav-item.dropdown::before {
 
 // search bar
 
+.ui-datepicker-trigger {
+  display: none;
+}
 
 .search-container {
 	position: relative;
