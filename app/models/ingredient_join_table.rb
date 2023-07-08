@@ -4,9 +4,14 @@ class IngredientJoinTable < ApplicationRecord
   accepts_nested_attributes_for :ingredient, allow_destroy: true
 
   include PgSearch::Model
-  pg_search_scope :search, associated_against: {
+  pg_search_scope :search_by_ingredient_name, associated_against: {
     ingredient: [:name]
   }, using: {
-    tsearch: { prefix: true }
+    tsearch: { prefix: true },
+    trigram: { threshold: 0.2 }
   }
+
+  def self.search(query)
+    search_by_ingredient_name(query)
+  end
 end

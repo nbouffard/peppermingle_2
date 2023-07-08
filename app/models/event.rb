@@ -29,6 +29,7 @@ class Event < ApplicationRecord
   include PgSearch::Model
   pg_search_scope :search, against: [:title, :description, :date],
     using: {
-      tsearch: { prefix: true }
+      tsearch: { prefix: true },
+      trigram: { threshold: 0.2 }
     }
 end

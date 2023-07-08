@@ -5,6 +5,7 @@ class Ingredient < ApplicationRecord
   include PgSearch::Model
   pg_search_scope :search, against: [:name],
     using: {
-      tsearch: { prefix: true }
+      tsearch: { prefix: true },
+      trigram: { threshold: 0.2 }
     }
 end

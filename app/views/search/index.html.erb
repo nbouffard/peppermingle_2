@@ -7,7 +7,7 @@
       <% formatted_date = parsed_date.strftime('%B %d, %Y') if parsed_date.present? rescue 'Invalid date' %>
       <% formatted_date = formatted_date.gsub(/^0/, '') if formatted_date.present? %>
 
-      <h1><%= @results.count %> Result<%= 's' unless @results.count == 1 %> for "<%= search_input %>"<%=" on #{formatted_date}" if formatted_date.present? %></h1>
+      <h1><%= @results.select { |result| result.is_a?(Recipe) || result.is_a?(Event) }.count %> Result<%= 's' unless @results.count == 1 %> for "<%= search_input %>"<%=" on #{formatted_date}" if formatted_date.present? %></h1>
 
       <% recipes = @results.select { |result| result.is_a?(Recipe) } %>
       <% events = @results.select { |result| result.is_a?(Event) } %>
@@ -18,7 +18,7 @@
           <%= render partial: 'shared/card_small', locals: { recipe: recipe, card_class: "smaller-card" } %>
         <% end %>
       <% else %>
-        <p>No recipe found.</p>
+        <p class="search-result-p">No recipe found.</p>
       <% end %>
 
       <h2>Events</h2>
@@ -27,7 +27,7 @@
           <%= render partial: 'shared/card_small_event', locals: { event: event, card_class: "smaller-card" } %>
         <% end %>
       <% else %>
-        <p>No event found.</p>
+        <p class="search-result-p">No event found.</p>
       <% end %>
 
     </div>

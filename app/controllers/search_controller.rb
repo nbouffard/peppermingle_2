@@ -13,5 +13,8 @@ class SearchController < ApplicationController
 
     @results = @recipes + @events + @ingredient_join_tables.map(&:recipe)
     @results = @results.uniq
+    @results += IngredientJoinTable.search_by_ingredient_name(params[:q])
+
+    @results = @results.uniq
   end
 end
