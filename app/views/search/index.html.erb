@@ -1,0 +1,11 @@
+<h1>Search Results</h1>
+
+<h2>Recipes</h2>
+<% @results.select { |result| result.is_a?(Recipe) }.each do |recipe| %>
+  <%= link_to recipe.title, recipe_path(recipe) %>
+<% end %>
+
+<h2>Events</h2>
+<% @results.select { |result| result.is_a?(Event) }.each do |event| %>
+  <%= link_to event.title, event_path(event) %>
+<% end %>

@@ -28,14 +28,16 @@
       </nav>
     </div>
     <div class="nav-extras">
-      <div class="search-container">
-        <form action="/search" method="get">
-          <input class="search expandright" id="searchright" type="search" name="q" placeholder="Search">
-          <label class="searchbutton" for="searchright">
-            <i class="fa-solid fa-magnifying-glass" style="color: #567275;"></i>
-          </label>
-        </form>
-      </div>
+<div class="search-container">
+  <form action="/search" method="get">
+    <input class="search expandright" id="searchright" type="search" name="q" placeholder="Search">
+    <input type="date" id="dateright" name="date">
+    <label class="searchbutton" for="searchright">
+      <i class="fa-solid fa-magnifying-glass" style="color: #567275;"></i>
+    </label>
+  </form>
+</div>
+
       <% if user_signed_in? %>
         <div class="dropdown">
           <button class="navbar-avatar dropdown-toggle" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -67,3 +69,10 @@
     </div>
   </div>
 </div>
+
+
+<script>
+  document.getElementById('dateright').addEventListener('change', function() {
+    document.getElementById('search-form').submit();
+  });
+</script>
