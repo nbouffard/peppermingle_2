@@ -1,11 +1,8 @@
 class RecipePolicy < ApplicationPolicy
   class Scope < Scope
-
     def resolve
-      if user.admin?
-        scope.all
-      else
-        scope.where(public: true)
+      scope.all
+    end
   end
 
   def update?

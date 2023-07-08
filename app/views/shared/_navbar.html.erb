@@ -93,7 +93,7 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
   calendarIcon.addEventListener('click', function () {
-    calendarInstance.toggle();
+    calendarInstance.toggle(); // Toggle the calendar visibility on icon click
     positionCalendar();
   });
 
@@ -122,9 +122,10 @@ document.addEventListener('DOMContentLoaded', function () {
         left = window.innerWidth - calendarWidth;
       }
 
-      const gap = 10;
+      const gap = 15;
       const availableWidth = window.innerWidth - left;
       const maxCalendarWidth = availableWidth - gap;
+
       if (calendarWidth > maxCalendarWidth) {
         left = left - (calendarWidth - maxCalendarWidth);
       }
@@ -140,5 +141,4 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   });
 });
-
 </script>
