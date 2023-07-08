@@ -27,7 +27,7 @@ class Event < ApplicationRecord
   end
 
   include PgSearch::Model
-  pg_search_scope :search, against: [:title, :description],
+  pg_search_scope :search, against: [:title, :description, :date],
     using: {
       tsearch: { prefix: true }
     }

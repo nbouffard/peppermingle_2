@@ -7,4 +7,5 @@ import "bootstrap"
 import "./resize_recipe_card"
 import './add_ingredient'
 import './edit_ingredient'
-import './datepicker';
+import _flatpickr from "flatpickr";
+import 'flatpickr/dist/flatpickr.min.css';
