@@ -1,5 +1,5 @@
 <% recipes.each do |recipe| %>
   <% if recipe.user == current_user %>
-    <h3><%= recipe.title %></h3>
+    <%= render partial: 'shared/card_small', locals: { recipe: recipe, card_class: 'smaller-card' } %>
   <% end %>
 <% end %>

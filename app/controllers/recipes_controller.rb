@@ -8,11 +8,6 @@ class RecipesController < ApplicationController
     else
       @recipes = policy_scope(Recipe)
     end
-
-    respond_to do |format|
-      format.html
-      format.text { render partial: 'recipes/content.html.erb', locals: { recipes: @recipes } }
-    end
   end
 
   def new
@@ -52,10 +47,6 @@ class RecipesController < ApplicationController
     else
       render :edit
     end
-  end
-
-  def my_recipes
-    @recipes = policy_scope(Recipe)
   end
 
   private

@@ -5,6 +5,10 @@ class EventsController < ApplicationController
 
   def index
     @events = policy_scope(Event)
+    respond_to do |format|
+      format.html
+      format.text { render partial: 'event_content.html', locals: { events: @events } }
+    end
   end
 
   def edit

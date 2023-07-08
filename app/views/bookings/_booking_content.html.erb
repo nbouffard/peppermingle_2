@@ -1,0 +1,7 @@
+<% if current_user.bookings.empty? %>
+  <p>You currently have no bookings</p>
+<% else %>
+  <% bookings.each do |booking| %>
+    <%= booking.event.title %>
+  <% end %>
+<% end %>
