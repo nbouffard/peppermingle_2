@@ -7,4 +7,5 @@ import "bootstrap"
 import "./resize_recipe_card"
 import './add_ingredient'
 import './edit_ingredient'
+import 'owl.carousel/dist/assets/owl.carousel.css';
 import './carousel'
