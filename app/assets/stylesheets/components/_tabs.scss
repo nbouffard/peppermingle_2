@@ -1,0 +1,31 @@
+// .tab {
+//   // background-color: yellow;
+// }
+
+.tablinks {
+  background-color: #E7B2AF;;
+  font-size: 30px;
+  padding: 10px;
+  border-radius: 10px;
+  &:hover {
+    background-color: bisque;
+  }
+}
+
+.active-tab {
+  background-color: crimson;
+}
+
+.stimulus-tabs {
+  margin: 0 auto;
+  width: 75%;
+}
+
+.hub-page-container {
+  height: 700px;
+}
+
+.display-content {
+  display: flex;
+  margin-top: 20px;
+}

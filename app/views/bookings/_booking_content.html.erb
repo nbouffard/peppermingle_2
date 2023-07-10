@@ -1,3 +1,11 @@
+<a href="/events">
+  <div class="small-card smaller-card">
+      <%= image_tag("https://images.unsplash.com/photo-1518779578993-ec3579fee39f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWgelHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1935&q=80", alt: "Recipe Photo", class: "card-img-background") %>
+    <div class="small-card-content">
+      <h2><mark><i class="fa-solid fa-plus" style="color: #fff;"></i> Browse all events</mark></h2>
+    </div>
+  </div>
+</a>
 <% if current_user.bookings.empty? %>
   <p>You currently have no bookings</p>
 <% else %>

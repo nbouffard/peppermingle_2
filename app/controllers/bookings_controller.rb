@@ -25,11 +25,6 @@ class BookingsController < ApplicationController
   def my_bookings
     @bookings = current_user.bookings
     authorize Booking
-
-    respond_to do |format|
-      format.html
-      format.text { render partial: 'booking_content.html', locals: { bookings: @bookings } }
-    end
   end
 
   def destroy
