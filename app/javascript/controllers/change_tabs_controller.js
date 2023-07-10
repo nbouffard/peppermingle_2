@@ -5,6 +5,7 @@ export default class extends Controller {
   static targets = ["url", 'content']
   connect() {
   }
+
   active(event){
     event.preventDefault();
     const url = event.currentTarget.getAttribute('href')

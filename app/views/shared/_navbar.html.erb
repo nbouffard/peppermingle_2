@@ -47,8 +47,8 @@
           </button>
           <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown" style="background: #F9F5F2; width: 150px; padding: 0; border: none;">
             <%= link_to "My Profile", user_path(current_user), class: "dropdown-item" %>
-            <%= link_to "My Recipes", recipes_path(current_user), class: "dropdown-item" %>
-            <%= link_to "My Events", events_path(current_user), class: "dropdown-item" %>
+            <%= link_to "My Hub", my_recipes_events_bookings_user_path(current_user), class: "dropdown-item" %>
+            <%#= link_to "My Events", events_path(current_user), class: "dropdown-item" %>
 
             <div class="dropdown-item-divider"></div>
 
