@@ -7,5 +7,5 @@ import "bootstrap"
 import "./resize_recipe_card"
 import './add_ingredient'
 import './edit_ingredient'
-import _flatpickr from "flatpickr";
-import 'flatpickr/dist/flatpickr.min.css';
+import flatpickr  from "flatpickr";
+import "flatpickr/dist/flatpickr.min.css";
