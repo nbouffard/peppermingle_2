@@ -19,7 +19,7 @@
             <%= link_to "Edit Recipe", edit_recipe_path(@recipe), class: "button" %>
           </div>
           <div class="delete-button">
-            <%= link_to "Delete Recipe", @recipe, method: :delete, data: { confirm: "Are you sure?" }, class: "button" %>
+            <%= link_to "Delete Recipe", recipe_path(@recipe), data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' }, class: "button" %>
           </div>
         <% else %>
           <div class="signup-button">
