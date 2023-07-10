@@ -8,17 +8,17 @@ class Event < ApplicationRecord
   has_one :chatroom
   after_save :event_chatroom
 
-  private
-
-  def event_chatroom
-    Chatroom.create(name: title, event: self)
-  end
-
   def create_or_update_room_url(url)
     if room_url
       room_url.update(url: url)
     else
       create_room_url(url: url)
     end
+  end
+
+  private
+
+  def event_chatroom
+    Chatroom.create(name: title, event: self)
   end
 end
