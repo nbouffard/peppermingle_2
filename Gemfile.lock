@@ -175,6 +175,7 @@ GEM
     nokogiri (1.15.2-x86_64-linux)
       racc (~> 1.4)
     orm_adapter (0.5.0)
+    owlcarousel-rails (2.2.3.5)
     pg (1.5.3)
     pg_search (2.3.6)
       activerecord (>= 5.2)
@@ -300,6 +301,7 @@ DEPENDENCIES
   font-awesome-sass (~> 6.1)
   jbuilder
   jsbundling-rails
+  owlcarousel-rails
   pg (~> 1.1)
   pg_search
   puma (~> 5.0)

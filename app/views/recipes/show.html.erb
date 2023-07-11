@@ -19,7 +19,7 @@
             <%= link_to "Edit Recipe", edit_recipe_path(@recipe), class: "button" %>
           </div>
           <div class="delete-button">
-            <%= link_to "Delete Recipe", @recipe, method: :delete, data: { confirm: "Are you sure?" }, class: "button" %>
+            <%= link_to "Delete Recipe", recipe_path(@recipe), data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' }, class: "button" %>
           </div>
         <% else %>
           <div class="signup-button">
@@ -46,6 +46,30 @@
             <div>
               <% @user_recipes.sample(3).each do |recipe| %>
                 <%= render partial: 'shared/card_small', locals: { recipe: recipe, card_class: 'smaller-card' } %>
+              <% end %>
+              <br>
+              <% if current_user != @recipe.user %>
+              <%= link_to "New Review", new_recipe_review_path(recipe_id: @recipe.id), class: 'btn btn-primary' %>
+              <% end %>
+              <br>
+
+              <br>
+              <h2>User Reviews </h2>
+              <br>
+
+              <% if @recipe.reviews.empty? %>
+                <p>No reviews yet!</p>
+              <% end %>
+
+              <% @recipe.reviews.each do |review| %>
+                <div>
+                  <h3><%= review.user.user_name %></h3>
+                  <p><strong>Rating:</strong> <%= review.rating %></p>
+                  <p><strong>Content:</strong> <%= review.content %></p>
+                  <% if review.suggestion.present? %>
+                    <p><strong>Suggestion:</strong> <%= review.suggestion %></p>
+                  <% end %>
+                </div>
               <% end %>
             </div>
         </div>

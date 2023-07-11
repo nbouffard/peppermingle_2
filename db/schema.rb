@@ -119,6 +119,19 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_08_211433) do
     t.index ["user_id"], name: "index_recipes_on_user_id"
   end
 
+  create_table "reviews", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.integer "rating"
+    t.text "content"
+    t.text "suggestion"
+    t.string "reviewable_type", null: false
+    t.bigint "reviewable_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["reviewable_type", "reviewable_id"], name: "index_reviews_on_reviewable"
+    t.index ["user_id"], name: "index_reviews_on_user_id"
+  end
+
   create_table "room_urls", force: :cascade do |t|
     t.string "url"
     t.integer "event_id"
@@ -156,5 +169,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_08_211433) do
   add_foreign_key "ingredient_join_tables", "recipes"
   add_foreign_key "messages", "chatrooms"
   add_foreign_key "messages", "users"
+  add_foreign_key "reviews", "users"
   add_foreign_key "room_urls", "events"
 end
