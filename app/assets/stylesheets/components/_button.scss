@@ -67,6 +67,21 @@
   left: 1.75px;
 }
 
+.cancel-button {
+  width: 90px;
+  height: 20px;
+  font-size: 10px;
+}
+
+.cancel-button::before {
+  transform: translate(-2px, -2px); /* Adjust the translation values as needed */
+}
+
+.cancel-button:hover::before {
+  top: 1.75px;
+  left: 1.75px;
+}
+
 .button-delete {
   display: flex;
   justify-content: center;
@@ -93,9 +108,14 @@
   font-size: 22px;
 }
 
-// .filter-btn {
-//   text-align: center;
-//   padding-bottom: 10px;
-// }
+.filter-btn {
+  width: 100px;
+  height: 35px;
+  font-size: 18px;
+  text-align: center;
+  justify-items: center;
+  padding-top: 6px;
+  margin-top: 10px;
+}
 
 // comment

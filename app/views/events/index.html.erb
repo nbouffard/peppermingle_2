@@ -6,14 +6,26 @@
       <div class="card-grid">
         <% @events.each do |event| %>
           <div class="card-trip">
+          <% if event.photos.attached? %>
             <%= cl_image_tag event.photos.sample.key, height: 200, width: 300, crop: :fill %>
+          <% elsif event.recipe.images.attached? %>
+            <%= cl_image_tag event.recipe.images.sample.key, height: 200, width: 300, crop: :fill %>
+          <% else %>
+            <%= image_tag ('culinary_herbs-background.png') %>
+          <% end %>
             <div class="card-trip-infos">
               <div>
                   <h2 class="mb-1"><%= link_to event.title, event_path(event) %></h2>
                   <p><i class="fa-sharp fa-solid fa-calendar-days" style="color: rgb(231, 178, 175);"></i> <%= event.date.strftime('%d %B %Y') %></p>
                   <p><i class="fa-sharp fa-solid fa-thumbtack" style="color: rgb(231, 178, 175);"></i> Recipe: <%= event.recipe.title%></p>
               </div>
-              <%= link_to "Sign up", "#", class: "button card-button"; %>
+              <button class="button card-button" data-controller="booking" data-action="click->booking#bookEvent" data-event-id="<%= event.id %>" data-is-booked="<%= current_user.booked_event?(event) %>">
+                <% if current_user.booked_event?(event) %>
+                  Attending
+                <% else %>
+                  Sign Up
+                <% end %>
+              </button>
               <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
             </div>
           </div>

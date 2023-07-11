@@ -22,7 +22,7 @@ box-sizing: border-box;
 
 .recipe-page p {
   font-family: 'Lato', sans-serif;
-  color: #567275;
+  color: #061326;
   font-weight: 500;
 }
 
@@ -85,11 +85,10 @@ box-sizing: border-box;
 }
 
 .user-avatar {
-  background-image: url("https://images.unsplash.com/photo-1524250502761-1ac6f2e30d43?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1888&q=80");
   width: 100px;
   height: 100px;
-  background-size: cover;
-  background-position: center;
+  object-position: center;
+  object-fit: cover;
   border-radius: 50%;
   border: 1px solid #F9F5F2;
 }

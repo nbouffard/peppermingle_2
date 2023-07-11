@@ -9,3 +9,11 @@ application.register("chatroom-subscription", ChatroomSubscriptionController)
 
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
+
+
+import RoomUrlController from "./room_url_controller"
+application.register("room-url", RoomUrlController)
+
+import BookingController from "./bookings"
+application.register("booking", BookingController)
+
