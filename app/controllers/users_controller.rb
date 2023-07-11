@@ -17,6 +17,7 @@ class UsersController < ApplicationController
   end
 
   def my_recipes_events_bookings
+    @recipes = policy_scope(Recipe)
     case params[:query]
     when 'recipes'
       @recipes = policy_scope(Recipe)
