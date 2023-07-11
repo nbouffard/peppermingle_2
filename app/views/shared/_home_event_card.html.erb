@@ -1,0 +1,43 @@
+<div class="home-event-card">
+  <% if event.present? %>
+    <div class="event-info">
+      <div class="event-img">
+        <% if event.photos.present? && event.photos.sample.present? %>
+          <%= cl_image_tag(event.photos.sample.key, class: "event-img") %>
+        <% else %>
+          <%= cl_image_tag("https://images.unsplash.com/photo-1506368249639-73a05d6f6488?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1887&q=80", alt: "default image", class: "event-img") %>
+        <% end %>
+      </div>
+      <div class="event-details">
+        <%= link_to event_path(event) do %>
+          <h2><%= event.title %></h2>
+        <% end %>
+        <p><%= event.description %></p>
+        <div class="datetime-container">
+          <p>Date: <%= event.date.strftime('%B %d, %Y') %></p>
+          <p>Time: <%= event.time.to_formatted_s(:time) %></p>
+        </div>
+      </div>
+      <div class="user-info">
+        <div class="user-details">
+          <% if event.user.photo.key.nil? %>
+            <%= image_tag("https://images.unsplash.com/photo-1506368249639-73a05d6f6488?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1887&q=80", alt: "User Avatar", class: "home-avatar") %>
+          <% else %>
+            <%= cl_image_tag(event.user.photo.key, alt: "User Avatar", class: "home-avatar") %>
+          <% end %>
+          <span class="username">
+            <%= link_to event.user.user_name, user_path(event.user) %>
+          </span>
+        </div>
+        <div class="sign-up-button">
+          <%= button_to "Join Event", new_user_registration_path, method: :post, class: "button small-button" %>
+        </div>
+      </div>
+    </div>
+  <% else %>
+    <%= image_tag("https://images.unsplash.com/photo-1506368249639-73a05d6f6488?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1887&q=80", alt: "default image", class: "event-img") %>
+    <div class="home-event-card-infos">
+      <p>No events available.</p>
+    </div>
+  <% end %>
+</div>

@@ -1,4 +1,45 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
-<%= button_to "Sign_out", destroy_user_session_path, :method => 'delete', data:{turbo: "false"} %>
-<%= link_to "sign_up", new_user_registration_path %>
+<div id="homepage" class="home-container">
+  <div class="slogan-container">
+    <div class="slogan">
+      <h1 class="underlined-dotted">Share recipes.</h1>
+      <h1 class="underlined-solid">Cook together.</h1>
+      <h1 class="underlined-wavy">From anywhere in the world.</h1>
+      <div class="button-container">
+        <%= link_to "Sign up now!", new_user_registration_path, class: "button small-button" %>
+      </div>
+    </div>
+  </div>
+  <div class="carousel-container">
+    <%= render 'pages/recipe_carousel' %>
+  </div>
+
+  <div class="bottom-home-container">
+    <div class="events-container">
+      <div class="events-header">
+        <h2>Upcoming Events</h2>
+        <%= link_to events_path, class: "recipes-button" do %>
+          <span>View All Events</span>
+          <i class="fa-solid fa-angles-right"></i>
+        <% end %>
+      </div>
+      <% @events.select { |event| event.date >= Date.today }.take(3).sort_by { |event| event.date }.each do |event| %>
+        <%= render partial: 'shared/home_event_card', locals: { event: event } %>
+      <% end %>
+    </div>
+
+    <div class="recipes-container">
+      <div class="recipes-content">
+        <div class="recipes-header">
+          <h2>The Latest Recipes</h2>
+          <%= link_to recipes_path, class: "recipes-button" do %>
+            <span>View All Recipes</span>
+            <i class="fa-solid fa-angles-right"></i>
+          <% end %>
+        </div>
+        <% @recipes.last(6).each do |recipe| %>
+          <%= render partial: 'shared/card_small', locals: { recipe: recipe, card_class: 'smaller-card' } %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

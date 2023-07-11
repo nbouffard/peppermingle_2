@@ -1,0 +1,34 @@
+<div class="search-outside-container">
+  <div class="search-border-background">
+    <div class="search-content">
+      <% search_input = params[:q] || 'No search input' %>
+      <% search_date = params[:q].to_s.gsub('/', '') || 'No date selected' %>
+      <% parsed_date = Date.parse(search_date) rescue nil %>
+      <% formatted_date = parsed_date.strftime('%B %d, %Y') if parsed_date.present? rescue 'Invalid date' %>
+      <% formatted_date = formatted_date.gsub(/^0/, '') if formatted_date.present? %>
+
+      <% recipes = @results.select { |result| result.is_a?(Recipe) } %>
+      <% events = @results.select { |result| result.is_a?(Event) && result.date == parsed_date } %>
+      <h1><%= recipes.count + events.count %> Result<%= 's' unless recipes.count + events.count == 1 %> for <%= formatted_date.present? ? formatted_date : search_input %></h1>
+
+      <h2>Recipes</h2>
+      <% if recipes.present? %>
+        <% recipes.each do |recipe| %>
+          <%= render partial: 'shared/card_small', locals: { recipe: recipe, card_class: "smaller-card" } %>
+        <% end %>
+      <% else %>
+        <p class="search-result-p">No recipe found.</p>
+      <% end %>
+
+      <h2>Events</h2>
+      <% if events.present? %>
+        <% events.each do |event| %>
+          <%= render partial: 'shared/card_small_event', locals: { event: event, card_class: "smaller-card" } %>
+        <% end %>
+      <% else %>
+        <p class="search-result-p">No event found.</p>
+      <% end %>
+
+    </div>
+  </div>
+</div>
