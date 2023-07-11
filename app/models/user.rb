@@ -7,6 +7,7 @@ class User < ApplicationRecord
   has_many :recipes, dependent: :destroy
   has_many :events, dependent: :destroy
   has_many :bookings, dependent: :destroy
+  has_many :reviews, as: :reviewable
 
   validates :user_name, uniqueness: true
   validate :date_of_birth_greater_than_18_years

@@ -8,7 +8,11 @@ Rails.application.routes.draw do
       get 'room_url', to: 'events#room_url'
     end
   end
-  resources :recipes, only: %i[index new show create edit update destroy]
+
+  resources :recipes, only: %i[index new show create edit update] do
+    resources :reviews, only: %i[new create]
+  end
+
   resources :users, only: %i[show edit update]
 
   resources :events do
