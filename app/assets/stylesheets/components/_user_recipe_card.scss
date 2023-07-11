@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css2?family=Aleo:wght@300;400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700&display=swap');
+
+.user-recipe-card {
+  background: linear-gradient(0deg, rgba(237, 217, 213, 0.852) 0%, rgba(237, 217, 213,0.8520658263305322) 100%), url("culinary_herbs-background");
+  background-repeat: repeat;
+  background-size: 100%;
+  border: 1px solid #C78D81;
+  border-radius: 10px;
+  width: 12rem;
+  height: 16rem;
+  border-radius: 10px;
+  cursor: pointer;
+  position: relative;
+  transition: transform 0.5s ease;
+  margin: 0px 10px 15px 0px;
+}
+
+.user-recipe-card:hover {
+  transform: translate(-2px, -5px);
+  box-shadow: 5px 5px 0px 0px #DD8A86;
+  transition: transform 0.3s ease-out, box-shadow 0.2s ease-out;
+}
+
+.user-recipe-card h2 {
+  font-size: 20px;
+  margin-bottom: 25px;
+  margin-left: -5px;
+  position: absolute;
+  inset: auto auto 30px 20px;
+  margin-bottom: 20px;
+  font-weight: normal;
+  font-family: 'Aleo', serif;
+  word-break: break-word;
+}
+
+.user-recipe-card mark {
+  margin: 0 -0.4em;
+  color: #fff;
+  text-shadow: 0px 2px 5px rgba(0, 0, 0, 0.8);
+  padding: 0px 4px;
+  border-radius: 0.8em 0.3em;
+  background: transparent;
+  background-image: linear-gradient(to right, #a1b9baaf, #7F9394, #b9d2d39e);
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+  margin: 15px 0px 0px 10px;
+}
+
+.fa-plus {
+  margin-right: 5px;
+}
+
+.user-recipes-container, .user-event-container {
+  margin: 0 auto;
+  width: 80%;
+  overflow-x: auto;
+  h2 {
+    font-family: 'Aleo', serif;
+    color: #061326;
+  }
+}
+
+.card-grid {
+  display: flex;
+  padding-left: 5px;
+}

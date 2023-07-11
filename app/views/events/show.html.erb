@@ -2,11 +2,27 @@
   <h1><%= @event.title %></h1>
   <p><strong>Description:</strong> <%= @event.description %></p>
   <p><strong>Date:</strong> <%= @event.date %></p>
-  <p><strong>Time:</strong> <%= @event.time.to_formatted_s(:time) %></p>
+  <% if @event.time.present? %>
+    <p><strong>Time:</strong> <%= @event.time.to_formatted_s(:time) %></p>
+  <% else %>
+    <p><strong>Time:</strong> Not specified</p>
+  <% end %>
   <p><strong>Paid?:</strong> <%= @event.paid? ? 'Yes' : 'No' %></p>
   <p><strong>Created by:</strong> <%= @event.user.user_name %></p>
-  <p> Recipe: <%= @event.recipe.title %></p>
-  <p> Recipe description: <%= @event.recipe.description %></p>
+  <p>Recipe: <%= @event.recipe.title %></p>
+
+  <p><strong>Created by:</strong> <%= @event.user.user_name %></p>
+
+  <%= button_to "Destroy Event", @event, method: :delete, data: { confirm: 'Are you sure you want to delete this event?' }, class: "btn btn-danger" if policy(@event).destroy? %>
+
+  <% if @event.room_url.present? %>
+    <%= link_to "Join Room", room_url_event_path(@event), data: { controller: "room-url", action: "click->room-url#openPopUpWindow" }, class: "btn btn-primary" %>
+    <% if policy(@event).destroy_room_url? %>
+      <%= button_to "Delete Room", destroy_room_url_event_path(@event), method: :delete, data: { confirm: 'Are you sure you want to delete the room URL?' }, class: "btn btn-danger" %>
+    <% end %>
+  <% elsif policy(@event).trigger_api? %>
+    <%= button_to "Create Room", trigger_api_event_path(@event), method: :post, remote: true, class: "btn btn-primary" %>
+  <% end %>
 
   <p><strong>Created by:</strong> <%= @event.user.user_name %></p>
   <%= button_to "Destroy", @event, method: :delete if policy(@event).destroy? %>
