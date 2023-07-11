@@ -7,5 +7,6 @@ import "bootstrap"
 import "./resize_recipe_card"
 import './add_ingredient'
 import './edit_ingredient'
+import './carousel'
 import flatpickr  from "flatpickr";
 import "flatpickr/dist/flatpickr.min.css";
