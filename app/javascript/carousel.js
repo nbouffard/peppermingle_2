@@ -1,21 +1,15 @@
 import 'owl.carousel';
+import $ from 'jquery';
 
-document.addEventListener('DOMContentLoaded', () => {
-  const recipeCarousel = $('#recipeCarousel');
-
-  if (recipeCarousel.length > 0) {
-    recipeCarousel.owlCarousel({
+$(function() {
+    // Initialize Owl Carousel
+    $('#recipeCarousel').owlCarousel({
       items: 1,
       loop: true,
       autoplay: true,
-      autoplayTimeout: 4000,
+      autoplayTimeout: 6000,
       autoplayHoverPause: true,
       animateOut: 'fadeOut',
-      nav: true,
-      navText: [
-        '<span class="carousel-control-prev-icon"></span>',
-        '<span class="carousel-control-next-icon"></span>'
-      ]
+      nav: false,
     });
-  }
 });
