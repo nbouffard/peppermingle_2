@@ -5,6 +5,14 @@ class EventsController < ApplicationController
 
   def index
     @events = policy_scope(Event)
+
+    if params[:q].present?
+      @events = @events.search(params[:q])
+    end
+
+    if params[:date].present?
+      @events = @events.filter_by_date(params[:date])
+    end
   end
 
   def edit
