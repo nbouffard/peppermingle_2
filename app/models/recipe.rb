@@ -21,4 +21,10 @@ class Recipe < ApplicationRecord
                   using: {
                     tsearch: { prefix: true }
                   }
+  pg_search_scope :search,
+                  against: [:title, :cuisine, :difficulty, :meal_type, :season, :dietary_requirements],
+                  using: {
+                    tsearch: { prefix: true },
+                    trigram: { threshold: 0.2 }
+                  }
 end
