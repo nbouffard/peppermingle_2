@@ -41,14 +41,14 @@
   width: 40px;
 }
 
-.card-grid {
+.card-grid2 {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
   row-gap: 10px;
   column-gap: 10px;
 }
 
 @media (max-width: 768px) {
-  .card-grid {grid-template-columns: 1fr;}
+  .card-grid2 {grid-template-columns: 1fr;}
 
 }
