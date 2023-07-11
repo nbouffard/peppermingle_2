@@ -37,6 +37,8 @@ class UsersController < ApplicationController
         format.text { render partial: 'bookings/booking_content', locals: { bookings: @bookings }, formats: [:html] }
       end
     end
+
+
     # if params[:query] == 'recipes'
     #   @recipes = policy_scope(Recipe)
 

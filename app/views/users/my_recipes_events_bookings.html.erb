@@ -2,12 +2,15 @@
   <div class="user-border-background">
     <div class="stimulus-tabs" data-controller="change-tabs">
       <div class="tab">
-        <%= link_to 'Recipes', my_recipes_events_bookings_user_path(query: 'recipes'), class: 'tablinks', data: { action: "click->change-tabs#active", change_tabs_target: "url" } %>
-        <%= link_to 'Events', my_recipes_events_bookings_user_path(query: 'events'), class: 'tablinks', data: { action: "click->change-tabs#active", change_tabs_target: "url" }  %>
-        <%= link_to 'Bookings', my_recipes_events_bookings_user_path(query: 'bookings'), class: 'tablinks', data: { action: "click->change-tabs#active", change_tabs_target: "url" }  %>
+        <%= link_to 'My Recipes', my_recipes_events_bookings_user_path(query: 'recipes'), class: 'tablinks active', data: { action: "click->change-tabs#active", change_tabs_target: "url" } %>
+        <%= link_to 'My Events', my_recipes_events_bookings_user_path(query: 'events'), class: 'tablinks', data: { action: "click->change-tabs#active", change_tabs_target: "url" }  %>
+        <%= link_to 'My Bookings', my_recipes_events_bookings_user_path(query: 'bookings'), class: 'tablinks', data: { action: "click->change-tabs#active", change_tabs_target: "url" }  %>
+        <%= link_to 'My Chatrooms', my_recipes_events_bookings_user_path(query: 'bookings'), class: 'tablinks' %>
       </div>
 
-      <div class="display-content" data-change-tabs-target="content">
+      <div class="display-content-hub" data-change-tabs-target="content">
+        <%#= render 'recipes/content', locals: { recipes: @recipes} %>
+      <h1>test</h1>
       </div>
 
     </div>

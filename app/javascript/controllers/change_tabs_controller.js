@@ -8,12 +8,18 @@ export default class extends Controller {
 
   active(event){
     event.preventDefault();
+    // console.log(event);
     const url = event.currentTarget.getAttribute('href')
+    // console.log(url)
     fetch(url, { headers: { 'Accept' : 'text/plain' } })
     .then(response => response.text())
     .then((data) => {
+      console.log(this.urlTargets);
       this.contentTarget.innerHTML = data;
-      // this.currentTarget.classList.add('active-tab')
+      const oldActiveTab = this.urlTargets.find(element => element.classList.contains('active'));
+      const newActiveTab = event.target;
+      oldActiveTab.classList.remove('active');
+      newActiveTab.classList.add('active');
     })
   }
 }
