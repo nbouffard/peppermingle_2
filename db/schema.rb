@@ -10,8 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_07_03_163545) do
+ActiveRecord::Schema[7.0].define(version: 2023_07_08_211433) do
   # These are extensions that must be enabled in order to support this database
+  enable_extension "pg_trgm"
   enable_extension "plpgsql"
 
   create_table "active_storage_attachments", force: :cascade do |t|
@@ -51,6 +52,14 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_03_163545) do
     t.index ["user_id"], name: "index_bookings_on_user_id"
   end
 
+  create_table "chatrooms", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "event_id", null: false
+    t.index ["event_id"], name: "index_chatrooms_on_event_id"
+  end
+
   create_table "events", force: :cascade do |t|
     t.string "title"
     t.text "description"
@@ -81,6 +90,17 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_03_163545) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "messages", force: :cascade do |t|
+    t.string "title"
+    t.text "content"
+    t.bigint "user_id", null: false
+    t.bigint "chatroom_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["chatroom_id"], name: "index_messages_on_chatroom_id"
+    t.index ["user_id"], name: "index_messages_on_user_id"
+  end
+
   create_table "recipes", force: :cascade do |t|
     t.string "title"
     t.text "description"
@@ -97,6 +117,13 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_03_163545) do
     t.datetime "updated_at", null: false
     t.bigint "user_id"
     t.index ["user_id"], name: "index_recipes_on_user_id"
+  end
+
+  create_table "room_urls", force: :cascade do |t|
+    t.string "url"
+    t.integer "event_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -122,8 +149,12 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_03_163545) do
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "bookings", "events"
   add_foreign_key "bookings", "users"
+  add_foreign_key "chatrooms", "events"
   add_foreign_key "events", "recipes"
   add_foreign_key "events", "users"
   add_foreign_key "ingredient_join_tables", "ingredients"
   add_foreign_key "ingredient_join_tables", "recipes"
+  add_foreign_key "messages", "chatrooms"
+  add_foreign_key "messages", "users"
+  add_foreign_key "room_urls", "events"
 end
