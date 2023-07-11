@@ -1,48 +1,38 @@
 @import url('https://fonts.googleapis.com/css2?family=Aleo:wght@300;400;700&display=swap');
 
+.tablinks {
+  font-family: 'Aleo', sans-serif;
+  font-size: 25px;
+  color: #567275;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.active {
+  text-decoration: underline;
+  color: #C78D81;
+}
+
+.stimulus-tabs {
+  margin: 0 auto;
+  width: 75%;
+}
+
+.hub-page-container {
+  height: 100%;
+}
 .tab {
   display: flex;
   justify-content: space-between;
 }
 
-// .tab button {
-//   background-color: none;
-//   border: none;
-//   outline: none;
-//   cursor: pointer;
-// }
-
-// .tab button.active {
-//   background-color:  #f9d3d1;
-// }
-// .tab button:hover {
-//   text-decoration: underline;
-//   background-color:  #E7B2AF;
-// }
-
-// .tablinks {
-//   // background-color: #F9F5F2;
-// }
-
-// .tabcontent {
-//   display: none;
-// }
 
 .display-content-hub{
-  // background-color: yellow;
-  // display: flex;
-  // flex-wrap: wrap;
-  // height: 300px;
   margin-top: 20px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   column-gap: 10px;
   row-gap: 10px;
   overflow: auto;
-  // scrollbar-color: green;
 }
-
-// .user-hub-grid{
-//   display: grid;
-//   grid-template-columns: 1fr 1fr 1fr 1fr;
-// }
