@@ -52,7 +52,7 @@
               <%= cl_image_tag(current_user.photo.key, class: 'navbar-avatar') %>
             <% end %>
           </button>
-          <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown" style="background: #F9F5F2; width: 150px; padding: 5px; border: 1px solid #567275;">
+          <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown" style="background: #F9F5F2; width: 150px; padding: 5px; border: 1px solid #567275; right: auto; top: 60px;">
             <%= link_to "My Profile", user_path(current_user), class: "dropdown-item" %>
             <%= link_to "My Hub", my_recipes_events_bookings_user_path(current_user), class: "dropdown-item" %>
             <%#= link_to "My Events", events_path(current_user), class: "dropdown-item" %>
