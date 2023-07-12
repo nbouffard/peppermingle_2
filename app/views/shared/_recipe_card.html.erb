@@ -1,4 +1,4 @@
-<div class="recipe-card-container">
+<div id="recipecard" class="recipe-card-container">
   <div class="recipe-card-img">
     <% if @recipe.images.present? && @recipe.images.sample.present? %>
       <%= render partial: 'shared/image_carousel' %>
@@ -11,15 +11,6 @@
   </div>
   <div class="recipe-card-content">
     <div class="recipe-top-container">
-      <div class="stars-container">
-        <div class="recipe-reviews">
-          <i class="fa-solid fa-star" style="color: #F1B150;"></i>
-          <i class="fa-solid fa-star" style="color: #F1B150;"></i>
-          <i class="fa-solid fa-star" style="color: #F1B150;"></i>
-          <i class="fa-solid fa-star" style="color: #F1B150;"></i>
-          <i class="fa-solid fa-star" style="color: #F1B150;"></i>
-        </div>
-      </div>
       <div class="recipe-icons">
         <p><i class="fas fa-utensils" style="color: #567275;"></i>Servings: <%= @recipe.servings %></p>
         <p><i class="fa-regular fa-clock" style="color: #567275;"></i>Prep Time: <%= @recipe.prep_time %> min</p>
@@ -47,11 +38,28 @@
     </div>
   </div>
   <div class="recipe-notes">
-      <div class="notes-container">
-        <h4>Notes</h4>
-          <ol>
-            <li></li>
-          </ol>
+      <div id="notescontainer" class="notes-container">
+        <div class="review-top d-flex flex-row align-items-center justify-content-between">
+          <h4>User Reviews</h4>
+            <% if current_user != @recipe.user %>
+              <%= link_to "+ Review", new_recipe_review_path(recipe_id: @recipe.id), class: 'button add-recipe-btn' %>
+            <% end %>
+        </div>
+
+        <% if @recipe.reviews.empty? %>
+          <p>No reviews yet!</p>
+        <% end %>
+
+        <% @recipe.reviews.each do |review| %>
+          <div>
+            <p style="font-size:25px; font-weight:bold"><%= review.user.user_name %></p>
+            <p><strong>Rating:</strong> <%= review.rating %></p>
+            <p><strong>Content:</strong> <%= review.content %></p>
+            <% if review.suggestion.present? %>
+              <p style="margin-bottom:30px"><strong>Suggestion:</strong> <%= review.suggestion %></p>
+            <% end %>
+          </div>
+        <% end %>
       </div>
   </div>
 </div>

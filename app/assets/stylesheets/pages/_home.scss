@@ -258,3 +258,44 @@
   text-decoration: underline dotted #CA4E36;
   text-decoration-skip-ink: none;
 }
+
+
+
+// Back to Top Button
+
+#back-to-top-btn {
+  text-align: center;
+  position: fixed;
+  font-size: 22px;
+  bottom: 20px;
+  right: 20px;
+  z-index: 9999;
+  background-color: #C78D81;
+  color: #fff;
+  padding: 10px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  text-decoration: none;
+  animation: fadeIn 0.5s;
+  opacity: 0;
+  transition: background-color 0.3s ease;
+}
+
+#back-to-top-btn:hover {
+  background-color: #dfbcba;
+}
+
+#back-to-top-btn.show {
+  display: block;
+  opacity: 1;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
