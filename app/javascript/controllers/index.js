@@ -4,16 +4,14 @@
 
 import { application } from "./application"
 
+import ChangeTabsController from "./change_tabs_controller"
+application.register("change-tabs", ChangeTabsController)
+
 import ChatroomSubscriptionController from "./chatroom_subscription_controller"
 application.register("chatroom-subscription", ChatroomSubscriptionController)
 
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
 
-
 import RoomUrlController from "./room_url_controller"
 application.register("room-url", RoomUrlController)
-
-import BookingController from "./bookings"
-application.register("booking", BookingController)
-

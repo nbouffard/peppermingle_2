@@ -1,0 +1,13 @@
+<a href="recipes/new">
+  <div class="small-card smaller-card">
+      <%= image_tag("https://images.unsplash.com/photo-1518779578993-ec3579fee39f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWgelHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1935&q=80", alt: "Recipe Photo", class: "card-img-background") %>
+    <div class="small-card-content">
+      <h2><mark><i class="fa-solid fa-plus" style="color: #fff;"></i> Add New Recipe</mark></h2>
+    </div>
+  </div>
+</a>
+<% recipes.each do |recipe| %>
+  <% if recipe.user == current_user %>
+    <%= render partial: 'shared/card_small', locals: { recipe: recipe, card_class: 'smaller-card' } %>
+  <% end %>
+<% end %>
