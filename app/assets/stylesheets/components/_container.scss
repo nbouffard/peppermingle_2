@@ -123,7 +123,6 @@ body {
   width: 100%;
   display: flex;
   // justify-content: space-between;
-  // overflow: scroll;
 }
 
 .flex-form-container {
@@ -148,6 +147,25 @@ body {
   margin: 0 auto;
   padding: 10px;
 }
+
+.recipe-card-index-container::-webkit-scrollbar {
+  width: 10px;
+}
+
+.recipe-card-index-container::-webkit-scrollbar-track {
+  background-color: #E4DED2;
+  border-radius: 5px;
+}
+
+.recipe-card-index-container::-webkit-scrollbar-thumb {
+  background-color: #567275;
+  border-radius: 5px;
+}
+
+.recipe-card-index-container::-webkit-scrollbar-thumb:hover {
+  background-color: #567275;
+}
+
 
 .outter-recipe-flex-container{
   display: flex;

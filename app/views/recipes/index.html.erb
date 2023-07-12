@@ -61,3 +61,20 @@
     </div>
   </div>
 </div>
+
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const container = document.querySelector('.recipe-card-index-container');
+
+  container.addEventListener('mouseenter', () => {
+    container.style.overflowY = 'scroll';
+    container.style.scrollbarWidth = 'auto';
+  });
+
+  container.addEventListener('mouseleave', () => {
+    container.style.overflowY = 'hidden';
+    container.style.scrollbarWidth = 'thin';
+  });
+});
+</script>
