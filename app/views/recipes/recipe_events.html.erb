@@ -1,0 +1,11 @@
+<h1>Events for Recipe: <%= @recipe.title %></h1>
+<% if @events.empty? || @events.all? { |event| event.date < Date.today } %>
+  <p>There are currently no events for this recipe</p>
+  <p>Want to create one? <%= link_to 'click here', new_event_path %></p>
+<% else %>
+  <% @events.each do |event| %>
+    <% if event.date >= Date.today %>
+      <%= render partial: 'shared/home_event_card', locals: { event: event, card_class: 'small-card'} %>
+    <% end %>
+  <% end %>
+<% end %>

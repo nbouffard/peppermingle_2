@@ -1,6 +1,6 @@
 class RecipesController < ApplicationController
   skip_before_action :authenticate_user!, only: :index
-  before_action :set_recipe, only: %i[edit update destroy]
+  before_action :set_recipe, only: %i[edit update destroy recipe_events]
 
   def index
     if params[:query].present?
@@ -33,6 +33,11 @@ class RecipesController < ApplicationController
       puts @recipe.errors.full_messages
       render :new
     end
+  end
+
+  def recipe_events
+    authorize @recipe
+    @events = Event.where(recipe: @recipe)
   end
 
   def edit

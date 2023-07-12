@@ -15,7 +15,9 @@
         <p><%= event.description %></p>
         <div class="datetime-container">
           <p>Date: <%= event.date.strftime('%B %d, %Y') %></p>
+          <% if event.time %>
           <p>Time: <%= event.time.to_formatted_s(:time) %></p>
+          <% end %>
         </div>
       </div>
       <div class="user-info">

@@ -23,7 +23,8 @@
           </div>
         <% else %>
           <div class="signup-button">
-            <button class="button">Sign Up for Event</button>
+            <%= link_to 'See events for recipe', recipe_events_recipe_path(@recipe), class: 'button' %>
+            <%# <button class="button">See events for recipe</button> %>
           </div>
         <% end %>
 
