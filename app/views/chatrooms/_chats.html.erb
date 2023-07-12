@@ -1,0 +1,14 @@
+<% chatrooms.each do |chatroom| %>
+  <%= link_to chatroom_path(chatroom), class: "small-card-link"  do %>
+    <div class="small-card smaller-card">
+      <% if chatroom.event.photos.attached? %>
+        <%= cl_image_tag chatroom.event.photos.first.key, class: "card-img-background" %>
+      <% else %>
+        <%= image_tag("https://images.unsplash.com/photo-1518779578993-ec3579fee39f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWgelHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1935&q=80", alt: "Event Photo", class: "card-img-background") %>
+      <% end %>
+      <div class="small-card-content">
+        <h2><mark><%= chatroom.name %></mark></h2>
+      </div>
+    </div>
+  <% end %>
+<% end %>

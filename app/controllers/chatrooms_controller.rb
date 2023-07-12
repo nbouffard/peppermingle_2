@@ -4,4 +4,8 @@ class ChatroomsController < ApplicationController
     @message = Message.new
     authorize @chatroom
   end
+
+  def index
+    @chatrooms = policy_scope(Chatroom)
+  end
 end
