@@ -4,7 +4,7 @@
     </div>
     <div class="col-lg-10">
       <div class="card-grid">
-        <% @events.each do |event| %>
+        <% @events.select { |event| event.date >= Date.today }.sort_by { |event| event.date }.each do |event| %>
           <div class="card-trip">
           <% if event.photos.attached? %>
             <%= cl_image_tag event.photos.sample.key, height: 200, width: 300, crop: :fill %>
