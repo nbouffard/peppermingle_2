@@ -20,6 +20,12 @@ class ReviewsController < ApplicationController
     end
   end
 
+  def show
+    @recipe = Recipe.find(params[:id])
+    puts @recipe.reviews.inspect # Add this line
+    @average_rating = @recipe.reviews.average(:rating)&.round
+  end
+
   private
 
   def review_params

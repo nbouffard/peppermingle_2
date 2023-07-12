@@ -6,9 +6,30 @@
           <%= link_to "Back", :back, class: "button small-button" %>
         </div>
         <h1><%= @recipe.title %></h1>
+
+      <div class="recipe-reviews">
+        <% if @recipe.reviews.present? %>
+          <% average_rating = @recipe.reviews.average(:rating) %>
+          <% if average_rating.present? && average_rating > 0 %>
+            <% average_rating_rounded = average_rating.round %>
+            <% average_rating_rounded.times do %>
+              <i class="fas fa-star" style="color: #F1B150;"></i>
+            <% end %>
+            <% if average_rating - average_rating_rounded >= 0.5 %>
+              <i class="fas fa-star-half-alt" style="color: #F1B150;"></i>
+            <% end %>
+          <% else %>
+            <p>No reviews yet.</p>
+          <% end %>
+        <% else %>
+          <p>No reviews yet.</p>
+        <% end %>
+      </div>
+
         <div class="recipe-description">
           <p><%= @recipe.description %></p>
         </div>
+
         <%= render partial: 'shared/recipe_card' %>
       </div>
     </div>

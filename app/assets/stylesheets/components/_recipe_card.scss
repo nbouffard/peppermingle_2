@@ -137,9 +137,8 @@
 
 .recipe-reviews {
   display: flex;
-  justify-content: flex-end;
+  justify-content: flex-start;
   padding: 10px;
-  margin-bottom: 20px;
 }
 
 .stars-container {
@@ -242,4 +241,9 @@
   padding-top: 50px;
   margin-left: 50px;
   -webkit-text-stroke: 0.5px #CA4E36;
+}
+
+#notescontainer p {
+  font-family: "Lato";
+  color: #567275;
 }
