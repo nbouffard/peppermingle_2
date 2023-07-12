@@ -103,6 +103,11 @@ body {
   // background-color: #8EAEAF;
 }
 
+.index-container h3 {
+  font-family: "Aleo";
+  color: #061326;
+}
+
 .filter-container {
   position: sticky;
   // background-color: yellow;
@@ -122,6 +127,8 @@ body {
 }
 
 .flex-form-container {
+  font-family: "Lato";
+  color: #516163;
   display: flex;
   label {
     margin-left: 5px;
@@ -133,13 +140,13 @@ body {
 }
 
 .recipe-card-index-container {
-  overflow-y: scroll;
   display: grid;
   // justify-content: flex-end;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
   row-gap: 20px;
   column-gap: 20px;
   margin: 0 auto;
+  padding: 10px;
 }
 
 .outter-recipe-flex-container{
