@@ -10,3 +10,4 @@ import './edit_ingredient'
 import './carousel'
 import flatpickr  from "flatpickr";
 import "flatpickr/dist/flatpickr.min.css";
+import "./back_to_top"
