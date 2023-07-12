@@ -9,6 +9,9 @@ Rails.application.routes.draw do
     end
   end
   resources :recipes, only: %i[index new show create edit update] do
+    member do
+      get :recipe_events
+    end
     resources :reviews, only: %i[new create]
   end
 
