@@ -33,5 +33,8 @@ Rails.application.routes.draw do
 
   get 'search', to: 'search#index'
 
+  get '/contact', to: 'pages#contact', as: 'contact'
+
   get '/about', to: 'pages#about', as: 'about'
+
 end
