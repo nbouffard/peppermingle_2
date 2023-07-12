@@ -28,4 +28,6 @@ Rails.application.routes.draw do
   end
 
   get 'search', to: 'search#index'
+
+  get '/about', to: 'pages#about', as: 'about'
 end
