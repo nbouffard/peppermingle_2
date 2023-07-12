@@ -1,12 +1,20 @@
-<div class="flex-title-link d-flex justify-content-between">
-  <h1>Events for Recipe: <%= @recipe.title %></h1>
-  <%= link_to '+ New Event', new_event_path  %>
+<div class="user-outside-container">
+  <div class="user-border-background">
+    <div class="recipe-events-container">
+      <div class="flex-title-link d-flex justify-content-between">
+        <h1>Events for Recipe: <%= @recipe.title %></h1>
+        <% unless @events.empty? || @events.all? { |event| event.date < Date.today } %>
+          <%= link_to '+ New Event', new_event_path  %>
+        <% end %>
+      </div>
+      <% if @events.empty? || @events.all? { |event| event.date < Date.today } %>
+        <p>There are currently no events for this recipe</p>
+        <p>Want to create one? <%= link_to 'click here', new_event_path %></p>
+      <% else %>
+        <% @events.select { |event| event.date >= Date.today }.sort_by { |event| event.date }.each do |event| %>
+          <%= render partial: 'shared/home_event_card', locals: { event: event } %>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
 </div>
-<% if @events.empty? || @events.all? { |event| event.date < Date.today } %>
-  <p>There are currently no events for this recipe</p>
-  <p>Want to create one? <%= link_to 'click here', new_event_path %></p>
-<% else %>
-  <% @events.select { |event| event.date >= Date.today }.sort_by { |event| event.date }.each do |event| %>
-    <%= render partial: 'shared/home_event_card', locals: { event: event } %>
-  <% end %>
-<% end %>
