@@ -1,6 +1,4 @@
 .card-trip {
-  width: 300px;
-  margin-top: 40px;
   overflow: hidden;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
@@ -8,7 +6,7 @@
 }
 
 .card-trip > img {
-  height: 300px;
+  height: 200px;
   width: 100%;
   object-fit: cover;
 }

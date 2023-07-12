@@ -17,9 +17,9 @@
               <div class="card-trip-infos">
                 <div>
                     <h2 class="mb-1"><%= link_to event.title, event_path(event) %></h2>
-                    <p><i class="fa-sharp fa-solid fa-calendar-days" style="color: rgb(231, 178, 175);"></i> <%= event.date.strftime('%d %B %Y') %></p>
-                    <p><i class="fa-solid fa-clock" style="color: rgb(231, 178, 175);"></i> <%= event.time.strftime('%H:%M %Z') %></p>
                     <p><i class="fa-sharp fa-solid fa-thumbtack" style="color: rgb(231, 178, 175);"></i> Recipe: <%= event.recipe.title%></p>
+                    <p><i class="fa-sharp fa-solid fa-calendar-days" style="color: rgb(231, 178, 175);"></i> <%= event.date.strftime('%d %B %Y') %></p>
+                    <p><i class="fa-solid fa-clock" style="color: rgb(231, 178, 175);"></i> <%= event.time.strftime('%H:%I %Z') %></p>
                 </div>
                 <button class="button card-button" data-controller="booking" data-action="click->booking#bookEvent" data-event-id="<%= event.id %>" data-is-booked="<%= current_user.booked_event?(event) %>">
                   <% if current_user.booked_event?(event) %>
