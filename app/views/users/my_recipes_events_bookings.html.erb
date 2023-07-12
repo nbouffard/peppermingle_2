@@ -1,0 +1,17 @@
+<div class="user-outside-container hub-page-container">
+  <div class="user-border-background">
+    <div class="stimulus-tabs" data-controller="change-tabs">
+      <div class="tab">
+        <%= link_to 'My Recipes', my_recipes_events_bookings_user_path(query: 'recipes'), class: 'tablinks active', data: { action: "click->change-tabs#active", change_tabs_target: "url" } %>
+        <%= link_to 'My Events', my_recipes_events_bookings_user_path(query: 'events'), class: 'tablinks', data: { action: "click->change-tabs#active", change_tabs_target: "url" }  %>
+        <%= link_to 'My Bookings', my_recipes_events_bookings_user_path(query: 'bookings'), class: 'tablinks', data: { action: "click->change-tabs#active", change_tabs_target: "url" }  %>
+        <%= link_to 'My Chatrooms', my_recipes_events_bookings_user_path(query: 'bookings'), class: 'tablinks' %>
+      </div>
+
+      <div class="display-content-hub" data-change-tabs-target="content">
+        <%= render partial: 'recipes/content', locals: { recipes: @recipes } %>
+      </div>
+
+    </div>
+  </div>
+</div>
