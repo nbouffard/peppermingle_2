@@ -6,11 +6,13 @@
       <div class="card-grid">
         <% @events.each do |event| %>
           <div class="card-trip">
-            <% if event.photos.present? %>
-              <%= cl_image_tag event.photos.first.key, height: 200, width: 300, crop: :fill %>
-            <% else %>
-              <%= cl_image_tag event.recipe.images.sample.key, height: 200, width: 300, crop: :fill %>
-            <% end %>
+          <% if event.photos.attached? %>
+            <%= cl_image_tag event.photos.sample.key, height: 200, width: 300, crop: :fill %>
+          <% elsif event.recipe.images.attached? %>
+            <%= cl_image_tag event.recipe.images.sample.key, height: 200, width: 300, crop: :fill %>
+          <% else %>
+            <%= image_tag ('culinary_herbs-background.png') %>
+          <% end %>
             <div class="card-trip-infos">
               <div>
                   <h2 class="mb-1"><%= link_to event.title, event_path(event) %></h2>

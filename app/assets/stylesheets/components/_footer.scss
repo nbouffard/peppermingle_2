@@ -1,0 +1,32 @@
+.container {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.sticky-footer {
+  position: sticky;
+  margin-top: auto;
+  bottom: 0;
+  width: 100%;
+  z-index: 1;
+  padding-top: 20px !important;
+}
+
+.sticky-footer p {
+  color: #567275 !important;
+}
+
+.sticky-footer a {
+  color: #567275 !important;
+  text-decoration: none;
+}
+
+.sticky-footer a:hover {
+  color: #b5ced1 !important;
+}
+
+
+.sticky-footer img {
+  width: 250px;
+}

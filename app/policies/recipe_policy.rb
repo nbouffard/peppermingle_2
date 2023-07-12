@@ -1,6 +1,5 @@
 class RecipePolicy < ApplicationPolicy
   class Scope < Scope
-
     def resolve
       scope.all
     end
@@ -24,5 +23,9 @@ class RecipePolicy < ApplicationPolicy
 
   def new?
     create?
+  end
+
+  def destroy?
+    user&.id == record.user_id
   end
 end

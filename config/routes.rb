@@ -8,7 +8,11 @@ Rails.application.routes.draw do
       get 'room_url', to: 'events#room_url'
     end
   end
-  resources :recipes, only: %i[index new show create edit update]
+
+  resources :recipes, only: %i[index new show create edit update] do
+    resources :reviews, only: %i[new create]
+  end
+
   resources :users, only: %i[show edit update]
 
   resources :events do
@@ -22,4 +26,6 @@ Rails.application.routes.draw do
   resources :chatrooms, only: :show do
     resources :messages, only: :create
   end
+
+  get 'search', to: 'search#index'
 end

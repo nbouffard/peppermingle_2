@@ -30,12 +30,18 @@
     <div class="nav-extras">
       <div class="search-container">
         <form action="/search" method="get">
-          <input class="search expandright" id="searchright" type="search" name="q" placeholder="Search">
-          <label class="searchbutton" for="searchright">
-            <i class="fa-solid fa-magnifying-glass" style="color: #567275;"></i>
-          </label>
+          <div class="search-input-container">
+            <label class="searchbutton" for="searchright">
+                <i class="fa-solid fa-magnifying-glass" style="color: #567275;"></i>
+            </label>
+            <i class="fa-solid fa-calendar" id="calendar-icon"></i>
+            <input class="datepicker" id="datepicker" type="text" placeholder="Search by Date">
+            <input class="search expandright" id="searchright" type="search" name="q" placeholder="What are you looking for?">
+          </div>
         </form>
       </div>
+
+
       <% if user_signed_in? %>
         <div class="dropdown">
           <button class="navbar-avatar dropdown-toggle" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -45,7 +51,7 @@
               <%= cl_image_tag(current_user.photo.key, class: 'navbar-avatar') %>
             <% end %>
           </button>
-          <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown" style="background: #F9F5F2; width: 150px; padding: 0; border: none;">
+          <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown" style="background: #F9F5F2; width: 150px; padding: 5px; border: 1px solid #567275;">
             <%= link_to "My Profile", user_path(current_user), class: "dropdown-item" %>
             <%= link_to "My Recipes", recipes_path(current_user), class: "dropdown-item" %>
             <%= link_to "My Events", events_path(current_user), class: "dropdown-item" %>
@@ -67,3 +73,72 @@
     </div>
   </div>
 </div>
+
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  const searchForm = document.querySelector('form');
+  const datepickerInput = document.getElementById('datepicker');
+  const calendarIcon = document.getElementById('calendar-icon');
+  let calendarInstance = null;
+
+  calendarInstance = flatpickr(datepickerInput, {
+    enableTime: false,
+    dateFormat: "Y-m-d",
+    onChange: function (selectedDates, dateStr, instance) {
+      const searchInput = document.getElementById('searchright');
+      searchInput.value = dateStr;
+      searchForm.submit();
+    },
+  });
+
+  calendarIcon.addEventListener('click', function () {
+    calendarInstance.toggle(); // Toggle the calendar visibility on icon click
+    positionCalendar();
+  });
+
+  window.addEventListener('resize', function () {
+    positionCalendar();
+  });
+
+  function positionCalendar() {
+    const calendarContainer = document.querySelector('.flatpickr-calendar');
+    if (calendarContainer) {
+      const inputRect = datepickerInput.getBoundingClientRect();
+      const iconRect = calendarIcon.getBoundingClientRect();
+      const calendarHeight = calendarContainer.offsetHeight;
+      const calendarWidth = calendarContainer.offsetWidth;
+
+      let top = inputRect.bottom;
+      let left = iconRect.left;
+
+      if (top + calendarHeight > window.innerHeight) {
+        top = inputRect.top - calendarHeight;
+      }
+
+      calendarContainer.style.top = top + 'px';
+
+      if (left + calendarWidth > window.innerWidth) {
+        left = window.innerWidth - calendarWidth;
+      }
+
+      const gap = 15;
+      const availableWidth = window.innerWidth - left;
+      const maxCalendarWidth = availableWidth - gap;
+
+      if (calendarWidth > maxCalendarWidth) {
+        left = left - (calendarWidth - maxCalendarWidth);
+      }
+
+      calendarContainer.style.left = left + 'px';
+    }
+  }
+
+  document.querySelector('#searchright').addEventListener('keypress', function (e) {
+    if (e.key === 'Enter') {
+      e.preventDefault();
+      this.form.submit();
+    }
+  });
+});
+</script>

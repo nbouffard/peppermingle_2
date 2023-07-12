@@ -1,0 +1,46 @@
+/* Google Fonts */
+
+@import url('https://fonts.googleapis.com/css2?family=Aleo:wght@300;400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Petit+Formal+Script&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
+
+
+.search-outside-container {
+  display: flex;
+  justify-content: center;
+}
+
+.search-border-background {
+  width: 70%;
+  margin: 25px;
+  border: 1px solid #F1B150;
+  border-radius: 10px;
+  background: linear-gradient(0deg, rgba(249,245,242,0.95) 0%, rgba(249,245,242,0.95) 100%), url("culinary_herbs-background");
+  background-repeat: repeat;
+  background-size: 30%;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+
+.search-content {
+  padding: 20px 40px 20px 40px;
+}
+
+.search-content h1 {
+  font-family: 'Aleo', serif;
+  color: #567275;
+  margin-bottom: 20px;
+}
+
+.search-content h2 {
+  font-family: 'Lato', serif;
+  color: #567275;
+}
+
+.search-result-p {
+  font-family: 'Lato', serif;
+  color: #37484a;
+  margin-left: 3px;
+}
