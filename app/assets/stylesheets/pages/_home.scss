@@ -258,3 +258,36 @@
   text-decoration: underline dotted #CA4E36;
   text-decoration-skip-ink: none;
 }
+
+
+
+// Back to Top Button
+
+#back-to-top-btn {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 9999;
+  background: none;
+  color: #567275;
+  padding: 10px;
+  border-radius: 5px;
+  text-decoration: none;
+  animation: fadeIn 0.5s;
+  opacity: 0;
+}
+
+#back-to-top-btn.show {
+  display: block;
+  opacity: 1;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

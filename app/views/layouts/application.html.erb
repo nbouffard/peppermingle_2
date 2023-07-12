@@ -20,6 +20,10 @@
 
       <%= yield %>
 
+    <%= link_to '#', id: 'back-to-top-btn' do %>
+      <i class="fas fa-angle-double-up"></i>
+    <% end %>
+
     <%= render "shared/footer" %>
   </body>
 </html>
