@@ -7,7 +7,7 @@
   <p>You currently have no upcoming events</p>
 <% else %>
   <% events.each do |event| %>
-    <% if event.user == current_user %>
+    <% if event.user == current_user && event.date >= Date.today %>
     <%= link_to event_path(event), class: "small-card-link"  do %>
   <div class="small-card smaller-card<%#= card_class %> event-card">
    <% if event.photos.nil? %>
