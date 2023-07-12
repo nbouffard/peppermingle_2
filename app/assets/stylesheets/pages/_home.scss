@@ -264,9 +264,7 @@
 // Back to Top Button
 
 #back-to-top-btn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  text-align: center;
   position: fixed;
   font-size: 22px;
   bottom: 20px;
@@ -274,7 +272,7 @@
   z-index: 9999;
   background-color: #C78D81;
   color: #fff;
-  padding: 10px 10px 10px 15px;
+  padding: 10px;
   width: 50px;
   height: 50px;
   border-radius: 50%;
