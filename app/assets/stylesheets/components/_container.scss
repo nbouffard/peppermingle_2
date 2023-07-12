@@ -164,7 +164,7 @@ body {
   display: flex;
   justify-content: center;
   height: 700px;
-  width: 100%;
+  width: 90%;
   .event-show-img {
     height: 100%;
     width: 100%;
@@ -174,8 +174,9 @@ body {
 }
 
 .event-show-details-container {
+  position: relative;
   padding: 15px;
-  width: 60%;
+  width: 95%;
   background-color: #f1d5d3;
   border-bottom-right-radius: 20px;
   border-top-right-radius: 20px;

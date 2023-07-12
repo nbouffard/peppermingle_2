@@ -3,19 +3,13 @@ class Event < ApplicationRecord
   belongs_to :recipe
   has_many :bookings, dependent: :destroy
   has_many_attached :photos
-  has_one :room_url
+  has_one :room_url, dependent: :destroy
   has_many :users, through: :bookings
-  has_one :chatroom
+  has_one :chatroom, dependent: :destroy
   after_save :event_chatroom
 
   def self.filter_by_date(date)
     where(date: date)
-  end
-
-  private
-
-  def event_chatroom
-    Chatroom.create(name: title, event: self)
   end
 
   def create_or_update_room_url(url)
@@ -25,6 +19,13 @@ class Event < ApplicationRecord
       create_room_url(url: url)
     end
   end
+
+  private
+
+  def event_chatroom
+    Chatroom.create(name: title, event: self)
+  end
+
 
   include PgSearch::Model
   pg_search_scope :search, against: [:title, :description, :date],
