@@ -1,0 +1,30 @@
+#search-results li {
+  margin-top: 20px;
+  list-style: none;
+}
+
+#search-results li:hover {
+  cursor: pointer;
+  color: #DD8A86;
+  transition-duration: 0.3s;
+}
+
+.results-background {
+  position: relative;
+  width: 60%;
+  height: 70px;
+  border-radius: 10px;
+  object-fit: cover;
+  object-position: center;
+}
+
+.title-overlay {
+  position: absolute;
+  color: #fff;
+  top: 60%;
+  left: 35%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  padding: 10px;
+  z-index: 1;
+}

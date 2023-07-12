@@ -1,4 +1,6 @@
 class Event < ApplicationRecord
+  attr_accessor :recipe_title
+
   belongs_to :user
   belongs_to :recipe
   has_many :bookings, dependent: :destroy

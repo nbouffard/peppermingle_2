@@ -13,7 +13,11 @@ Rails.application.routes.draw do
       get :recipe_events
     end
     resources :reviews, only: %i[new create]
+    collection do
+      get :search_ajax
+    end
   end
+
 
   resources :users, only: %i[show edit update] do
     member do
@@ -24,6 +28,8 @@ Rails.application.routes.draw do
 
   resources :events do
     resources :bookings, only: %i[new create]
+    post 'search', to: 'events#search', on: :collection
+    get 'search_ajax', on: :collection
   end
 
   get 'my_bookings', to: 'bookings#my_bookings', as: 'my_bookings'

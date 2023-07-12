@@ -11,3 +11,4 @@ import './carousel'
 import flatpickr  from "flatpickr";
 import "flatpickr/dist/flatpickr.min.css";
 import "./back_to_top"
+import "./controllers/recipe_search_controller"

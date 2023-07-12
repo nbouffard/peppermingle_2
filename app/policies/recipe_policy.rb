@@ -32,4 +32,8 @@ class RecipePolicy < ApplicationPolicy
   def recipe_events?
     true
   end
+
+  def search_ajax?
+    user.present?
+  end
 end
