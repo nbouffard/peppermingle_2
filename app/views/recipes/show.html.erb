@@ -23,8 +23,9 @@
           </div>
         <% else %>
           <div class="signup-button">
-            <%= link_to 'See events for recipe', recipe_events_recipe_path(@recipe), class: 'button' %>
+            <%= link_to 'Recipe Events', recipe_events_recipe_path(@recipe), class: 'button mb-3' %>
             <%# <button class="button">See events for recipe</button> %>
+            <%= link_to 'Create Event', new_event_path, class: 'button' %>
           </div>
         <% end %>
 
@@ -50,11 +51,11 @@
               <% end %>
               <br>
               <% if current_user != @recipe.user %>
-              <%= link_to "New Review", new_recipe_review_path(recipe_id: @recipe.id), class: 'btn btn-primary' %>
+              <%= link_to "+ Review", new_recipe_review_path(recipe_id: @recipe.id), class: 'button button-small' %>
               <% end %>
-              <br>
+              <%# <br>
 
-              <br>
+              <br> %>
               <h2>User Reviews </h2>
               <br>
 
