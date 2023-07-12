@@ -1,11 +1,12 @@
-<h1>Events for Recipe: <%= @recipe.title %></h1>
+<div class="flex-title-link d-flex justify-content-between">
+  <h1>Events for Recipe: <%= @recipe.title %></h1>
+  <%= link_to '+ Event', new_event_path  %>
+</div>
 <% if @events.empty? || @events.all? { |event| event.date < Date.today } %>
   <p>There are currently no events for this recipe</p>
   <p>Want to create one? <%= link_to 'click here', new_event_path %></p>
 <% else %>
-  <% @events.each do |event| %>
-    <% if event.date >= Date.today %>
-      <%= render partial: 'shared/home_event_card', locals: { event: event, card_class: 'small-card'} %>
-    <% end %>
+  <% @events.select { |event| event.date >= Date.today }.sort_by { |event| event.date }.each do |event| %>
+    <%= render partial: 'shared/home_event_card', locals: { event: event } %>
   <% end %>
 <% end %>
