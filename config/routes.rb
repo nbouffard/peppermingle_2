@@ -8,8 +8,16 @@ Rails.application.routes.draw do
       get 'room_url', to: 'events#room_url'
     end
   end
-  resources :recipes, only: %i[index new show create edit update destroy]
-  resources :users, only: %i[show edit update]
+  resources :recipes, only: %i[index new show create edit update] do
+    resources :reviews, only: %i[new create]
+  end
+
+  resources :users, only: %i[show edit update] do
+    member do
+      get :my_recipes_events_bookings
+      get :my_recipes
+    end
+  end
 
   resources :events do
     resources :bookings, only: %i[new create]
@@ -24,4 +32,9 @@ Rails.application.routes.draw do
   end
 
   get 'search', to: 'search#index'
+
+  get '/contact', to: 'pages#contact', as: 'contact'
+
+  get '/about', to: 'pages#about', as: 'about'
+
 end

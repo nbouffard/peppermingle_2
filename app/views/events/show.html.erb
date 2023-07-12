@@ -24,4 +24,13 @@
     <%= button_to "Create Room", trigger_api_event_path(@event), method: :post, remote: true, class: "btn btn-primary" %>
   <% end %>
 
+  <p><strong>Created by:</strong> <%= @event.user.user_name %></p>
+  <%= button_to "Destroy", @event, method: :delete if policy(@event).destroy? %>
+  <div class="mt-3">
+      <div>
+        <% if policy(@event).edit? %>
+        <%= link_to "✏️", edit_event_path(@event), class: "btn btn-ghost"%>
+        <% end %>
+      </div>
+  </div>
 </div>
