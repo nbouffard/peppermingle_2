@@ -5,7 +5,7 @@
         <% if event.photos.present? && event.photos.sample.present? %>
           <%= cl_image_tag(event.photos.sample.key, class: "event-img") %>
         <% else %>
-          <%= cl_image_tag("default_img_card.jpg", alt: "default image", class: "event-img") %>
+          <%= image_tag("default_img_home_event.jpg", alt: "default image", class: "event-img") %>
         <% end %>
       </div>
       <div class="event-details">
