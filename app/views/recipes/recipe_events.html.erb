@@ -4,7 +4,7 @@
       <div class="flex-title-link d-flex justify-content-between">
         <h1>Events for Recipe: <%= @recipe.title %></h1>
         <% unless @events.empty? || @events.all? { |event| event.date < Date.today } %>
-          <%= link_to '+ New Event', new_event_path  %>
+          <%= link_to '+ New Event', new_event_path, class: 'link-red'  %>
         <% end %>
       </div>
       <% if @events.empty? || @events.all? { |event| event.date < Date.today } %>
