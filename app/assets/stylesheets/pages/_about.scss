@@ -1,5 +1,6 @@
 .about-content {
   padding: 25px 50px;
+  text-align: center;
 }
 
 .about-content h4 {
@@ -9,6 +10,7 @@
 
 .about-content h3 {
   font-family: 'Petit Formal Script', cursive;
+  font-size: 36px;
   text-align: center;
   color: #567275;
   -webkit-text-stroke: 0.5px #567275;
@@ -19,4 +21,15 @@
   font-family: "Lato";
   margin: 30px 50px 0px 50px;
   color: #061326;
+}
+
+.about-content .about-img {
+  display: flex;
+  justify-content: center;
+  align-items: center; /* Add this line */
+  margin-bottom: 20px;
+}
+
+.about-content .about-img img {
+  width: 200px;
 }
