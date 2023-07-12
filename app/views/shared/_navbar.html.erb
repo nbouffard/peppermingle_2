@@ -14,12 +14,13 @@
           <li>
             <a href="#">Categories</a>
             <ul class="menu-dropdown">
-              <li><a href="#">Breakfast</a></li>
-              <li><a href="#">Dessert</a></li>
-              <li><a href="#">Dinner</a></li>
-              <li><a href="#">Lunch</a></li>
-              <li><a href="#">Snacks</a></li>
-              <li><a href="#">Appetizers</a></li>
+              <li><%= link_to "Breakfast", search_path(q: "Breakfast") %></li>
+              <li><%= link_to "Lunch", search_path(q: "Lunch") %></li>
+              <li><%= link_to "Dinner", search_path(q: "Dinner") %></li>
+              <li><%= link_to "Dessert", search_path(q: "Dessert") %></li>
+              <li><%= link_to "Appetizers", search_path(q: "Appetizers") %></li>
+              <li><%= link_to "Snacks", search_path(q: "Snacks") %></li>
+              <li><%= link_to "Drinks", search_path(q: "Drinks") %></li>
             </ul>
           </li>
           <li><a href="#">About</a></li>
