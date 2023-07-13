@@ -2,6 +2,8 @@
   <div class="small-card <%= card_class %> event-card">
    <% if event.photos.nil? %>
     <%= image_tag("default_img_card.jpg", alt: "Recipe Photo", class: "card-img-background") %>
+    <% elsif event.recipe.images %>
+      <%= cl_image_tag event.recipe.images.first.key, class: "card-img-background" %>
     <% else %>
       <%= cl_image_tag event.photos.first.key, class: "card-img-background" %>
     <% end %>
