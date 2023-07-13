@@ -35,6 +35,8 @@ gem "faker"
 
 gem "pundit"
 
+gem "turbolinks"
+
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
 
