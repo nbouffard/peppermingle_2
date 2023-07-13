@@ -19,7 +19,6 @@ export default class extends Controller {
   selectRecipe(e) {
     const selectedRecipeTitle = e.target.textContent;
     const selectedRecipeId = e.target.dataset.recipeId;
-    console.log('Selected Recipe:', selectedRecipeTitle, selectedRecipeId);
     this.recipeIdTarget.value = selectedRecipeId;
 
     if(selectedRecipeTitle) {

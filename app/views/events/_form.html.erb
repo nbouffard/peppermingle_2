@@ -6,11 +6,8 @@
         <h1>Add New Event</h1>
 
         <%= simple_form_for @event do |f| %>
-
-          <%= f.association :recipe, label: "Browse All Recipes:", input_html: { class: "form-input-style" } %>
-
           <div class="form-group" data-controller="recipe-search">
-            <label for="recipe_search">Or Search For a Recipe:</label>
+            <label for="recipe_search">Search For a Recipe:</label>
             <input type="text" id="recipe_search" class="form-input-style" data-target="recipe-search.input" data-action="input->recipe-search#search">
             <div id="search-results" data-recipe-search-target="results"></div>
             <%= f.input :recipe_id, as: :hidden, input_html: {data: { recipe_search_target: "recipeId"}}, class: "results-container" %>
