@@ -121,33 +121,16 @@
 .event-edit-button {
   position: absolute;
   top: 10px;
-  right: 10px;
+  right: 5px;
   opacity: 1;
   transition: opacity 0.3s ease;
 }
 
-.event-edit-button::after {
-  content: "Edit";
-  position: absolute;
-  top: -25px;
-  right: 0;
-  background-color: #f1d5d3;
-  padding: 5px;
-  font-size: 14px;
-  color: #567275;
-  border-radius: 4px;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.3s ease, top 0.3s ease;
-}
-
-.event-edit-button:hover::after {
-  opacity: 1;
-  top: -35px;
-}
-
-.event-edit-button:hover {
-  opacity: 0.8;
+.button-style {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
 }
 
 .event-del-button {
@@ -157,39 +140,6 @@
   cursor: pointer;
   opacity: 1;
   transition: opacity 0.3s ease;
-}
-
-.event-del-button a {
-  display: inline-block;
-  background-color: transparent;
-  border: none;
-  padding: 0;
-  margin: 0;
-  color: #050505;
-  position: relative;
-}
-
-.event-del-button a::after {
-  content: "Delete";
-  position: absolute;
-  top: -25px;
-  right: 0;
-  background-color: #f1d5d3;
-  padding: 5px;
-  font-size: 14px;
-  color: #567275;
-  border-radius: 4px;
-  opacity: 0;
-  transition: opacity 0.3s ease, top 0.3s ease;
-}
-
-.event-del-button a:hover::after {
-  opacity: 1;
-  top: -35px;
-}
-
-.event-del-button:hover {
-  opacity: 0.8;
 }
 
 .room {
