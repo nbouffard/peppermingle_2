@@ -1,12 +1,14 @@
 <div id="homepage" class="home-container">
   <div class="slogan-container">
     <div class="slogan">
-      <h1 class="underlined-dotted">Share recipes.</h1>
-      <h1 class="underlined-solid">Cook together.</h1>
-      <h1 class="underlined-wavy">From anywhere in the world.</h1>
-      <div class="button-container">
-        <%= link_to "Sign up now!", new_user_registration_path, class: "button small-button" %>
-      </div>
+      <h1><mark class="mark-green">Share recipes.</mark></h1>
+      <h1><mark class="mark-yellow">Cook together.</h1>
+      <h1><mark class="mark-red">From anywhere in the world.</h1>
+      <% if !user_signed_in? %>
+        <div class="button-container">
+          <%= link_to "Sign up now!", new_user_registration_path, class: "button small-button" %>
+        </div>
+      <% end %>
     </div>
   </div>
   <div class="carousel-container">
