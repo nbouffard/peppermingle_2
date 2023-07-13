@@ -228,3 +228,18 @@
 .destroy-ingredient-field {
   display: none;
 }
+
+
+.button-container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.button-margin {
+  margin-right: 10px;
+}
+
+.button-container button {
+  margin-right: 10px;
+}

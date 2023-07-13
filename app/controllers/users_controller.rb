@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   skip_before_action :authenticate_user!, only: :show
-  before_action :set_user, only: %i[show edit update]
+  before_action :set_user
 
   def show
   end
@@ -13,6 +13,36 @@ class UsersController < ApplicationController
       redirect_to user_path(@user)
     else
       render :show, status: :unproccessable_entity
+    end
+  end
+
+  def my_recipes_events_bookings
+    @recipes = policy_scope(Recipe)
+    case params[:query]
+    when 'recipes'
+      @recipes = policy_scope(Recipe)
+      respond_to do |format|
+        format.html
+        format.text { render partial: 'recipes/content', locals: { recipes: @recipes }, formats: [:html] }
+      end
+    when 'events'
+      @events = policy_scope(Event)
+      respond_to do |format|
+        format.html
+        format.text { render partial: 'events/event_content', locals: { events: @events }, formats: [:html] }
+      end
+    when 'bookings'
+      @bookings = policy_scope(Booking)
+      respond_to do |format|
+        format.html
+        format.text { render partial: 'bookings/booking_content', locals: { bookings: @bookings }, formats: [:html] }
+      end
+    when 'chatrooms'
+      @chatrooms = Chatroom.all
+      respond_to do |format|
+        format.html
+        format.text { render partial: 'chatrooms/chats', locals: { chatrooms: @chatrooms }, formats: [:html] }
+      end
     end
   end
 

@@ -1,0 +1,30 @@
+<%= link_to  events_path do %>
+  <div class="user-recipe-card">
+    <h2><mark style="white-space: nowrap; margin-left: -5px; "><i class="fa-solid fa-magnifying-glass" style="color: #ffffff; margin-right: 5px;"></i>Browse Events</mark></h2>
+  </div>
+<% end %>
+<% if current_user.bookings.empty? %>
+  <p>You currently have no bookings</p>
+<% else %>
+  <% bookings.each do |booking| %>
+    <% if booking.event.date >= Date.today %>
+      <%= link_to event_path(booking.event), class: "small-card-link"  do %>
+        <div class="small-card smaller-card event-card">
+          <% if booking.event.photos.nil? %>
+           <%= image_tag("https://images.unsplash.com/photo-1518779578993-ec3579fee39f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWgelHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1935&q=80", alt: "Recipe Photo", class: "card-img-background") %>
+          <% else %>
+            <%= cl_image_tag booking.event.photos.first.key, class: "card-img-background" %>
+          <% end %>
+          <div class="small-card-content">
+          <h2><mark><%= booking.event.title %></mark></h2>
+          </div>
+          <div id="event-card-date" class="small-card-info">
+            <% if booking.event.date >= Date.today %>
+              <p><mark><i class="fa-solid fa-calendar-days" style="color: #ffffff;"></i><%= booking.event.date.strftime("%B %d %Y") %></mark></p>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  <% end %>
+<% end %>

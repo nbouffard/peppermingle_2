@@ -1,0 +1,31 @@
+<%= link_to  new_event_path do %>
+  <div class="user-recipe-card">
+    <h2><mark><i class="fa-solid fa-plus" style="color: #ffffff;"></i> New Event</mark></h2>
+  </div>
+<% end %>
+<% if current_user.events.empty? %>
+  <p>You currently have no upcoming events</p>
+<% else %>
+  <% events.each do |event| %>
+    <% if event.user == current_user && event.date >= Date.today %>
+    <%= link_to event_path(event), class: "small-card-link"  do %>
+  <div class="small-card smaller-card<%#= card_class %> event-card">
+   <% if event.photos.nil? %>
+    <%= image_tag("https://images.unsplash.com/photo-1518779578993-ec3579fee39f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWgelHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1935&q=80", alt: "Recipe Photo", class: "card-img-background") %>
+    <% else %>
+      <%= cl_image_tag event.photos.first.key, class: "card-img-background" %>
+    <% end %>
+    <div class="small-card-content">
+      <h2><mark><%= event.title %></mark></h2>
+    </div>
+    <div id="event-card-date" class="small-card-info">
+      <% if event.date >= Date.today %>
+        <p><mark><i class="fa-solid fa-calendar-days" style="color: #ffffff;"></i><%= event.date.strftime("%d/%m/%y") %></mark></p>
+      <% end %>
+    </div>
+  </div>
+<% end %>
+      <%#= render 'shared/card_small_event', locals: { event: event, card_class: 'smaller-card'} %>
+    <% end %>
+  <% end %>
+<% end %>

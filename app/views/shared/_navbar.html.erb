@@ -14,16 +14,17 @@
           <li>
             <a href="#">Categories</a>
             <ul class="menu-dropdown">
-              <li><a href="#">Breakfast</a></li>
-              <li><a href="#">Dessert</a></li>
-              <li><a href="#">Dinner</a></li>
-              <li><a href="#">Lunch</a></li>
-              <li><a href="#">Snacks</a></li>
-              <li><a href="#">Appetizers</a></li>
+              <li><%= link_to "Breakfast", search_path(q: "Breakfast") %></li>
+              <li><%= link_to "Lunch", search_path(q: "Lunch") %></li>
+              <li><%= link_to "Dinner", search_path(q: "Dinner") %></li>
+              <li><%= link_to "Dessert", search_path(q: "Dessert") %></li>
+              <li><%= link_to "Appetizers", search_path(q: "Appetizers") %></li>
+              <li><%= link_to "Snacks", search_path(q: "Snacks") %></li>
+              <li><%= link_to "Drinks", search_path(q: "Drinks") %></li>
             </ul>
           </li>
-          <li><a href="#">About</a></li>
-          <li><a href="#">Contact</a></li>
+          <li><%= link_to "About", about_path %></li>
+          <li><a href="/contact">Contact</a></li>
         </ul>
       </nav>
     </div>
@@ -46,15 +47,15 @@
         <div class="dropdown">
           <button class="navbar-avatar dropdown-toggle" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <% if current_user.photo.key.nil? %>
-              <%= image_tag("https://images.unsplash.com/photo-1506368249639-73a05d6f6488?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1887&q=80", class: 'navbar-avatar') %>
+              <%= image_tag("default_user.jpg", class: 'navbar-avatar') %>
             <% else %>
               <%= cl_image_tag(current_user.photo.key, class: 'navbar-avatar') %>
             <% end %>
           </button>
-          <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown" style="background: #F9F5F2; width: 150px; padding: 5px; border: 1px solid #567275;">
+          <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown" style="background: #F9F5F2; width: 150px; padding: 5px; border: 1px solid #567275; right: auto; top: 60px;">
             <%= link_to "My Profile", user_path(current_user), class: "dropdown-item" %>
-            <%= link_to "My Recipes", recipes_path(current_user), class: "dropdown-item" %>
-            <%= link_to "My Events", events_path(current_user), class: "dropdown-item" %>
+            <%= link_to "My Hub", my_recipes_events_bookings_user_path(current_user), class: "dropdown-item" %>
+            <%#= link_to "My Events", events_path(current_user), class: "dropdown-item" %>
 
             <div class="dropdown-item-divider"></div>
 
