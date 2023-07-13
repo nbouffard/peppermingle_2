@@ -229,6 +229,12 @@ body {
   // filter: grayscale(60%);
 }
 
+// event-index-grid
+.event-index-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
 @media (max-width: 2000px) {
   .recipe-card-index-container {grid-template-columns: 1fr 1fr 1fr 1fr;}
 

@@ -3,7 +3,7 @@
    <% if event.photos.nil? %>
     <%= image_tag("default_img_card.jpg", alt: "Recipe Photo", class: "card-img-background") %>
     <% else %>
-      <%= cl_image_tag event.photos.first.key, class: "card-img-background" %>
+      <%#= cl_image_tag event.photos.first.key, class: "card-img-background" %>
     <% end %>
     <div class="small-card-content">
       <h2><mark><%= event.title %></mark></h2>
