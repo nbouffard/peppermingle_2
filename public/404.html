@@ -9,6 +9,13 @@
   <link href="https://fonts.googleapis.com/css2?family=Aleo:wght@300&family=Lato:wght@300&family=Petit+Formal+Script&display=swap" rel="stylesheet">
 
   <style>
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
     .error-page {
       display: flex;
       justify-content: center;
@@ -34,7 +41,7 @@
     .dialog p {
       font-family: 'Lato', sans-serif;
     }
-    .img-404 {
+    .img-error {
       width: 80%;
     }
     .button {
@@ -43,6 +50,7 @@
       text-decoration: none;
       font-size: 20px;
       font-weight: 600;
+      text-align: center;
     }
     .button:hover {
       color: #e8bcb3;
@@ -57,7 +65,7 @@
       <div>
         <h1>Oh no! There is no food here.</h1>
 
-        <img src="./images/error-404.png" alt="" class="img-404">
+        <img src="./images/error-404.png" alt="" class="img-error">
 
         <p><strong>You may have mistyped the address or the page may have moved.</strong></p>
 
