@@ -1,0 +1,10 @@
+<%= link_to  new_recipe_path do %>
+  <div class="user-recipe-card">
+    <h2><mark><i class="fa-solid fa-plus" style="color: #ffffff;"></i> New Recipe</mark></h2>
+  </div>
+<% end %>
+<% recipes.each do |recipe| %>
+  <% if recipe.user == current_user %>
+    <%= render partial: 'shared/card_small', locals: { recipe: recipe, card_class: 'smaller-card' } %>
+  <% end %>
+<% end %>

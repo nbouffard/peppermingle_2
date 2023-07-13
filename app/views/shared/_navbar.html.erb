@@ -14,41 +14,48 @@
           <li>
             <a href="#">Categories</a>
             <ul class="menu-dropdown">
-              <li><a href="#">Breakfast</a></li>
-              <li><a href="#">Dessert</a></li>
-              <li><a href="#">Dinner</a></li>
-              <li><a href="#">Lunch</a></li>
-              <li><a href="#">Snacks</a></li>
-              <li><a href="#">Appetizers</a></li>
+              <li><%= link_to "Breakfast", search_path(q: "Breakfast") %></li>
+              <li><%= link_to "Lunch", search_path(q: "Lunch") %></li>
+              <li><%= link_to "Dinner", search_path(q: "Dinner") %></li>
+              <li><%= link_to "Dessert", search_path(q: "Dessert") %></li>
+              <li><%= link_to "Appetizers", search_path(q: "Appetizers") %></li>
+              <li><%= link_to "Snacks", search_path(q: "Snacks") %></li>
+              <li><%= link_to "Drinks", search_path(q: "Drinks") %></li>
             </ul>
           </li>
-          <li><a href="#">About</a></li>
-          <li><a href="#">Contact</a></li>
+          <li><%= link_to "About", about_path %></li>
+          <li><a href="/contact">Contact</a></li>
         </ul>
       </nav>
     </div>
     <div class="nav-extras">
       <div class="search-container">
         <form action="/search" method="get">
-          <input class="search expandright" id="searchright" type="search" name="q" placeholder="Search">
-          <label class="searchbutton" for="searchright">
-            <i class="fa-solid fa-magnifying-glass" style="color: #567275;"></i>
-          </label>
+          <div class="search-input-container">
+            <label class="searchbutton" for="searchright">
+                <i class="fa-solid fa-magnifying-glass" style="color: #567275;"></i>
+            </label>
+            <i class="fa-solid fa-calendar" id="calendar-icon"></i>
+            <input class="datepicker" id="datepicker" type="text" placeholder="Search by Date">
+            <input class="search expandright" id="searchright" type="search" name="q" placeholder="What are you looking for?">
+          </div>
         </form>
       </div>
+
+
       <% if user_signed_in? %>
         <div class="dropdown">
           <button class="navbar-avatar dropdown-toggle" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <% if current_user.photo.key.nil? %>
-              <%= image_tag("https://images.unsplash.com/photo-1506368249639-73a05d6f6488?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1887&q=80", class: 'navbar-avatar') %>
+              <%= image_tag("default_user.jpg", class: 'navbar-avatar') %>
             <% else %>
               <%= cl_image_tag(current_user.photo.key, class: 'navbar-avatar') %>
             <% end %>
           </button>
-          <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown" style="background: #F9F5F2; width: 150px; padding: 0; border: none;">
+          <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown" style="background: #F9F5F2; width: 150px; padding: 5px; border: 1px solid #567275; right: auto; top: 60px;">
             <%= link_to "My Profile", user_path(current_user), class: "dropdown-item" %>
-            <%= link_to "My Recipes", recipes_path(current_user), class: "dropdown-item" %>
-            <%= link_to "My Events", events_path(current_user), class: "dropdown-item" %>
+            <%= link_to "My Hub", my_recipes_events_bookings_user_path(current_user), class: "dropdown-item" %>
+            <%#= link_to "My Events", events_path(current_user), class: "dropdown-item" %>
 
             <div class="dropdown-item-divider"></div>
 
@@ -67,3 +74,72 @@
     </div>
   </div>
 </div>
+
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  const searchForm = document.querySelector('form');
+  const datepickerInput = document.getElementById('datepicker');
+  const calendarIcon = document.getElementById('calendar-icon');
+  let calendarInstance = null;
+
+  calendarInstance = flatpickr(datepickerInput, {
+    enableTime: false,
+    dateFormat: "Y-m-d",
+    onChange: function (selectedDates, dateStr, instance) {
+      const searchInput = document.getElementById('searchright');
+      searchInput.value = dateStr;
+      searchForm.submit();
+    },
+  });
+
+  calendarIcon.addEventListener('click', function () {
+    calendarInstance.toggle(); // Toggle the calendar visibility on icon click
+    positionCalendar();
+  });
+
+  window.addEventListener('resize', function () {
+    positionCalendar();
+  });
+
+  function positionCalendar() {
+    const calendarContainer = document.querySelector('.flatpickr-calendar');
+    if (calendarContainer) {
+      const inputRect = datepickerInput.getBoundingClientRect();
+      const iconRect = calendarIcon.getBoundingClientRect();
+      const calendarHeight = calendarContainer.offsetHeight;
+      const calendarWidth = calendarContainer.offsetWidth;
+
+      let top = inputRect.bottom;
+      let left = iconRect.left;
+
+      if (top + calendarHeight > window.innerHeight) {
+        top = inputRect.top - calendarHeight;
+      }
+
+      calendarContainer.style.top = top + 'px';
+
+      if (left + calendarWidth > window.innerWidth) {
+        left = window.innerWidth - calendarWidth;
+      }
+
+      const gap = 15;
+      const availableWidth = window.innerWidth - left;
+      const maxCalendarWidth = availableWidth - gap;
+
+      if (calendarWidth > maxCalendarWidth) {
+        left = left - (calendarWidth - maxCalendarWidth);
+      }
+
+      calendarContainer.style.left = left + 'px';
+    }
+  }
+
+  document.querySelector('#searchright').addEventListener('keypress', function (e) {
+    if (e.key === 'Enter') {
+      e.preventDefault();
+      this.form.submit();
+    }
+  });
+});
+</script>

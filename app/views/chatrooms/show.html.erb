@@ -11,6 +11,6 @@ data-chatroom-subscription-chatroom-id-value="<%= @chatroom.id %>">
       html: {class: "d-flex",
        data: { action: "turbo:submit-end->chatroom-subscription#resetForm"} } do |f|%>
       <%= f.input :content,label: false, placeholder: "Message ##{@chatroom.name}", wrapper_html: {class: "flex-grow-1"}%>
-      <%= f.submit "Send", class: "btn btn-primary mb-3" %>
+      <%= f.submit "Send", class: "button small-button" %>
     <% end %>
 </div>

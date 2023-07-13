@@ -137,9 +137,8 @@
 
 .recipe-reviews {
   display: flex;
-  justify-content: flex-end;
+  justify-content: flex-start;
   padding: 10px;
-  margin-bottom: 20px;
 }
 
 .stars-container {
@@ -184,7 +183,7 @@
   margin: 20px 10px;
 }
 
-h4 {
+#recipecard h4 {
   font-family: 'Aleo', serif;
   color: #567275;
 }
@@ -196,7 +195,7 @@ h4 {
 }
 
 .fa-clock {
-  margin-right: 5px;
+  margin-right: 3px;
 }
 
 .fa-star {
@@ -219,7 +218,7 @@ h4 {
   background-size: 100% 100%;
   background-repeat: no-repeat;
   background-position: center;
-  padding: 20px;
+  padding: 20px 20px 55px 20px;
   border-radius: 5px;
   filter: drop-shadow(2px 2px 0px rgba(202, 78, 54, 0.4));
 }
@@ -233,4 +232,18 @@ h4 {
   padding: 0;
   margin: 0 40px 30px 20px;
   font-weight: 300;
+}
+
+
+#notescontainer h4 {
+  font-family: 'Petit Formal Script', cursive;
+  color: #CA4E36;
+  padding-top: 50px;
+  margin-left: 50px;
+  -webkit-text-stroke: 0.5px #CA4E36;
+}
+
+#notescontainer p {
+  font-family: "Lato";
+  color: #567275;
 }

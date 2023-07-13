@@ -8,6 +8,10 @@
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
   </head>
 
   <body class="d-flex flex-column min-vh-100">
@@ -15,6 +19,10 @@
     <%= render "shared/flashes" %>
 
       <%= yield %>
+
+    <%= link_to '#', id: 'back-to-top-btn' do %>
+      <i class="fas fa-angle-double-up"></i>
+    <% end %>
 
     <%= render "shared/footer" %>
   </body>

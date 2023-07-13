@@ -1,0 +1,29 @@
+<div id="recipeCarousel" class="owl-carousel owl-theme">
+  <% Recipe.order("RANDOM()").limit(5).each_with_index do |recipe, index| %>
+    <div class="item">
+      <%= link_to recipe_path(recipe) do %>
+        <% if recipe.images.attached? %>
+          <%= cl_image_tag(recipe.images.first.key, alt: recipe.title, class: "d-block w-100") %>
+        <% else %>
+          <%= image_tag("default_img_home.jpg", alt: recipe.title, class: "d-block w-100") %>
+        <% end %>
+        <div class="carousel-caption">
+          <div class="caption-content">
+            <h3><mark class="home-mark"><%= recipe.title %></mark></h3>
+            <div class="user-info">
+              <div class="avatar-container">
+                <% if recipe.user.photo&.key.present? %>
+                  <%= cl_image_tag(recipe.user.photo.key, alt: "#{recipe.title} avatar", class: "home-avatar") %>
+                <% else %>
+                  <%= image_tag("default_user.jpg", alt: "Default Avatar", class: "home-avatar") %>
+                <% end %>
+              </div>
+              <span class="by">by</span>
+              <span class="user-name"><%= recipe.user.user_name %></span>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+</div>

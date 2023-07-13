@@ -1,6 +1,6 @@
 class RecipesController < ApplicationController
   skip_before_action :authenticate_user!, only: :index
-  before_action :set_recipe, only: %i[edit update]
+  before_action :set_recipe, only: %i[edit update destroy recipe_events]
 
   def index
     if params[:query].present?
@@ -35,6 +35,11 @@ class RecipesController < ApplicationController
     end
   end
 
+  def recipe_events
+    authorize @recipe
+    @events = Event.where(recipe: @recipe)
+  end
+
   def edit
     authorize @recipe
     @recipe.ingredient_join_tables.build.build_ingredient if @recipe.ingredient_join_tables.empty?
@@ -47,6 +52,12 @@ class RecipesController < ApplicationController
     else
       render :edit
     end
+  end
+
+  def destroy
+    authorize @recipe
+    @recipe.destroy
+    redirect_to recipes_path, notice: 'Recipe was successfully deleted.'
   end
 
   private

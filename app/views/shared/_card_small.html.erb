@@ -3,7 +3,7 @@
     <% if recipe.images.attached? %>
       <%= cl_image_tag recipe.images.first.blob.key, class: "card-img-background" %>
     <% else %>
-      <%= image_tag("https://images.unsplash.com/photo-1518779578993-ec3579fee39f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWgelHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1935&q=80", alt: "Recipe Photo", class: "card-img-background") %>
+      <%= image_tag("default_img_card.jpg", alt: "Recipe Photo", class: "card-img-background") %>
     <% end %>
     <div class="small-card-content">
       <h2><mark><%= recipe.title %></mark></h2>
@@ -13,6 +13,7 @@
       <ul class="small-card-icons">
         <li><p><mark><i class="fa-sharp fa-regular fa-clock" style="color: #075d5e;"></i> <%= recipe.prep_time %> mins</p></mark></li>
         <li><p><mark><i class="fa-regular fa-thumbs-up" style="color: #075d5e;"></i><%= recipe.difficulty %></p></mark></li>
+      </ul>
     </div>
   </div>
 <% end %>

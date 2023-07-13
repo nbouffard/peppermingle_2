@@ -1,14 +1,23 @@
-<div class="container">
-  <div class="row mt-2">
-    <%= simple_form_for @event do |f| %>
-      <%= f.association :recipe %>
-      <%= f.input :title, label: "Name of the event" %>
-      <%= f.input :description %>
-      <%= f.input :date %>
-      <%= f.input :time %>
-      <%= f.input :paid %>
-      <%= f.input :photos, as: :file, input_html: { multiple: true } %>
-      <%= f.button :submit, "Create the event!", class: "btn btn-secondary" %>
-    <% end %>
+<div class="form">
+  <div class="form-container">
+    <div class="container">
+      <div class="row mt-2">
+
+        <h1>Add New Event</h1>
+
+        <%= simple_form_for @event do |f| %>
+          <%= f.association :recipe, input_html: { class: "form-input-style" } %>
+          <%= f.input :title, label: "Name of the Event", input_html: { class: "form-input-style" } %>
+          <%= f.input :description, input_html: { class: "form-input-style" } %>
+          <%= f.input :date, input_html: { class: "form-input-style" } %>
+          <%= f.input :time, input_html: { class: "form-input-style" } %>
+          <%= f.input :paid, input_html: { class: "form-input-style" } %>
+          <p>Add Images:</p>
+          <p class= "recipe-info">(select more than 1 file if you want to upload multiple images)</p>
+          <%= f.input :images, as: :file, label: false, input_html: { multiple: true, class: "form-input-style" } %>
+          <button type="submit" class="button small-button" style="margin-top: 30px;">Create Event</button>
+        <% end %>
+      </div>
+    </div>
   </div>
 </div>
