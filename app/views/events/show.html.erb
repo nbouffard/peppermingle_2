@@ -4,7 +4,7 @@
     <div class="event-show-container">
       <div class="event-show-img-container">
         <% if @event.photos.present? %>
-          <%= cl_image_tag @event.photos.first.key, class: 'event-show-img' %>
+         <%= cl_image_tag @event.photos.first.key, crop: :fill, class: 'event-show-img' %>
         <% else %>
           <%= cl_image_tag @event.recipe.images.first.key, class: 'event-show-img' %>
         <% end %>
@@ -12,7 +12,9 @@
       <div class="event-show-details-container">
         <div class="event-edit-button">
           <% if current_user == @event.user %>
-            <%= link_to "✏️", edit_event_path(@event), class: "btn btn-ghost"%>
+            <%= link_to edit_event_path(@event), class: "btn btn-ghost" do %>
+              <i class="fa fal fa-edit fa-xs" style="color: #4b615a;"></i>
+            <% end %>
           <% end %>
         </div>
         <h2><%= @event.title %></h2>
@@ -27,13 +29,20 @@
         <p><i class="fa-regular fa-user"></i> <%= link_to "#{@event.user.user_name}", user_path(@event.user), class: 'event-page-link' %></p>
         <p><strong>Created by:</strong> <%= @event.user.user_name %></p>
 
-        <% unless current_user == @event.user %>
-          <% if @event.room_url.present? %>
-            <%= link_to 'Join Room', room_url_event_path(@event), data: { controller: "room-url", action: "click->room-url#openPopUpWindow" }, class: "button join-button" %>
-          <% else %>
-            <%= link_to 'Join Event', new_event_booking_path(@event), class: "button join-button" %>
-          <% end %>
-        <% end %>
+            <% unless current_user == @event.user %>
+              <% if current_user.booked_event?(@event) && @event.room_url.present? %>
+                <%= link_to 'Join Room', room_url_event_path(@event), data: { controller: "room-url", action: "click->room-url#openPopUpWindow" }, class: "button join-button" %>
+              <% else %>
+                <% if current_user.booked_event?(@event) %>
+                  <button class="button join-button" data-controller="booking" data-action="click->booking#bookEvent" data-event-id="<%= event.id %>" data-is-booked="<%= current_user.booked_event?(event) %>">
+                    Attending
+                  </button>
+                <% else %>
+                  <%= link_to 'Join Event', new_event_booking_path(@event), class: "button join-button" %>
+                <% end %>
+              <% end %>
+            <% end %>
+
 
         <% if current_user == @event.user %>
           <% if @event.room_url.present? %>
@@ -48,9 +57,11 @@
           <% end %>
         <% end %>
 
-        <div class="event-del-button">
-          <%= link_to "🗑️", @event, method: :delete if policy(@event).destroy? %>
-        </div>
+        <% if current_user == @event.user %>
+          <%= button_to event_path(@event), method: :delete, class: "event-del-button button-style", data: { confirm: 'Are you sure you want to cancel this booking?' } do %>
+            <i class="fa fa-trash fa-2xs" style="color: #4b6163;"></i>
+          <% end %>
+        <% end %>
       </div>
     </div>
   </div>
