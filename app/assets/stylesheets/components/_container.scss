@@ -237,20 +237,31 @@ body {
 
 @media (max-width: 2000px) {
   .recipe-card-index-container {grid-template-columns: 1fr 1fr 1fr 1fr;}
+  .event-index-grid {
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  }
 
 }
 
 @media (max-width: 1800px) {
   .recipe-card-index-container {grid-template-columns: 1fr 1fr 1fr;}
+  .event-index-grid {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
 
 }
 
 @media (max-width: 1200px) {
   .recipe-card-index-container {grid-template-columns: 1fr 1fr;}
+  .event-index-grid {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
 
 }
 
 @media (max-width: 768px) {
   .recipe-card-index-container {grid-template-columns: 1fr;}
-
+  .event-index-grid {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
 }

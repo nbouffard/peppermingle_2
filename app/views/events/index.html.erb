@@ -1,8 +1,8 @@
  <div class="container outter-recipe-flex-container">
   <h1>All Events</h1>
   <div class="event-index-grid">
-  <% @events.select { |event| event.date >= Date.today }.each do |event| %>
-    <%= render partial: 'shared/card_small_event', locals: { event: event, card_class: 'small-card' } %>
-  <% end %>
+    <% @events.select { |event| event.date >= Date.today }.each do |event| %>
+      <%= render partial: 'shared/card_small_event', locals: { event: event, card_class: 'small-card' } %>
+    <% end %>
   </div>
 </div>
