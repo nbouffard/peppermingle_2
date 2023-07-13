@@ -130,11 +130,18 @@
   display: none;
 }
 
+.centered-page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
 .bottom-home-container {
   font-family: 'Aleo';
   font-style: normal;
   padding: 20px;
-  width: 85%;
+  // width: 85%;
   margin: auto;
   margin-top: 30px;
 }
@@ -165,7 +172,6 @@
 
 .recipes-content {
   flex-grow: 1;
-  height: 400px;
 }
 
 // .recipes-header {
@@ -228,8 +234,7 @@
   -webkit-box-decoration-break: clone;
   box-decoration-break: clone;
   margin: 0px;
-  -webkit-text-stroke: none; /* Remove the text stroke */
-  text-stroke: none; /* Remove the text stroke */
+  -webkit-text-stroke: none;
 }
 
 #homepage .mark-yellow {

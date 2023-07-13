@@ -15,32 +15,34 @@
     <%= render 'pages/recipe_carousel' %>
   </div>
 
-  <div class="bottom-home-container">
-    <div class="events-container">
-      <div class="events-header">
-        <h2>Upcoming Events</h2>
-        <%= link_to events_path, class: "recipes-button" do %>
-          <span>View All Events</span>
-          <i class="fa-solid fa-angles-right"></i>
-        <% end %>
-      </div>
-      <% @events.select { |event| event.date >= Date.today }.take(3).sort_by { |event| event.date }.each do |event| %>
-        <%= render partial: 'shared/home_event_card', locals: { event: event } %>
-      <% end %>
-    </div>
-
-    <div class="recipes-container">
-      <div class="recipes-content">
-        <div class="recipes-header">
-          <h2>The Latest Recipes</h2>
-          <%= link_to recipes_path, class: "recipes-button" do %>
-            <span>View All Recipes</span>
+  <div class="centered-page">
+    <div class="bottom-home-container">
+      <div class="events-container">
+        <div class="events-header">
+          <h2>Upcoming Events</h2>
+          <%= link_to events_path, class: "recipes-button" do %>
+            <span>View All Events</span>
             <i class="fa-solid fa-angles-right"></i>
           <% end %>
         </div>
-        <% @recipes.last(6).each do |recipe| %>
-          <%= render partial: 'shared/card_small', locals: { recipe: recipe, card_class: 'smaller-card' } %>
+        <% @events.select { |event| event.date >= Date.today }.take(3).sort_by { |event| event.date }.each do |event| %>
+          <%= render partial: 'shared/home_event_card', locals: { event: event } %>
         <% end %>
+      </div>
+
+      <div class="recipes-container">
+        <div class="recipes-content">
+          <div class="recipes-header">
+            <h2>The Latest Recipes</h2>
+            <%= link_to recipes_path, class: "recipes-button" do %>
+              <span>View All Recipes</span>
+              <i class="fa-solid fa-angles-right"></i>
+            <% end %>
+          </div>
+          <% @recipes.last(6).each do |recipe| %>
+            <%= render partial: 'shared/card_small', locals: { recipe: recipe, card_class: 'smaller-card' } %>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>
