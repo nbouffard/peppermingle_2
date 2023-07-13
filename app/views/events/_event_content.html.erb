@@ -10,8 +10,10 @@
     <% if event.user == current_user && event.date >= Date.today %>
     <%= link_to event_path(event), class: "small-card-link"  do %>
   <div class="small-card smaller-card<%#= card_class %> event-card">
-   <% if event.photos.nil? %>
-    <%= image_tag("https://images.unsplash.com/photo-1518779578993-ec3579fee39f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWgelHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1935&q=80", alt: "Recipe Photo", class: "card-img-background") %>
+    <% if event.photos.nil? %>
+    <%= image_tag("default_img_card.jpg", alt: "Recipe Photo", class: "card-img-background") %>
+    <% elsif event.recipe.images %>
+      <%= cl_image_tag event.recipe.images.first.key, class: "card-img-background" %>
     <% else %>
       <%= cl_image_tag event.photos.first.key, class: "card-img-background" %>
     <% end %>
