@@ -34,7 +34,7 @@
                 <%= link_to 'Join Room', room_url_event_path(@event), data: { controller: "room-url", action: "click->room-url#openPopUpWindow" }, class: "button join-button" %>
               <% else %>
                 <% if current_user.booked_event?(@event) %>
-                  <button class="button join-button" data-controller="booking" data-action="click->booking#bookEvent" data-event-id="<%= event.id %>" data-is-booked="<%= current_user.booked_event?(event) %>">
+                  <button class="button join-button" data-controller="booking" data-action="click->booking#bookEvent" data-event-id="<%= @event.id %>" data-is-booked="<%= current_user.booked_event?(@event) %>">
                     Attending
                   </button>
                 <% else %>
