@@ -54,6 +54,13 @@ class RecipesController < ApplicationController
     end
   end
 
+  def search_ajax
+    authorize :recipe, :search_ajax?
+    term = params[:term].downcase
+    @recipes = Recipe.search(term)
+    render partial: 'shared/search_results', locals: { recipes: @recipes }
+  end
+
   def destroy
     authorize @recipe
     @recipe.destroy

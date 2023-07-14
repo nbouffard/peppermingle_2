@@ -13,5 +13,8 @@ application.register("chatroom-subscription", ChatroomSubscriptionController)
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
 
+import RecipeSearchController from "./recipe_search_controller"
+application.register("recipe-search", RecipeSearchController)
+
 import RoomUrlController from "./room_url_controller"
 application.register("room-url", RoomUrlController)

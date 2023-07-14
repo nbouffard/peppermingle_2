@@ -1,0 +1,11 @@
+
+
+    <% if recipes.present? %>
+      <ul>
+      <% recipes.each do |recipe| %>
+        <li data-recipe-id="<%= recipe.id %>" data-action="click->recipe-search#selectRecipe"><%= recipe.title %></li>
+      <% end %>
+      </ul>
+    <% else %>
+      <p style="margin-top:20px;margin-left:40px;">No recipes found.</p>
+    <% end %>
