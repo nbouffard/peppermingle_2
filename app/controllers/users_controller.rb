@@ -38,7 +38,7 @@ class UsersController < ApplicationController
         format.text { render partial: 'bookings/booking_content', locals: { bookings: @bookings }, formats: [:html] }
       end
     when 'chatrooms'
-      @chatrooms = Chatroom.all
+      @chatrooms = policy_scope(Chatroom)
       respond_to do |format|
         format.html
         format.text { render partial: 'chatrooms/chats', locals: { chatrooms: @chatrooms }, formats: [:html] }
