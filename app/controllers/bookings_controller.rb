@@ -1,15 +1,16 @@
 class BookingsController < ApplicationController
   before_action :authenticate_user!
+  skip_before_action :verify_authenticity_token, only: [:create]
 
-  def new
-    @event = Event.find(params[:event_id])
-    @booking = Booking.new
-    authorize @booking
-  end
+  # def new
+  #   @event = Event.find(params[:event_id])
+  #   @booking = Booking.new
+  #   authorize @booking
+  # end
 
   def create
     @event = Event.find(params[:event_id])
-    @booking = @event.bookings.build(booking_params)
+    @booking = @event.bookings.build
     @booking.user = current_user
     authorize @booking
 

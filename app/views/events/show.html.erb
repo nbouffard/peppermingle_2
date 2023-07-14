@@ -38,7 +38,7 @@
                     Attending
                   </button>
                 <% else %>
-                  <%= link_to 'Join Event', new_event_booking_path(@event), class: "button join-button" %>
+                  <%= link_to 'Join Event', event_bookings_path(@event), data: { turbo_method: :create }, class: "button join-button" %>
                 <% end %>
               <% end %>
             <% end %>
