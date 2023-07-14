@@ -6,7 +6,7 @@ SEASONS = ['Spring', 'Summer', 'Autumn', 'Winter']
 
 # Clear existing data
 # User.destroy_all
-Recipe.destroy_all
+# Recipe.destroy_all
 
 # Read the CSV file
 csv_data = CSV.read('db/seed.csv', headers: true)
