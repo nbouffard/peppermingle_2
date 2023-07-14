@@ -12,6 +12,8 @@
         <div class="small-card smaller-card event-card">
           <% if booking.event.photos.nil? %>
            <%= image_tag("https://images.unsplash.com/photo-1518779578993-ec3579fee39f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWgelHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1935&q=80", alt: "Recipe Photo", class: "card-img-background") %>
+          <% elsif booking.event.recipe.images %>
+            <%= cl_image_tag booking.event.recipe.images.first.key, class: "card-img-background" %>
           <% else %>
             <%= cl_image_tag booking.event.photos.first.key, class: "card-img-background" %>
           <% end %>
