@@ -118,9 +118,71 @@
   margin-top: 10px;
 }
 
+.event-edit-button {
+  position: absolute;
+  top: 10px;
+  right: 5px;
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+.button-style {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.event-del-button {
+  position: absolute;
+  bottom: 15px;
+  right: 20px;
+  cursor: pointer;
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+.room {
+  position: absolute;
+  top: 50%;
+  right: 25px;
+  transform: translateY(-50%);
+  width: 118px;
+  height: 42px;
+  font-size: 19px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.room .delete-room-button {
+  margin-top: 10px;
+  width: 118px;
+  height: 42px;
+  font-size: 19px;
+}
+
+.cjoin-button {
+  width: 118px;
+  height: 42px;
+  font-size: 19px;
+}
+
+.join-button {
+  position: absolute;
+  top: 50%;
+  right: 25px;
+  transform: translateY(-50%);
+  width: 118px;
+  height: 42px;
+  font-size: 19px;
+}
+
+
 .chat-button {
   height: 100%;
 }
+
 
 // .small-button-view-all {
 //   width: 140px;
