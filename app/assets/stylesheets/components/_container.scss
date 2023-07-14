@@ -170,17 +170,18 @@ body {
     width: 100%;
     border-bottom-left-radius: 20px;
     border-top-left-radius: 20px;
+    object-fit: cover;
   }
 }
 
-.event-show-img {
-  width: 40%;
+.event-show-img-container {
+  width: 50%;
 }
 
 .event-show-details-container {
   position: relative;
   padding: 15px;
-  width: 60%;
+  width: 50%;
   background-color: #f1d5d3;
   border-bottom-right-radius: 20px;
   border-top-right-radius: 20px;
